@@ -1,0 +1,21 @@
+<%= simple_form_for @trail do |f| %>
+  <div class="error-messages">
+    <% if @trail.errors.any? %>
+      <h2><%= pluralize(@trail.errors.count, "error") %> prohibiited this answer from being saved:</h2>
+    <% end %>
+
+    <% @trail.errors.full_messages.each do |message| %>
+      <ul>
+        <li><%= message %></li>
+      </ul>
+    <% end %>
+  </div>
+
+  <%= f.input :description, label: 'Description', required: true %>
+  <%= f.input :location, label: 'Location', required: true %>
+  <%= f.input :name, label: 'Name', required: true %>
+  <%= f.input :price, label: 'Price', collection: Trail::PRICES %>
+  <%= f.input :mood, label: 'Mood', collection: Trail::MOOD %>
+
+  <%= f.submit 'Make New Trail' %>
+<% end %>
