@@ -1,0 +1,14 @@
+<%= "Welcome! " + @user.full_name(current_user) %>
+<% if !@user.bio.nil? %>
+  <%= @user.bio %>
+<% end %>
+<%= link_to 'Edit', edit_profile_path(current_user) %>
+<%= "Home City" %>
+<%= "Favorite City" %>
+
+<% @trails.each do |trail| %>
+  <%= trail.name %>
+  <%= trail.location %>
+<% end %>
+
+<%= link_to 'Home', root_path %>

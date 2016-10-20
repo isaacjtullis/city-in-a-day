@@ -1,5 +1,7 @@
 class TrailsController < ApplicationController
   def index
+    #binding.pry
+    #@user = User.find(current_user) if !current_user.nil?
   end
 
   def new

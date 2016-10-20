@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'trails#index'
 
   resources :trails
+  resources :profiles
 end
