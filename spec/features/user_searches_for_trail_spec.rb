@@ -31,4 +31,12 @@ feature 'User searches for a trail', %Q{
     expect(page).to have_content('Denver, Colorado')
     expect(page).to have_content('Denver Urban Steam')
   end
+
+  scenario 'user searches for a trail that does not exist' do
+    visit root_path
+    fill_in 'search', with: 'Looking for a trail'
+    click_button 'Search'
+
+    expect(page).to have_content('Sorry, we cannot find what you are looking for')
+  end
 end

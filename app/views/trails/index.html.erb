@@ -12,9 +12,11 @@
   </h1>
 <% end %>
 
-<% if !@trails.nil? %>
+<% if !@trails.nil? && !@trails.empty? %>
   <% @trails.each do |trail| %>
     <%= trail.name %>
     <%= trail.location %>
   <% end %>
+<% else %>
+  <%= @error %>
 <% end %>

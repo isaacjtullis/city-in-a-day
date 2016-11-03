@@ -1,6 +1,14 @@
 class TrailsController < ApplicationController
   def index
-    @trails = Trail.search(params[:search])
+    if params[:search] == ""
+      @trails = nil
+    elsif !params[:search].nil? && params[:search] != ""
+      if Trail.search(params[:search]).empty?
+        @error = 'Sorry, we cannot find what you are looking for'
+      else
+        @trails = Trail.search(params[:search])
+      end
+    end
   end
 
   def new
