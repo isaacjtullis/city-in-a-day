@@ -9,13 +9,26 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      <%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user) %>
-    <% else %>
-      <%= link_to 'Sign In', new_user_session_path %>
-      <%= link_to 'Sign Up', new_user_registration_path %>
-    <% end %>
+    <div id="header">
+      <nav class="top-bar">
+        <% if user_signed_in? %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        <%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user) %>
+        <% else %>
+        <%= link_to 'Sign In', new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+        <% end %>
+      </nav>
+    </div>
+
+    <div class="cover-photo">
+      <img src="http://img.wallpaperfolder.com/f/7BF46E1A77AE/new-york-usa-manhattan-city.jpg" alt='test'/>
+      <h2 id="text">WHAT'S NEXT?</h2>
+
+      <div class="button">
+          <p><%= link_to 'Share Your Own Adventure', new_trail_path %></p>
+      </div>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

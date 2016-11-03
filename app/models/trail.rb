@@ -12,4 +12,10 @@ class Trail < ActiveRecord::Base
   validates_presence_of :user
   validates :price, inclusion: { in: PRICES, message: "Not a valid price" }
   validates :mood, inclusion: { in: MOOD, message: "Not a valid mood"}
+
+  def self.search(search)
+    if search
+      where("name ILIKE ?", "%#{search}")
+    end
+  end
 end

@@ -1,1 +1,20 @@
-<%= link_to 'Share Your Own Adventure', new_trail_path %>
+<link rel="stylesheet" href="home" />
+
+
+<div class="form">
+  <h1><%= link_to 'Share An Own Adventure', new_trail_path %></h1>
+</div>
+
+<%= form_tag trails_path, method: "get" do %>
+  <h1>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", name: nil %>
+  </h1>
+<% end %>
+
+<% if !@trails.nil? %>
+  <% @trails.each do |trail| %>
+    <%= trail.name %>
+    <%= trail.location %>
+  <% end %>
+<% end %>
