@@ -3,3 +3,26 @@
 <%= @trail.location %>
 <%= @trail.price %>
 <%= @trail.mood %>
+
+<%= simple_form_for [@trail, @comment] do |f| %>
+  <% if @comment.errors.any? %>
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this answer from being saved:</h2>
+  <% end %>
+  <ul>
+    <% @comment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <p>
+    <%= f.label :description, "Description" %>
+    <%= f.text_field :description %>
+    <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<% if !@comments.nil? %>
+  <% @comments.each do |comment| %>
+    <%= comment.description %>
+  <% end %>
+<% end %>

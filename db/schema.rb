@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012185132) do
+ActiveRecord::Schema.define(version: 20161104165214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string  "description", null: false
+    t.integer "trail_id",    null: false
+    t.integer "user_id",     null: false
+  end
 
   create_table "trails", force: :cascade do |t|
     t.string  "name",        null: false

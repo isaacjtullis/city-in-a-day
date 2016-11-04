@@ -17,6 +17,8 @@ class TrailsController < ApplicationController
 
   def show
     @trail = Trail.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.where(trail_id: @trail.id)
   end
 
   def create
