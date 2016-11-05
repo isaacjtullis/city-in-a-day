@@ -11,15 +11,35 @@
   <body>
     <div id="header">
       <nav class="top-bar">
-        <% if user_signed_in? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        <%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user) %>
-        <% else %>
-        <%= link_to 'Sign In', new_user_session_path %>
-        <%= link_to 'Sign Up', new_user_registration_path %>
-        <% end %>
+        <ul>
+          <div class="left-section">
+            <%= "CITY IN A DAY" %>
+          </div>
+
+          <div class="middle-section">
+            <%= link_to 'About Us', '#' %>
+            <%= link_to 'FAQ' %>
+          </div>
+
+          <div class="right-section">
+            <% if user_signed_in? %>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            <%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user) %>
+            <% else %>
+            <%= link_to 'Sign In', new_user_session_path %>
+            <%= link_to 'Sign Up', new_user_registration_path %>
+            <% end %>
+          </div>
+
+          <div class="search-feature">
+            <%= form_tag trails_path, method: "get" do %>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag "Search", name: nil %>
+            <% end %>
+          </div>
+        </ul>
       </nav>
-    </div>  
+    </div>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
