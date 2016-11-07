@@ -50,5 +50,4 @@ feature 'User has a profile', %Q{
 
     expect(page).to have_content('I really enjoy exploring the outdoors!')
   end
-  scenario 'A user can see their posts on their profile'
 end

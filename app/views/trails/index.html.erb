@@ -2,22 +2,22 @@
 
 <div class="cover-photo">
   <img src="http://img.wallpaperfolder.com/f/7BF46E1A77AE/new-york-usa-manhattan-city.jpg" alt='test'/>
-  <h2 id="text">WHAT'S NEXT?</h2>
-
-  <div class="button">
-      <p><%= link_to 'Share Your Own Adventure', new_trail_path %></p>
-  </div>
+  <div id="text">Where to Next?</div>
 </div>
+
+<div class="featured-trails">
+  <p>Featured Trails</p>
+  <% if !@trails.nil? && !@trails.empty? %>
+    <% @trails.each do |trail| %>
+      <%= link_to trail.name, trail_path(trail.id) %>
+      <%= trail.location %>
+    <% end %>
+  <% else %>
+    <%= @error %>
+  <% end %>
+</div>
+
 
 <div class="form">
-  <h1><%= link_to 'Share An Own Adventure', new_trail_path %></h1>
+  <h1><%= link_to 'Share Your Own Adventure', new_trail_path %></h1>
 </div>
-
-<% if !@trails.nil? && !@trails.empty? %>
-  <% @trails.each do |trail| %>
-    <%= link_to trail.name, trail_path(trail.id) %>
-    <%= trail.location %>
-  <% end %>
-<% else %>
-  <%= @error %>
-<% end %>

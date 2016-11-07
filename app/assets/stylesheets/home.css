@@ -1,12 +1,25 @@
-.button h1 {
-  margin: auto;
-  width: 35%;
-  border: 5px solid white;
-  background-color: white;
+.cover-photo img {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  z-index: 0;
+}
+
+#text {
+  background-color: #fff;
+  color: #121212;
+  border: 1px;
+  border-radius: 40px;
+  font-family: Gotham SSm, sans-serif;
+  font-size: 20px;
+  letter-spacing: .5em;
+  line-height: 1em;
+  padding: 1.5em 2.5em;
   text-align: center;
-  font-family: "Raleway";
-  font-style: normal;
-  padding: 30px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 .form h1 {
@@ -26,4 +39,12 @@
   text-transform: uppercase;
   letter-spacing: .4px;
   font-weight: 500;
+}
+
+.featured-trails p {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 10px;
+  letter-spacing: .5em;
+  line-height: 1em;
 }
