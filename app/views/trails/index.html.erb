@@ -7,15 +7,27 @@
 
 <div class="featured-trails">
   <p>Featured Trails</p>
-  <% if !@trails.nil? && !@trails.empty? %>
-    <% @trails.each do |trail| %>
+  <% if !@all_trails.nil? %>
+    <% @all_trails.each do |trail| %>
       <%= link_to trail.name, trail_path(trail.id) %>
       <%= trail.location %>
+
+      <%= simple_form_for @favorite do |f| %>
+        <%= f.input :trail_id, as: :hidden, input_html: { value: trail.id } %>
+        <%= f.submit %>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= @error %>
   <% end %>
 </div>
+
+<% if !@trails.nil? && !@trails.empty? %>
+  <% @trails.each do |trail| %>
+    <%= link_to trail.name, trail_path(trail.id) %>
+    <%= trail.location %>
+  <% end %>
+<% else %>
+  <%= @error %>
+<% end %>
 
 
 <div class="form">

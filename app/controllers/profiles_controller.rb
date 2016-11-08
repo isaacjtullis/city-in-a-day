@@ -2,6 +2,8 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @trails = @user.trails
+    @favorites = Trail.joins(:favorites)
+    #Trail.joins(favorites: :user)
   end
 
   def edit

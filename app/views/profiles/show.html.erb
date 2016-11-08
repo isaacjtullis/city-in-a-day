@@ -13,4 +13,12 @@
   <%= trail.location %>
 <% end %>
 
+<% if !@favorites.nil? %>
+  <%= 'FAVORITES:' %>
+  <% @favorites.each do |favorite| %>
+    <%= favorite.name %>
+    <%= link_to 'Remove Favorite', favorite_path(favorite.id), method: :delete, data: {confirm: "Are you sure you want to remove this?"} %>
+  <% end %>
+<% end %>
+
 <%= link_to 'Home', root_path %>

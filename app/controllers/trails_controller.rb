@@ -1,5 +1,6 @@
 class TrailsController < ApplicationController
   def index
+    @all_trails = Trail.all
     if params[:search] == ""
       @trails = nil
     elsif !params[:search].nil? && params[:search] != ""
@@ -9,6 +10,7 @@ class TrailsController < ApplicationController
         @trails = Trail.search(params[:search])
       end
     end
+    @favorite = Favorite.new
   end
 
   def new

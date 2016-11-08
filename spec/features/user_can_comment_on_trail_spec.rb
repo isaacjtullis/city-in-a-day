@@ -33,17 +33,11 @@ feature 'User comments on a trail', %Q{
     fill_in 'Password', with: user1.password
     click_button 'Sign In'
 
-    visit root_path
-    fill_in 'search', with: 'Denver Urban Steam'
-    click_button 'Search'
-    click_link 'Denver Urban Steam'
-
   end
 
   scenario 'User comments on a trail' do
     visit root_path
-    fill_in 'search', with: 'Denver Urban Steam'
-    click_button 'Search'
+
     click_link 'Denver Urban Steam'
 
     fill_in 'Description', with: "This place sucks."
@@ -56,8 +50,7 @@ feature 'User comments on a trail', %Q{
 
   scenario 'User does not fill in description correctly' do
     visit root_path
-    fill_in 'search', with: 'Denver Urban Steam'
-    click_button 'Search'
+
     click_link 'Denver Urban Steam'
 
     fill_in 'Description', with: ""
