@@ -60,4 +60,14 @@ feature 'User comments on a trail', %Q{
     expect(page).to have_content('Urban Roast is wild!')
     expect(page).to have_content('Comment was not saved!')
   end
+  scenario 'User is not signed in' do
+    visit root_path
+    click_link 'Sign Out'
+
+    visit root_path
+    click_link 'Denver Urban Steam'
+    click_button 'Create Comment'
+
+    expect(page).to have_content('You must be logged in to comment!')
+  end
 end
