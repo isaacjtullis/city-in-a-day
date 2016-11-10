@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
   resources :profiles
   resources :favorites, only: [:create, :destroy, :update, :destroy]
+  #resources :following, :followers, only: [:index, :show]
+  resources :relationships, only: [:create, :destroy]
 end

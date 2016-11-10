@@ -1,11 +1,22 @@
-<%= "Welcome! " + @user.full_name(current_user) %>
+<%= "Welcome! " + "#{@user.first_name} #{@user.last_name}"%>
 <% if !@user.bio.nil? %>
   <%= @user.bio %>
 <% end %>
-<%= link_to 'Edit', edit_profile_path(current_user) %>
+<%= link_to 'Edit', edit_profile_path(@user) %>
 <%= "Home City" %>
 <%= "Favorite City" %>
-
+<%= "FOLLOWERS: #{@user.followers.count}" %>
+<%= "FOLLOWING:" %>
+  <% if current_user.nil? || current_user.id == @user.id %>
+    <%= "Nothing here" %>
+  <% elsif !current_user.following?(@user) %>
+    <%= simple_form_for @relationship do |f| %>
+      <%= f.input :followed_id, as: :hidden, input_html: { value: @user.id } %>
+      <%= f.submit 'Follow' %>
+    <% end %>
+  <% else %>
+    <%= link_to "Unfollow", relationship_path(current_user.active_relationships.find_by(followed_id: @user.id).id), method: :delete %>
+  <% end %>
 
 <h1><%="TRAILS!" %></h1>
 <% @trails.each do |trail| %>
