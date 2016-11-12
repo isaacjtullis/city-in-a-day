@@ -27,11 +27,11 @@ feature 'User follows a user', %Q{
 
       visit root_path
       click_link 'Sign Up'
-      fill_in 'First Name', with: 'Isaac'
-      fill_in 'Last Name', with: 'Tullis'
+      fill_in 'user_first_name', with: 'Isaac'
+      fill_in 'user_last_name', with: 'Tullis'
       fill_in 'user_email', with: 'user1@example.com'
       fill_in 'user_password', with: 'password1'
-      fill_in 'Confirmation', with: 'password1'
+      fill_in 'user_password_confirmation', with: 'password1'
       click_button 'Sign Up'
 
     end

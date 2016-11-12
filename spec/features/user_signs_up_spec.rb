@@ -9,11 +9,11 @@ feature 'sign up', %Q{
   scenario 'specifying valid information and required information' do
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First Name', with: 'John'
-    fill_in 'Last Name', with: 'Smith'
+    fill_in 'user_first_name', with: 'John'
+    fill_in 'user_last_name', with: 'Smith'
     fill_in 'user_email', with: 'user@example.com'
     fill_in 'user_password', with: 'password'
-    fill_in 'Confirmation', with: 'password'
+    fill_in 'user_password_confirmation', with: 'password'
     click_button 'Sign Up'
 
     expect(page).to have_content("You're In!")
@@ -31,11 +31,11 @@ feature 'sign up', %Q{
   scenario 'password confirmation does not match configuration' do
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First Name', with: 'John'
-    fill_in 'Last Name', with: 'Smith'
+    fill_in 'user_first_name', with: 'John'
+    fill_in 'user_last_name', with: 'Smith'
     fill_in 'user_email', with: 'user@example.com'
     fill_in 'user_password', with: 'password'
-    fill_in 'Confirmation', with: 'wrongpassword'
+    fill_in 'user_password_confirmation', with: 'wrongpassword'
     click_button 'Sign Up'
 
     expect(page).to have_content("doesn't match Password")
