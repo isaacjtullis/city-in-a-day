@@ -9,37 +9,28 @@
   </head>
 
   <body>
-    <div id="header">
-      <nav class="top-bar">
-        <ul>
-          <div class="left-section">
-            <%= link_to "CITY IN A DAY", root_path %>
-          </div>
+    <nav class="navbar">
+      <ul>
+        <li><span class='logo'><%= link_to "CITY IN A DAY", root_path %></span></li>
+        <li><%= link_to 'About Us', '#' %></li>
+        <li><%= link_to 'FAQ' %></li>
 
-          <div class="middle-section">
-            <%= link_to 'About Us', '#' %>
-            <%= link_to 'FAQ' %>
-          </div>
+        <% if user_signed_in? %>
+          <li><span class='user-authentication'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></span></li>
+          <li><span class='user-authentication'><%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user) %></span></li>
+        <% else %>
+          <li><span class='user-authentication'><%= link_to 'Sign In', new_user_session_path %>
+          <%= link_to 'Sign Up', new_user_registration_path %></span></li>
+        <% end %>
 
-          <div class="right-section">
-            <% if user_signed_in? %>
-            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-            <%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user) %>
-            <% else %>
-            <%= link_to 'Sign In', new_user_session_path %>
-            <%= link_to 'Sign Up', new_user_registration_path %>
-            <% end %>
-          </div>
-
-          <div class="search-feature">
-            <%= form_tag trails_path, method: "get" do %>
-                <%= text_field_tag :search, params[:search] %>
-                <%= submit_tag "Search", name: nil %>
-            <% end %>
-          </div>
-        </ul>
-      </nav>
-    </div>
+        <div class="search-feature">
+          <%= form_tag trails_path, method: "get" do %>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", name: nil %>
+          <% end %>
+        </div>
+      </ul>
+    </nav>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

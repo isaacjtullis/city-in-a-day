@@ -1,0 +1,48 @@
+img {
+  position: relative;
+  margin-top: 40px;
+  height: 700px;
+  width: 100%;
+  z-index: 0;
+}
+
+.container {
+  color: white;
+  width: 500px;
+  height: 400px;
+  background-color: #34495e;
+  margin: 0 auto;
+  border-radius: 4px;
+  margin-top: 150px;
+  opacity: 0.9;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.container .login {
+  font-size: 40px;
+  padding-top: 30px;
+}
+
+.container input {
+  height: 25px;
+  width: 250px;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.container label {
+  color: transparent;
+}
+
+.container .other {
+  padding: 15px
+}
+.container .other a {
+  color: black;
+  text-decoration: none;
+}

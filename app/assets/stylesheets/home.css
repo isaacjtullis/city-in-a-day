@@ -1,5 +1,6 @@
 .cover-photo img {
   position: relative;
+  margin-top: 40px;
   height: 500px;
   width: 100%;
   z-index: 0;

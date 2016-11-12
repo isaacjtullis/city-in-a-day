@@ -9,8 +9,8 @@ feature 'User follows a user', %Q{
       user = FactoryGirl.create(:user)
 
       visit new_user_session_path
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
+      fill_in 'user_email', with: user.email
+      fill_in 'user_password', with: user.password
       click_button 'Sign In'
 
       visit root_path
@@ -29,8 +29,8 @@ feature 'User follows a user', %Q{
       click_link 'Sign Up'
       fill_in 'First Name', with: 'Isaac'
       fill_in 'Last Name', with: 'Tullis'
-      fill_in 'Email', with: 'user1@example.com'
-      fill_in 'Password', with: 'password1'
+      fill_in 'user_email', with: 'user1@example.com'
+      fill_in 'user_password', with: 'password1'
       fill_in 'Confirmation', with: 'password1'
       click_button 'Sign Up'
 

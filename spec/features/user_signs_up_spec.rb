@@ -11,8 +11,8 @@ feature 'sign up', %Q{
     click_link 'Sign Up'
     fill_in 'First Name', with: 'John'
     fill_in 'Last Name', with: 'Smith'
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'password'
+    fill_in 'user_email', with: 'user@example.com'
+    fill_in 'user_password', with: 'password'
     fill_in 'Confirmation', with: 'password'
     click_button 'Sign Up'
 
@@ -33,8 +33,8 @@ feature 'sign up', %Q{
     click_link 'Sign Up'
     fill_in 'First Name', with: 'John'
     fill_in 'Last Name', with: 'Smith'
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'password'
+    fill_in 'user_email', with: 'user@example.com'
+    fill_in 'user_password', with: 'password'
     fill_in 'Confirmation', with: 'wrongpassword'
     click_button 'Sign Up'
 

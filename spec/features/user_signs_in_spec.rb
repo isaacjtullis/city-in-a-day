@@ -11,8 +11,8 @@ feature 'user signs in', %Q{
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
     click_button 'Sign In'
 
     expect(page).to have_content('Welcome back!')
@@ -24,8 +24,8 @@ feature 'user signs in', %Q{
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'shouldnotwork'
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: 'shouldnotwork'
     click_button 'Sign In'
 
     expect(page).to have_content('Invalid Email or password.')
@@ -38,8 +38,8 @@ feature 'user signs in', %Q{
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: 'hi@gmail.com'
-    fill_in 'Password', with: 'shouldnotwork'
+    fill_in 'user_email', with: 'hi@gmail.com'
+    fill_in 'user_password', with: 'shouldnotwork'
     click_button 'Sign In'
 
     expect(page).to have_content('Invalid Email or password.')
@@ -51,8 +51,8 @@ feature 'user signs in', %Q{
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
     click_button 'Sign In'
 
     expect(page).to have_content('Sign Out')
