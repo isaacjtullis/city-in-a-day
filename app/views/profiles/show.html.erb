@@ -1,35 +1,44 @@
-<%= "Welcome! " + "#{@user.first_name} #{@user.last_name}"%>
-<% if !@user.bio.nil? %>
-  <%= @user.bio %>
-<% end %>
-<%= link_to 'Edit', edit_profile_path(@user) %>
-<%= "Home City" %>
-<%= "Favorite City" %>
-<%= "FOLLOWERS: #{@user.followers.count}" %>
-<%= "FOLLOWING:" %>
-  <% if current_user.nil? || current_user.id == @user.id %>
-    <%= "Nothing here" %>
-  <% elsif !current_user.following?(@user) %>
-    <%= simple_form_for @relationship do |f| %>
-      <%= f.input :followed_id, as: :hidden, input_html: { value: @user.id } %>
-      <%= f.submit 'Follow' %>
+<link rel="stylesheet" href="profile" />
+
+<div class="profile-container">
+  <div class="picture">
+    <img src="https://instagram.fapa1-2.fna.fbcdn.net/t51.2885-19/s320x320/12383514_1108308709213874_1233814480_a.jpg" alt="" />
+  </div>
+
+  <div class="user-header">
+      <%= "#{@user.first_name} #{@user.last_name}"%>
+      <% if !@user.bio.nil? %>
+        <%= @user.bio %>
+      <% end %>
+  <%= link_to 'Edit Profile', edit_profile_path(@user) %>
+  <%= "Home City" %>
+  <%= "Favorite City" %>
+  <%= "FOLLOWERS: #{@user.followers.count}" %>
+  <%= "FOLLOWING:" %>
+    <% if current_user.nil? || current_user.id == @user.id %>
+      <%= "Nothing here" %>
+    <% elsif !current_user.following?(@user) %>
+      <%= simple_form_for @relationship do |f| %>
+        <%= f.input :followed_id, as: :hidden, input_html: { value: @user.id } %>
+        <%= f.submit 'Follow' %>
+      <% end %>
+    <% else %>
+      <%= link_to "Unfollow", relationship_path(current_user.active_relationships.find_by(followed_id: @user.id).id), method: :delete %>
     <% end %>
-  <% else %>
-    <%= link_to "Unfollow", relationship_path(current_user.active_relationships.find_by(followed_id: @user.id).id), method: :delete %>
+  </div>
+  <h1><%="TRAILS!" %></h1>
+  <% @trails.each do |trail| %>
+    <%= trail.name %>
+    <%= trail.location %>
   <% end %>
 
-<h1><%="TRAILS!" %></h1>
-<% @trails.each do |trail| %>
-  <%= trail.name %>
-  <%= trail.location %>
-<% end %>
-
-<% if !@favorites.nil? %>
-  <%= 'FAVORITES:' %>
-  <% @favorites.each do |favorite| %>
-    <%= favorite.name %>
-    <%= link_to 'Remove Favorite', favorite_path(favorite.id), method: :delete, data: {confirm: "Are you sure you want to remove this?"} %>
+  <% if !@favorites.nil? %>
+    <%= 'FAVORITES:' %>
+    <% @favorites.each do |favorite| %>
+      <%= favorite.name %>
+      <%= link_to 'Remove Favorite', favorite_path(favorite.id), method: :delete, data: {confirm: "Are you sure you want to remove this?"} %>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= link_to 'Home', root_path %>
+  <%= link_to 'Home', root_path %>
+</div>
