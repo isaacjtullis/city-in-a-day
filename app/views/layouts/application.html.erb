@@ -13,7 +13,7 @@
       <ul>
         <li><span id='logo'><%= link_to "CITY IN A DAY", root_path %></span></li>
         <li><%= link_to 'About Us', '#about-us' %></li>
-        <li><%= link_to 'FAQ' %></li>
+        <li><%= link_to 'FAQ', '#' %></li>
 
         <% if user_signed_in? %>
           <li><div id='user-authentication'><%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user) %>
