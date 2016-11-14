@@ -1,0 +1,26 @@
+.form-container {
+  color: white;
+  width: 500px;
+  height: 500px;
+  background-color: #34495e;
+  margin-top: 400px;
+  border-radius: 4px;
+  opacity: 0.9;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+
+.form-container .error-messages {
+  color: black;
+  margin-top: 10px;
+}
+
+.form-container .form {
+  padding: 40px;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+}
