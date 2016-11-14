@@ -37,22 +37,17 @@
 }
 
 .navbar ul li {
-  width: 20%;
-  float: left;
-}
-
-.navbar ul li .logo a {
-  font-size: 20px;
+  display: inline-block;
 }
 
 .navbar ul li a {
-  display: block;
+  float: left;
+  margin-left: 20px;
   font-family: helvetica, sans-serif;
   text-transform: uppercase;
-  text-decoration: overline;
+  text-decoration: none;
   letter-spacing: 3px;
   line-height: 2em;
-  padding-left: 20px;
   font-weight: 200;
   font-style: normal;
   font-size: 14px;
@@ -60,7 +55,12 @@
   color: #42464c;
 }
 
-.navbar ul li .user-authentication a {
+#logo a {
+  font-size: 20px;
+  float: left;
+}
+
+#user-authentication a {
   display: inline-block;
 }
 /*

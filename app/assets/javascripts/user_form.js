@@ -1,2 +1,2 @@
-var newCommentCreator = function(commentAttributes, reviewAttributes, commentidAttributes, divId) {
-}
+//var newCommentCreator = function(commentAttributes, reviewAttributes, commentidAttributes, divId) {
+//}

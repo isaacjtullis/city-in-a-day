@@ -1,12 +1,65 @@
 <link rel="stylesheet" href="home" />
 
 <div class="cover-photo">
-  <img src="http://img.wallpaperfolder.com/f/7BF46E1A77AE/new-york-usa-manhattan-city.jpg" alt='test'/>
+  <img src="http://img.wallpaperfolder.com/f/7BF46E1A77AE/new-york-usa-manhattan-city.jpg" alt="" />
   <div id="text">Where to Next?</div>
 </div>
 
+<div class="search-feature">
+  <%= form_tag trails_path, method: "get" do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", name: nil %>
+  <% end %>
+</div>
+
 <div class="featured-trails">
-  <p>Featured Trails</p>
+  <p>FEATURED TRAILS</p>
+  <div id="images">
+
+    <div class="image">
+      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/550510cde4b08eb858c5b835/5505129ae4b0bbbce634c117/1426395838384/matt-dallas-3.jpg?format=1000w" alt="" />
+        <div class="name"><%="Dallas Adventure" %></div>
+    </div>
+
+    <div class="image">
+      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/54eea73ee4b098d9755c9c32/54eea7bee4b00ebd38708290/1424927135773/keegan-shreveport.jpg?format=750w" alt="" />
+        <div class="name"><%="Shreveport Adventure" %></div>
+    </div>
+
+    <div class="image">
+      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/54e79d7de4b05bee39f9b37a/54e79d7ee4b05bee39f9b37c/1424465382840/kasey-coloradosprings-2.jpg?format=1000w" alt="" />
+        <div class="name"><%="Colorado Adventure" %></div>
+    </div>
+    <div class="image">
+      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/t/54b32108e4b055a31e5ca440/1421719381312/?format=1000w" alt="" />
+        <div class="name"><%="Memphis Adventure" %></div>
+    </div>
+
+    <div class="image">
+      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/551af594e4b0642b6ebc9b15/551af5c2e4b01453a602d25c/1427830216863/haley-orlando-1.JPG?format=1000w" alt="" />
+        <div class="name"><%="Orlando Adventure" %></div>
+    </div>
+
+    <div class="image">
+      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/54f4795fe4b079e94c2f4700/54fceb0fe4b085f9b7ad987b/1425861627725/IMG_0523.jpg?format=1000w" alt="" />
+        <div class="name"><%="San Fran Adventure" %></div>
+    </div>
+
+    <div class="image">
+      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/t/54c4210ee4b0dec48bc4c9bc/1422139682535/?format=1000w" alt="" />
+        <div class="name"><%="Seattle Adventure" %></div>
+    </div>
+
+    <div class="image">
+      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/t/54b59c42e4b0c25afac47b1b/1421188212757/IMG_4942.JPG?format=1000w" alt="" />
+        <div class="name"><%="Atlanta Adventure" %></div>
+    </div>
+
+    <div class="image">
+      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/t/54b5a81ae4b00aad29c19748/1421191100509/?format=1000w" alt="" />
+        <div class="name"><%="Birmingham Adventure" %></div>
+    </div>
+  </div>
   <% if !@all_trails.nil? %>
     <% @all_trails.each do |trail| %>
       <%= link_to trail.name, trail_path(trail.id) %>
@@ -32,4 +85,15 @@
 
 <div class="form">
   <h1><%= link_to 'Share Your Own Adventure', new_trail_path %></h1>
+</div>
+
+<div id="about-us">
+  <h2> <%= "Ever been passing through a city & want to explore it, but you're only there for one day? We've been there & we've got you..."%></h2>
+  <div class="video">
+    <iframe src="https://player.vimeo.com/video/118781912" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <a href="https://vimeo.com/118781912">City in a Day - Welcome to the Adventure</a> from <a href="https://vimeo.com/cityinaday">City In A Day</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+  </div>
+  <div class="about-us-text">
+    <%= "City in a Day is a social platform that allows people to share one day adventures of the cities they love." %>
+  </div>
 </div>
