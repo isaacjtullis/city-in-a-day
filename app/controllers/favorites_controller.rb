@@ -16,7 +16,7 @@ class FavoritesController < ApplicationController
     else
       @favorite.first.destroy
       flash[:notice] = "Successfully removed this from your favorites"
-      redirect_to trail_path(params[:id])
+      redirect_to profile_path(current_user)
     end
   end
 
