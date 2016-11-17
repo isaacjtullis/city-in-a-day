@@ -41,12 +41,17 @@ feature 'User can save trails', %Q{
     expect(page).to have_content("FAVORITES:")
     expect(page).to have_content("Denver Urban Steam")
   end
+  scenario 'Favorites does not show up unless they click the favorite button' do
+    visit root_path
+    click_link 'John Smith'
+
+    expect(page).to_not have_content("Denver Urban Steam")
+  end
   scenario 'User removes a favorite trail' do
     visit root_path
 
     click_button 'Favorite'
     click_link 'John Smith'
-
     click_link 'Remove Favorite'
 
     expect(page).to have_content("Successfully removed this from your favorites")

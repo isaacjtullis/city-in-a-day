@@ -32,7 +32,7 @@
     <%= trail.location %>
   <% end %>
 
-  <% if !@favorites.nil? %>
+  <% if !@favorites.empty? %>
     <%= 'FAVORITES:' %>
     <% @favorites.each do |favorite| %>
       <%= favorite.name %>
