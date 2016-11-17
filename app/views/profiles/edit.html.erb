@@ -1,4 +1,6 @@
-<%= simple_form_for(@user, url: profile_path(@user)) do |f| %>
-  <%= f.input :bio, label: 'Bio' %>
+<div class="editing-container">
+  <%= simple_form_for(@user, url: profile_path(@user)) do |f| %>
+  <%= f.input :bio, label: 'Bio' %> 
   <%= f.submit 'Update' %>
-<% end %>
+  <% end %>
+</div>
