@@ -28,7 +28,7 @@ feature 'User has a profile', %Q{
     visit root_path
 
     click_link 'John Smith'
-    expect(page).to have_content("Welcome! John Smith")
+    expect(page).to have_content("John Smith")
     expect(page).to have_content("Home City")
     expect(page).to have_content("Favorite City")
   end
@@ -49,5 +49,18 @@ feature 'User has a profile', %Q{
     click_button 'Update'
 
     expect(page).to have_content('I really enjoy exploring the outdoors!')
+  end
+  scenario 'A user can change their password' do
+    visit root_path
+    click_link 'John Smith'
+    click_link 'Change Password'
+
+    fill_in 'Password', with: 'Password'
+    fill_in 'Password confirmation', with: 'Password'
+    fill_in 'Current password', with: 'password'
+
+    click_button 'Update'
+
+    expect(page).to have_content("Your account has been updated successfully.")
   end
 end

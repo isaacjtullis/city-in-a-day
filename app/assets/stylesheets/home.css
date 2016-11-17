@@ -60,7 +60,7 @@ html {
 .form {
   background-color: #EFEFEF;
   margin-top: 100px;
-  padding: 50px 50px;
+  padding: 120px;
 }
 .form h1 {
   margin: auto;
@@ -70,7 +70,7 @@ html {
   text-align: center;
   font-family: "Raleway";
   font-style: normal;
-  padding: 30px;
+  padding: 40px;
 }
 
 .form h1 a {

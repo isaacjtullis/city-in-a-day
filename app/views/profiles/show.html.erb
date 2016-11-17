@@ -11,12 +11,12 @@
         <%= @user.bio %>
       <% end %>
   <%= link_to 'Edit Profile', edit_profile_path(@user) %>
+  <%= link_to 'Change Password', edit_user_registration_path %>
   <%= "Home City" %>
   <%= "Favorite City" %>
   <%= "FOLLOWERS: #{@user.followers.count}" %>
-  <%= "FOLLOWING:" %>
+  <%= "FOLLOWING: #{@user.following.count}" %>
     <% if current_user.nil? || current_user.id == @user.id %>
-      <%= "Nothing here" %>
     <% elsif !current_user.following?(@user) %>
       <%= simple_form_for @relationship do |f| %>
         <%= f.input :followed_id, as: :hidden, input_html: { value: @user.id } %>
