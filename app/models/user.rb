@@ -3,13 +3,18 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :trails, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  #has_many :favorites, dependent: :destroy
+  has_many :active_favorites, class_name: "Favorite",
+                              foreign_key: "user_id",
+                              dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
   has_many :passive_relationships, class_name: "Relationship",
                                    foreign_key: "followed_id",
                                    dependent: :destroy
+
+  has_many :favorites, through: :active_favorites, source: :trail
 
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower

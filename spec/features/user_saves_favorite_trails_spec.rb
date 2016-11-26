@@ -66,4 +66,19 @@ feature 'User can save trails', %Q{
 
     expect(page).to have_content("You must be logged in to make changes!")
   end
+  scenario 'User signs up and does not have a previous favorited trail on their profile' do
+    visit root_path
+    click_button 'Favorite'
+    click_link 'Sign Out'
+
+    user2 = FactoryGirl.create(:user)
+
+    visit new_user_session_path
+    fill_in 'user_email', with: user2.email
+    fill_in 'user_password', with: user2.password
+    click_button 'Sign In'
+    click_link 'John Smith'
+
+    expect(page).to_not have_content('Denver Urban Steam')
+  end
 end
