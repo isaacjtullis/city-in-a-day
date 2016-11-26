@@ -1,7 +1,11 @@
 class Trail < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  has_many :active_favorites, class_name: "Favorite",
+                       foreign_key: "trail_id",
+                       dependent: :destroy
+
+  has_many :favorites, through: :active_favorites, source: :user
 
   PRICES = ['FREE', '10','15','20','30','100']
   MOOD = ['Adventure', 'Romance', 'Chill']
