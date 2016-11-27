@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
@@ -11,8 +10,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem 'fog-aws'
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem "fog"
 
 group :development, :test do
   gem 'byebug', platform: :mri
