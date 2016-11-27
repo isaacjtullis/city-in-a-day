@@ -63,4 +63,15 @@ feature 'User has a profile', %Q{
 
     expect(page).to have_content("Your account has been updated successfully.")
   end
+
+  scenario 'A user can change their picture' do
+    visit root_path
+    click_link 'John Smith'
+    click_link 'Edit Profile'
+
+    attach_file('Profile photo', "#{Rails.root}/spec/support/images/photo.png")
+    click_button 'Update'
+
+    expect(page).to have_css("img[src*='photo.png']")
+  end
 end

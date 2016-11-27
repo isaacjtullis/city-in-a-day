@@ -9,6 +9,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs-signups">
+      <%= f.input :profile_photo, type: :file %>
       <%= f.input :first_name, required: true, placeholder: 'First Name', label: false %>
       <%= f.input :last_name,  required: true, placeholder: 'Last Name', label: false %>
       <%= f.input :email,      required: true, placeholder: 'Email', autofocus: true, label: false %>

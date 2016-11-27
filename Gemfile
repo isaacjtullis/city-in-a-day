@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
+gem "carrierwave"
 
 group :development, :test do
   gem 'byebug', platform: :mri
