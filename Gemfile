@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
-gem "carrierwave"
+gem 'carrierwave'
 gem 'fog-aws'
 
 group :development, :test do
