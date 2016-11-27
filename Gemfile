@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
 gem 'carrierwave'
-gem 'fog-aws'
+gem "fog-aws"
 
 group :development, :test do
   gem 'byebug', platform: :mri
