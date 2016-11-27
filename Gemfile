@@ -11,8 +11,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'simple_form'
-gem 'carrierwave'
-gem "fog-aws"
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platform: :mri
