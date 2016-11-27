@@ -2,7 +2,7 @@
 
 <div class="profile-container">
   <div class="picture">
-    <img src="https://instagram.fapa1-2.fna.fbcdn.net/t51.2885-19/s320x320/12383514_1108308709213874_1233814480_a.jpg" alt="" />
+    <%= image_tag @user.profile_photo.to_s if @user.profile_photo.present? %>
   </div>
 
   <div class="user-header">

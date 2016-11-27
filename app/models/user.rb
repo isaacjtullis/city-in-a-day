@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  mount_uploader :profile_photo, ProfilePhotoUploader
+  
   has_many :trails, dependent: :destroy
   has_many :comments, dependent: :destroy
-  #has_many :favorites, dependent: :destroy
   has_many :active_favorites, class_name: "Favorite",
                               foreign_key: "user_id",
                               dependent: :destroy
@@ -33,7 +34,6 @@ class User < ActiveRecord::Base
 
   def follow(other_user)
     active_relationships.create(followed_id: other_user)
-    #other_user.id
   end
 
   def unfollow(other_user)
