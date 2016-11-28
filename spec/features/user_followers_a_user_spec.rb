@@ -39,7 +39,7 @@ feature 'User follows a user', %Q{
   scenario 'User follows a user' do
     visit root_path
     click_link 'Denver Urban Steam'
-    click_link 'User Who Made This: John Smith'
+    click_link 'Added By: John Smith'
     click_button 'Follow'
 
     expect(page).to have_content("Unfollow")
@@ -49,7 +49,7 @@ feature 'User follows a user', %Q{
   scenario 'User unfollows a user' do
     visit root_path
     click_link 'Denver Urban Steam'
-    click_link 'User Who Made This: John Smith'
+    click_link 'Added By: John Smith'
     click_button 'Follow'
     click_link 'Unfollow'
 
@@ -59,7 +59,7 @@ feature 'User follows a user', %Q{
   scenario 'User cannot follow a user twice' do
     visit root_path
     click_link 'Denver Urban Steam'
-    click_link 'User Who Made This: John Smith'
+    click_link 'Added By: John Smith'
     click_button 'Follow'
 
     expect(page).to_not have_content('Follow')
@@ -68,7 +68,7 @@ feature 'User follows a user', %Q{
     click_link 'Sign Out'
     visit root_path
     click_link 'Denver Urban Steam'
-    click_link 'User Who Made This: John Smith'
+    click_link 'Added By: John Smith'
 
     expect(page).to_not have_button("Follow")
   end
