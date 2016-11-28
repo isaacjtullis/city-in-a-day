@@ -14,64 +14,23 @@
 
 <div class="featured-trails">
   <p>FEATURED TRAILS</p>
-  <div id="images">
 
-    <div class="image">
-      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/550510cde4b08eb858c5b835/5505129ae4b0bbbce634c117/1426395838384/matt-dallas-3.jpg?format=1000w" alt="" />
-        <div class="name"><%="Dallas Adventure" %></div>
-    </div>
-
-    <div class="image">
-      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/54eea73ee4b098d9755c9c32/54eea7bee4b00ebd38708290/1424927135773/keegan-shreveport.jpg?format=750w" alt="" />
-        <div class="name"><%="Shreveport Adventure" %></div>
-    </div>
-
-    <div class="image">
-      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/54e79d7de4b05bee39f9b37a/54e79d7ee4b05bee39f9b37c/1424465382840/kasey-coloradosprings-2.jpg?format=1000w" alt="" />
-        <div class="name"><%="Colorado Adventure" %></div>
-    </div>
-    <div class="image">
-      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/t/54b32108e4b055a31e5ca440/1421719381312/?format=1000w" alt="" />
-        <div class="name"><%="Memphis Adventure" %></div>
-    </div>
-
-    <div class="image">
-      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/551af594e4b0642b6ebc9b15/551af5c2e4b01453a602d25c/1427830216863/haley-orlando-1.JPG?format=1000w" alt="" />
-        <div class="name"><%="Orlando Adventure" %></div>
-    </div>
-
-    <div class="image">
-      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/54f4795fe4b079e94c2f4700/54fceb0fe4b085f9b7ad987b/1425861627725/IMG_0523.jpg?format=1000w" alt="" />
-        <div class="name"><%="San Fran Adventure" %></div>
-    </div>
-
-    <div class="image">
-      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/t/54c4210ee4b0dec48bc4c9bc/1422139682535/?format=1000w" alt="" />
-        <div class="name"><%="Seattle Adventure" %></div>
-    </div>
-
-    <div class="image">
-      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/t/54b59c42e4b0c25afac47b1b/1421188212757/IMG_4942.JPG?format=1000w" alt="" />
-        <div class="name"><%="Atlanta Adventure" %></div>
-    </div>
-
-    <div class="image">
-      <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/t/54b5a81ae4b00aad29c19748/1421191100509/?format=1000w" alt="" />
-        <div class="name"><%="Birmingham Adventure" %></div>
-    </div>
+  <div class="image">
+    <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/550510cde4b08eb858c5b835/5505129ae4b0bbbce634c117/1426395838384/matt-dallas-3.jpg?format=1000w" alt="" />
+      <div class="name"><%="Dallas Adventure" %></div>
   </div>
+
   <% if !@all_trails.nil? %>
     <% @all_trails.each do |trail| %>
-      <%= link_to trail.name, trail_path(trail.id) %>
-      <%= trail.location %>
-
-      <%= simple_form_for @favorite do |f| %>
-        <%= f.input :trail_id, as: :hidden, input_html: { value: trail.id } %>
-        <%= f.submit %>
-      <% end %>
+      <div class="image"><%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
+        <div class="name"><%= link_to trail.name, trail_path(trail.id) %></div>
+          <%= simple_form_for @favorite do |f| %>
+            <%= f.input :trail_id, as: :hidden, input_html: { value: trail.id } %>
+            <%= f.submit %>
+          <% end %>
+     </div>
     <% end %>
   <% end %>
-</div>
 
 <% if !@trails.nil? && !@trails.empty? %>
   <% @trails.each do |trail| %>

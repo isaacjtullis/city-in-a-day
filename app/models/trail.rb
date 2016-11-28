@@ -1,4 +1,6 @@
 class Trail < ActiveRecord::Base
+  mount_uploader :trail_photo, TrailPhotoUploader
+  
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :active_favorites, class_name: "Favorite",

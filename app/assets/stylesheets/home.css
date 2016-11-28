@@ -41,14 +41,10 @@ html {
 
 .image {
   display: inline-block;
-  vertical-align: top;
   margin-left: 200px;
   align-self: auto;
 }
 
-.image .name {
-  text-align: center;
-}
 
 .image img {
   height: 150px;
@@ -57,11 +53,16 @@ html {
   display: block;
 }
 
+.image .name a {
+  text-align: center;
+}
+
 .form {
   background-color: #EFEFEF;
   margin-top: 100px;
   padding: 120px;
 }
+
 .form h1 {
   margin: auto;
   width: 35%;
@@ -120,24 +121,3 @@ html {
 
   float: right;
 }
-
-/*
-.second-image {
-width: 178px;
-text-align:center;
-}
-
-.featured-trails img {
-height: 150px;
-width: 150px;
-border-radius: 50%;
-}
-.featured-trails {
-  width: 100%;
-}
-.featured-trails img {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-}
-*/
