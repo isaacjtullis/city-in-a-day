@@ -12,7 +12,7 @@ feature "profile photo" do
     fill_in 'user_password_confirmation', with: 'password'
     attach_file('Profile photo', "#{Rails.root}/spec/support/images/photo.png")
     click_button 'Sign Up'
-    
+
     click_link 'John Smith'
     expect(page).to have_css("img[src*='photo.png']")
   end
