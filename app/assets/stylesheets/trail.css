@@ -1,0 +1,20 @@
+.trail-container {
+  margin-top: 100px;
+  color: black;
+}
+
+.trail-image img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  display: block;
+}
+
+.trail-details .users-name a {
+  display: block;
+}
+
+.comment-container {
+  display: inline-block;
+  width: 40%;
+}

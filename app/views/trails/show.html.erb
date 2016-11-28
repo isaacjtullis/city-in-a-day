@@ -1,29 +1,44 @@
-<%= link_to "User Who Made This: #{@user.first_name} #{@user.last_name}", profile_path(@user.id) %>
-<%= @trail.name %>
-<%= @trail.description %>
-<%= @trail.location %>
-<%= @trail.price %>
-<%= @trail.mood %>
+<link rel="stylesheet" href="trail" />
 
-<%= simple_form_for [@trail, @comment] do |f| %>
-  <% if @comment.errors.any? %>
+<div class="trail-container">
+  <div class="trail-image">
+    <%= image_tag @trail.trail_photo.to_s if !@trail.trail_photo.nil? %>
+  </div>
+  <div class="trail-details">
+    <div class="users-name">
+      <%= 'Added By:'%><%= link_to " #{@user.first_name} #{@user.last_name}", profile_path(@user.id) %>
+    </div>
+    <%= @trail.name %>
+    <%= @trail.description %>
+    <%= @trail.location %>
+    <%= @trail.price %>
+    <%= @trail.mood %>
+  </div>
+
+<div class="comment-container">
+  <%= simple_form_for [@trail, @comment] do |f| %>
+    <% if @comment.errors.any? %>
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this answer from being saved:</h2>
-  <% end %>
-  <ul>
-    <% @comment.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
     <% end %>
-  </ul>
-  <p>
-    <%= f.label :description, "Description" %>
-    <%= f.text_field :description %>
-    <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
-    <%= f.submit %>
-  </p>
-<% end %>
 
-<% if !@comments.nil? %>
-  <% @comments.each do |comment| %>
-    <%= comment.description %>
+    <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+
+    <p>
+      <%= f.label :description, "Description" %>
+      <%= f.text_field :description %>
+      <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
+      <%= f.submit %>
+    </p>
   <% end %>
-<% end %>
+
+    <% if !@comments.nil? %>
+      <% @comments.each do |comment| %>
+        <%= comment.description %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
