@@ -9,8 +9,8 @@ feature 'User creates a new trail', %Q{
     visit root_path
 
     click_link 'Share Your Own Adventure'
-    fill_in 'Name', with: 'Denver Urban Steam'
-    select('Adventure', :from => 'What was the mood of your adventure?')
+    fill_in 'trail_name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'trail_mood')
     click_button 'Make New Trail'
 
     expect(page).to have_content('You must be signed in')
@@ -27,14 +27,14 @@ feature 'User creates a new trail', %Q{
     visit root_path
 
     click_link 'Share Your Own Adventure'
-    fill_in 'Name', with: 'Denver Urban Steam'
-    select('Adventure', :from => 'What was the mood of your adventure?')
+    fill_in 'trail_name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'trail_mood')
     click_button 'Make New Trail'
 
-    fill_in 'Name of Location', with: 'Denver, Colorado'
-    fill_in 'Where was it?', with: 'Urban Roast is wild!'
-    fill_in 'Tell us a little bit about it:', with: 'Bring cash!'
-    select('10', :from => 'What was the price?')
+    fill_in 'location_name', with: 'Denver, Colorado'
+    fill_in 'location_location', with: 'Urban Roast is wild!'
+    fill_in 'location_description', with: 'Bring cash!'
+    select('10', :from => 'location_price')
     click_button 'Make New Location'
 
     expect(page).to have_content('Denver Urban Steam')
@@ -54,15 +54,15 @@ feature 'User creates a new trail', %Q{
     visit root_path
 
     click_link 'Share Your Own Adventure'
-    fill_in 'Name', with: 'Denver Urban Steam'
-    select('Adventure', :from => 'What was the mood of your adventure?')
-    attach_file('Trail photo', "#{Rails.root}/spec/support/images/photo.png")
+    fill_in 'trail_name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'trail_mood')
+    attach_file('trail_trail_photo', "#{Rails.root}/spec/support/images/photo.png")
     click_button 'Make New Trail'
 
-    fill_in 'Name of Location', with: 'Denver, Colorado'
-    fill_in 'Where was it?', with: 'Urban Roast is wild!'
-    fill_in 'Tell us a little bit about it:', with: 'Bring cash!'
-    select('10', :from => 'What was the price?')
+    fill_in 'location_name', with: 'Denver, Colorado'
+    fill_in 'location_location', with: 'Urban Roast is wild!'
+    fill_in 'location_description', with: 'Bring cash!'
+    select('10', :from => 'location_price')
     click_button 'Make New Location'
 
     visit root_path
@@ -79,20 +79,20 @@ feature 'User creates a new trail', %Q{
     visit root_path
 
     click_link 'Share Your Own Adventure'
-    fill_in 'Name', with: 'Denver Urban Steam'
-    select('Adventure', :from => 'What was the mood of your adventure?')
+    fill_in 'trail_name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'trail_mood')
     click_button 'Make New Trail'
 
-    fill_in 'Name of Location', with: ''
-    fill_in 'Where was it?', with: ''
-    fill_in 'Tell us a little bit about it:', with: ''
-    select('10', :from => 'What was the price?')
+    fill_in 'location_name', with: ''
+    fill_in 'location_location', with: ''
+    fill_in 'location_description', with: ''
+    select('10', :from => 'location_price')
     click_button 'Make New Location'
 
 
-    expect(page).to have_content("Name can't be blank")
-    expect(page).to have_content("Location can't be blank")
-    expect(page).to have_content("Description can't be blank")
+    expect(page).to have_content("can't be blank")
+    expect(page).to have_content("can't be blank")
+    expect(page).to have_content("can't be blank")
     expect(page).to have_content("Opps. We got some problems with that form")
   end
   scenario 'User makes a description too long' do
@@ -105,18 +105,18 @@ feature 'User creates a new trail', %Q{
     visit root_path
 
     click_link 'Share Your Own Adventure'
-    fill_in 'Name', with: 'Denver Urban Steam'
-    select('Adventure', :from => 'What was the mood of your adventure?')
+    fill_in 'trail_name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'trail_mood')
     click_button 'Make New Trail'
 
-    fill_in 'Name of Location', with: 'Denver, Colorado'
-    fill_in 'Where was it?', with: 'Urban Roast is wild!'
-    fill_in 'Tell us a little bit about it:', with: 'This is going to be a very long Description
+    fill_in 'location_name', with: 'Denver, Colorado'
+    fill_in 'location_location', with: 'Urban Roast is wild!'
+    fill_in 'location_description', with: 'This is going to be a very long Description
       because I do not want it to pass. It has to be over 140 char in length. This
       is now too long'
-    select('10', :from => 'What was the price?')
+    select('10', :from => 'location_price')
     click_button 'Make New Location'
 
-    expect(page).to have_content('Description is too long')
+    expect(page).to have_content('is too long')
   end
 end

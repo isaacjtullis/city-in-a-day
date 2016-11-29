@@ -1,23 +1,15 @@
-<div class="location-form">
+<link rel="stylesheet" href="location_new_form" />
+
+<img src="https://twistedsifter.files.wordpress.com/2015/07/nyc-streets-from-above-by-navid-baraty-2.jpg?w=800&h=531" alt="">
+
+<div class="location-form-container">
   <%= simple_form_for [@trail, @location] do |f| %>
-    <div class="error-messages">
-      <% if @location.errors.any? %>
-        <h2><%= pluralize(@location.errors.count, "error") %> prohibiited this answer from being saved:</h2>
-      <% end %>
-
-      <% @location.errors.full_messages.each do |message| %>
-        <ul>
-          <li><%= message %></li>
-        </ul>
-      <% end %>
-    </div>
-
-    <div class="form">
-      <%= "NAME OF YOUR ADVENTURE: #{@trail.name}" %>
-      <%= "MOOD OF YOUR ADVENTURE: #{@trail.mood}" %>
-      <%= f.input :name, label: 'Name of Location' %>
-      <%= f.input :location, label: 'Where was it?', required: true %>
-      <%= f.input :description, label: 'Tell us a little bit about it:', required: true %>
+    <div class="location-form-fields">
+      <%= "Adventure Name: #{@trail.name}" %>
+      <%= "#{@trail.mood}" %>
+      <%= f.input :name, placeholder: 'Name of Location', label: false %>
+      <%= f.input :location, placeholder: 'Where was it?', label: false %>
+      <%= f.input :description, placeholder: 'Tell us a little bit about it', label: false %>
       <%= f.input :price, label: 'What was the price?', collection: Location::PRICES %>
       <%= f.submit 'Make New Location' %>
     </div>

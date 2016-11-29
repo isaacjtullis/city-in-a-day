@@ -11,8 +11,8 @@ feature 'User creates a location for a trail', %Q{
     visit root_path
 
     click_link 'Share Your Own Adventure'
-    fill_in 'Name', with: 'Denver Urban Steam'
-    select('Adventure', :from => 'What was the mood of your adventure?')
+    fill_in 'trail_name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'trail_mood')
     click_button 'Make New Trail'
 
     expect(page).to have_content('You must be signed in')

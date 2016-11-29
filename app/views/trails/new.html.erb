@@ -1,20 +1,12 @@
+<img src="https://www.skotcher.com/wall/1d8908a532825c0c617678a5f4bef189/aerial-view-street-urban.jpg" alt="">
+<link rel="stylesheet" href="new_form" />
+
 <div class="form-container">
   <%= simple_form_for @trail do |f| %>
-    <div class="error-messages">
-      <% if @trail.errors.any? %>
-        <h2><%= pluralize(@trail.errors.count, "error") %> prohibiited this answer from being saved:</h2>
-      <% end %>
-
-      <% @trail.errors.full_messages.each do |message| %>
-        <ul>
-          <li><%= message %></li>
-        </ul>
-      <% end %>
-    </div>
-    <div class="form">
-      <%= f.input :name, label: 'Name', required: true %>
-      <%= f.input :mood, label: 'What was the mood of your adventure?', collection: Trail::MOOD %>
-      <%= f.input :trail_photo, type: :file %>
+    <div class="form-fields">
+      <%= f.input :name, required: true, placeholder: 'Name of your Trail', label: false %>
+      <%= f.input :mood, required: true, collection: Trail::MOOD %>
+      <%= f.input :trail_photo, label: 'Want to add a photo?', type: :file %>
       <%= f.submit 'Make New Trail' %>
     </div>
   <% end %>
