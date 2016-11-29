@@ -16,14 +16,14 @@ feature 'User has a profile', %Q{
     visit root_path
 
     click_link 'Share Your Own Adventure'
-    fill_in 'Name', with: 'Denver Urban Steam'
-    select('Adventure', :from => 'What was the mood of your adventure?')
+    fill_in 'trail_name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'trail_mood')
     click_button 'Make New Trail'
 
-    fill_in 'Name of Location', with: 'Denver, Colorado'
-    fill_in 'Where was it?', with: 'Urban Roast is wild!'
-    fill_in 'Tell us a little bit about it:', with: 'Bring cash!'
-    select('10', :from => 'What was the price?')
+    fill_in 'location_name', with: 'Denver, Colorado'
+    fill_in 'location_location', with: 'Urban Roast is wild!'
+    fill_in 'location_description', with: 'Bring cash!'
+    select('10', :from => 'location_price')
     click_button 'Make New Location'
   end
 
