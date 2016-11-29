@@ -12,16 +12,9 @@
       <% end %>
     </div>
     <div class="form">
-      <%= f.input :description, label: 'Description', required: true %>
-      <%= f.input :location, label: 'Location', required: true %>
       <%= f.input :name, label: 'Name', required: true %>
-      <%= f.input :price, label: 'Price', collection: Trail::PRICES %>
-      <%= f.input :mood, label: 'Mood', collection: Trail::MOOD %>
+      <%= f.input :mood, label: 'What was the mood of your adventure?', collection: Trail::MOOD %>
       <%= f.input :trail_photo, type: :file %>
-      <div class="new-box">
-        <%="Want to add another location?"%>
-      </div>
-
       <%= f.submit 'Make New Trail' %>
     </div>
   <% end %>

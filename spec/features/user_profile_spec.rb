@@ -17,12 +17,16 @@ feature 'User has a profile', %Q{
 
     click_link 'Share Your Own Adventure'
     fill_in 'Name', with: 'Denver Urban Steam'
-    fill_in 'Location', with: 'Denver, Colorado'
-    fill_in 'Description', with: 'Urban Roast is wild!'
-    select('10', :from => 'Price')
-    select('Adventure', :from => 'Mood')
+    select('Adventure', :from => 'What was the mood of your adventure?')
     click_button 'Make New Trail'
+
+    fill_in 'Name of Location', with: 'Denver, Colorado'
+    fill_in 'Where was it?', with: 'Urban Roast is wild!'
+    fill_in 'Tell us a little bit about it:', with: 'Bring cash!'
+    select('10', :from => 'What was the price?')
+    click_button 'Make New Location'
   end
+
   scenario 'As a an authenticated user, they can see their information' do
 
     visit root_path
@@ -38,7 +42,6 @@ feature 'User has a profile', %Q{
     click_link 'John Smith'
 
     expect(page).to have_content("Denver Urban Steam")
-    expect(page).to have_content("Denver, Colorado")
   end
   scenario 'A user can update their information' do
     visit root_path

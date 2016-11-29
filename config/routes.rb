@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :trails do
     resources :comments, only: [:create, :edit, :destroy]
+    resources :locations, only: [:new, :create, :edit, :destroy]
   end
   resources :profiles
   resources :favorites, only: [:create, :destroy, :update, :destroy]
-  #resources :following, :followers, only: [:index, :show]
   resources :relationships, only: [:create, :destroy]
 end

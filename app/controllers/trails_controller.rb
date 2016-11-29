@@ -20,6 +20,8 @@ class TrailsController < ApplicationController
   def show
     @trail = Trail.find(params[:id])
     @user = User.find(@trail.user_id)
+    @location = Location.new
+    @locations = Location.where(trail_id: @trail.id)
     @comment = Comment.new
     @comments = Comment.where(trail_id: @trail.id)
   end
@@ -28,8 +30,8 @@ class TrailsController < ApplicationController
     @trail = Trail.new(trail_params)
     @trail.user = current_user
     if @trail.save
-      flash[:notice] = 'Congrats! You have made a new adventure.'
-      redirect_to trail_path(@trail)
+      flash[:notice] = 'Congrats! You have an adventure name.'
+      redirect_to new_trail_location_path(@trail.id)
     elsif current_user.nil?
       flash[:notice] = 'You must be signed in'
       render 'index'
@@ -42,6 +44,6 @@ class TrailsController < ApplicationController
   private
 
   def trail_params
-    params.require(:trail).permit(:description, :location, :name, :price, :mood, :trail_photo)
+    params.require(:trail).permit( :name, :mood, :trail_photo)
   end
 end

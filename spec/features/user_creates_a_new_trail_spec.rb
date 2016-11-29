@@ -10,16 +10,12 @@ feature 'User creates a new trail', %Q{
 
     click_link 'Share Your Own Adventure'
     fill_in 'Name', with: 'Denver Urban Steam'
-    fill_in 'Location', with: 'Denver, Colorado'
-    fill_in 'Description', with: 'Urban Roast is wild!'
-    select('10', :from => 'Price')
-    select('Adventure', :from => 'Mood')
+    select('Adventure', :from => 'What was the mood of your adventure?')
     click_button 'Make New Trail'
 
     expect(page).to have_content('You must be signed in')
     expect(page).to have_content('Sign In')
   end
-
   scenario 'User fills out a form correctly' do
     user = FactoryGirl.create(:user)
 
@@ -32,17 +28,20 @@ feature 'User creates a new trail', %Q{
 
     click_link 'Share Your Own Adventure'
     fill_in 'Name', with: 'Denver Urban Steam'
-    fill_in 'Location', with: 'Denver, Colorado'
-    fill_in 'Description', with: 'Urban Roast is wild!'
-    select('10', :from => 'Price')
-    select('Adventure', :from => 'Mood')
+    select('Adventure', :from => 'What was the mood of your adventure?')
     click_button 'Make New Trail'
+
+    fill_in 'Name of Location', with: 'Denver, Colorado'
+    fill_in 'Where was it?', with: 'Urban Roast is wild!'
+    fill_in 'Tell us a little bit about it:', with: 'Bring cash!'
+    select('10', :from => 'What was the price?')
+    click_button 'Make New Location'
 
     expect(page).to have_content('Denver Urban Steam')
     expect(page).to have_content('Urban Roast is wild!')
     expect(page).to have_content('10')
     expect(page).to have_content('Adventure')
-    expect(page).to have_content('Congrats! You have made a new adventure.')
+    expect(page).to have_content('Congrats! Location saved')
   end
   scenario 'User fills out the form with a photo' do
     user = FactoryGirl.create(:user)
@@ -56,12 +55,16 @@ feature 'User creates a new trail', %Q{
 
     click_link 'Share Your Own Adventure'
     fill_in 'Name', with: 'Denver Urban Steam'
-    fill_in 'Location', with: 'Denver, Colorado'
-    fill_in 'Description', with: 'Urban Roast is wild!'
-    select('10', :from => 'Price')
-    select('Adventure', :from => 'Mood')
+    select('Adventure', :from => 'What was the mood of your adventure?')
     attach_file('Trail photo', "#{Rails.root}/spec/support/images/photo.png")
     click_button 'Make New Trail'
+
+    fill_in 'Name of Location', with: 'Denver, Colorado'
+    fill_in 'Where was it?', with: 'Urban Roast is wild!'
+    fill_in 'Tell us a little bit about it:', with: 'Bring cash!'
+    select('10', :from => 'What was the price?')
+    click_button 'Make New Location'
+
     visit root_path
 
     expect(page).to have_css("img[src*='photo.png']")
@@ -76,12 +79,17 @@ feature 'User creates a new trail', %Q{
     visit root_path
 
     click_link 'Share Your Own Adventure'
-    fill_in 'Name', with: ''
-    fill_in 'Location', with: ''
-    fill_in 'Description', with: ''
-    select('10', :from => 'Price')
-    select('Adventure', :from => 'Mood')
+    fill_in 'Name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'What was the mood of your adventure?')
     click_button 'Make New Trail'
+
+    fill_in 'Name of Location', with: ''
+    fill_in 'Where was it?', with: ''
+    fill_in 'Tell us a little bit about it:', with: ''
+    select('10', :from => 'What was the price?')
+    click_button 'Make New Location'
+
+
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Location can't be blank")
     expect(page).to have_content("Description can't be blank")
@@ -98,13 +106,16 @@ feature 'User creates a new trail', %Q{
 
     click_link 'Share Your Own Adventure'
     fill_in 'Name', with: 'Denver Urban Steam'
-    fill_in 'Location', with: 'Denver, Colorado'
-    fill_in 'Description', with: 'This is going to be a very long Description
+    select('Adventure', :from => 'What was the mood of your adventure?')
+    click_button 'Make New Trail'
+
+    fill_in 'Name of Location', with: 'Denver, Colorado'
+    fill_in 'Where was it?', with: 'Urban Roast is wild!'
+    fill_in 'Tell us a little bit about it:', with: 'This is going to be a very long Description
       because I do not want it to pass. It has to be over 140 char in length. This
       is now too long'
-    select('10', :from => 'Price')
-    select('Adventure', :from => 'Mood')
-    click_button 'Make New Trail'
+    select('10', :from => 'What was the price?')
+    click_button 'Make New Location'
 
     expect(page).to have_content('Description is too long')
   end
