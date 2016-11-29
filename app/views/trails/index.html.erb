@@ -15,11 +15,6 @@
 <div class="featured-trails">
   <p>FEATURED TRAILS</p>
 
-  <div class="image">
-    <img src="https://static1.squarespace.com/static/54b2fe58e4b07e1bade096ca/550510cde4b08eb858c5b835/5505129ae4b0bbbce634c117/1426395838384/matt-dallas-3.jpg?format=1000w" alt="" />
-      <div class="name"><%="Dallas Adventure" %></div>
-  </div>
-
   <% if !@all_trails.nil? %>
     <% @all_trails.each do |trail| %>
       <div class="image"><%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
@@ -35,7 +30,6 @@
 <% if !@trails.nil? && !@trails.empty? %>
   <% @trails.each do |trail| %>
     <%= link_to trail.name, trail_path(trail.id) %>
-    <%= trail.location %>
   <% end %>
 <% else %>
   <%= @error %>

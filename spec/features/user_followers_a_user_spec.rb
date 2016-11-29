@@ -5,37 +5,39 @@ feature 'User follows a user', %Q{
   I want to follow another user,
   So that I can see what others share.
 } do
-    before do
-      user = FactoryGirl.create(:user)
+  before do
+    user = FactoryGirl.create(:user)
 
-      visit new_user_session_path
-      fill_in 'user_email', with: user.email
-      fill_in 'user_password', with: user.password
-      click_button 'Sign In'
+    visit new_user_session_path
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
+    click_button 'Sign In'
 
-      visit root_path
+    visit root_path
 
-      click_link 'Share Your Own Adventure'
-      fill_in 'Name', with: 'Denver Urban Steam'
-      fill_in 'Location', with: 'Denver, Colorado'
-      fill_in 'Description', with: 'Urban Roast is wild!'
-      select('10', :from => 'Price')
-      select('Adventure', :from => 'Mood')
-      click_button 'Make New Trail'
+    click_link 'Share Your Own Adventure'
+    fill_in 'Name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'What was the mood of your adventure?')
+    click_button 'Make New Trail'
 
-      click_link 'Sign Out'
+    fill_in 'Name of Location', with: 'Denver, Colorado'
+    fill_in 'Where was it?', with: 'Urban Roast is wild!'
+    fill_in 'Tell us a little bit about it:', with: 'Bring cash!'
+    select('10', :from => 'What was the price?')
+    click_button 'Make New Location'
 
-      visit root_path
-      click_link 'Sign Up'
-      fill_in 'user_first_name', with: 'Isaac'
-      fill_in 'user_last_name', with: 'Tullis'
-      fill_in 'user_email', with: 'user1@example.com'
-      fill_in 'user_password', with: 'password1'
-      fill_in 'user_password_confirmation', with: 'password1'
-      click_button 'Sign Up'
+    click_link 'Sign Out'
 
-    end
+    visit root_path
+    click_link 'Sign Up'
+    fill_in 'user_first_name', with: 'Isaac'
+    fill_in 'user_last_name', with: 'Tullis'
+    fill_in 'user_email', with: 'user1@example.com'
+    fill_in 'user_password', with: 'password1'
+    fill_in 'user_password_confirmation', with: 'password1'
+    click_button 'Sign Up'
 
+  end
   scenario 'User follows a user' do
     visit root_path
     click_link 'Denver Urban Steam'
@@ -45,7 +47,6 @@ feature 'User follows a user', %Q{
     expect(page).to have_content("Unfollow")
     expect(page).to have_content(1)
   end
-
   scenario 'User unfollows a user' do
     visit root_path
     click_link 'Denver Urban Steam'

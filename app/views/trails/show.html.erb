@@ -1,44 +1,45 @@
 <link rel="stylesheet" href="trail" />
 
 <div class="trail-container">
-  <div class="trail-image">
-    <%= image_tag @trail.trail_photo.to_s if !@trail.trail_photo.nil? %>
-  </div>
   <div class="trail-details">
-    <div class="users-name">
-    <%= link_to "Added By: #{@user.first_name} #{@user.last_name}", profile_path(@user.id) %>
+
+    <div class="trail-image">
+      <%= image_tag @trail.trail_photo.to_s if !@trail.trail_photo.nil? %>
     </div>
-    <%= @trail.name %>
-    <%= @trail.description %>
-    <%= @trail.location %>
-    <%= @trail.price %>
-    <%= @trail.mood %>
+
+    <div class="users-name">
+      <%= link_to "Added By: #{@user.first_name} #{@user.last_name}", profile_path(@user.id) %>
+    </div>
+
+    <div class="trail-identity">
+      <%= @trail.name %><br/>
+      <%= @trail.mood %>
+    </div>
+
+      <% @locations.each_with_index do |location, index| %>
+        <div class="location-information">
+          <%= "#{index + 1}. #{location.name}" %><br/>
+          <%= "#{location.location}" %><br/>
+          <%= "#{location.description}" %><br/>
+          <%= "#{location.price}" %><br/>
+        </div>
+      <% end %>
   </div>
 
-<div class="comment-container">
-  <%= simple_form_for [@trail, @comment] do |f| %>
-    <% if @comment.errors.any? %>
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this answer from being saved:</h2>
-    <% end %>
-
-    <ul>
-      <% @comment.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+  <div class="line-separator"></div>
+  
+  <div class="comment-container">
+    <%= render 'comment_form' %>
+      <% if !@comments.nil? %>
+        <% @comments.each do |comment| %>
+          <%= comment.description %>
+        <% end %>
       <% end %>
-    </ul>
+  </div>
 
-    <p>
-      <%= f.label :description, "Description" %>
-      <%= f.text_field :description %>
-      <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
-      <%= f.submit %>
-    </p>
+  <% if !current_user.nil? && current_user.id == @user.id %>
+    <div class="location-form">
+      <%= render 'location_form' %>
+    </div>
   <% end %>
-
-    <% if !@comments.nil? %>
-      <% @comments.each do |comment| %>
-        <%= comment.description %>
-      <% end %>
-    <% end %>
-  </div>
 </div>
