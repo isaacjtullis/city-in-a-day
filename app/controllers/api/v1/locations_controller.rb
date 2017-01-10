@@ -1,18 +1,13 @@
-class LocationsController < ApplicationController
-  def new
-    @location = Location.new
-    @trail = Trail.find(params[:trail_id])
-  end
+class Api::V1::LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    @trail = Trail.find(params[:trail_id])
     if @location.save
       flash[:notice] = 'Congrats! Location saved'
-      redirect_to @trail
-    else
+      render json: { trail_id: @location.trail_id }.to_json
+      else
       flash[:notice] = 'Opps. We got some problems with that form'
-      render 'new'
+      render json: :nothing, status: :not_found
     end
   end
 

@@ -18,7 +18,7 @@ feature 'User has a profile', %Q{
     click_link 'Share Your Own Adventure'
     fill_in 'trail_name', with: 'Denver Urban Steam'
     select('Adventure', :from => 'trail_mood')
-    click_button 'Make New Trail'
+    click_button 'Submit'
 
     fill_in 'location_name', with: 'Denver, Colorado'
     fill_in 'location_location', with: 'Urban Roast is wild!'
@@ -33,8 +33,6 @@ feature 'User has a profile', %Q{
 
     click_link 'John Smith'
     expect(page).to have_content("John Smith")
-    expect(page).to have_content("Home City")
-    expect(page).to have_content("Favorite City")
   end
   scenario 'A user can see all the trails they made' do
 

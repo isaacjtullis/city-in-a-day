@@ -1,13 +1,10 @@
-<img src="https://www.skotcher.com/wall/1d8908a532825c0c617678a5f4bef189/aerial-view-street-urban.jpg" alt="">
 <link rel="stylesheet" href="new_form" />
 
-<div class="form-container">
+<div class="new-trail">
   <%= simple_form_for @trail do |f| %>
-    <div class="form-fields">
-      <%= f.input :name, required: true, placeholder: 'Name of your Trail', label: false %>
-      <%= f.input :mood, required: true, collection: Trail::MOOD %>
-      <%= f.input :trail_photo, label: 'Want to add a photo?', type: :file %>
-      <%= f.submit 'Make New Trail' %>
-    </div>
+  <%= f.input :name, required: false %>
+  <%= f.input :mood, collection: Trail::MOOD, required: false %>
+  <div class="photo-button"><%= f.input :trail_photo, type: :file, label: 'Add Photo' %></div>
+  <div class="button"><%= f.submit 'Submit' %></div>
   <% end %>
 </div>

@@ -11,7 +11,7 @@ feature 'User creates a new trail', %Q{
     click_link 'Share Your Own Adventure'
     fill_in 'trail_name', with: 'Denver Urban Steam'
     select('Adventure', :from => 'trail_mood')
-    click_button 'Make New Trail'
+    click_button 'Submit'
 
     expect(page).to have_content('You must be signed in')
     expect(page).to have_content('Sign In')
@@ -29,7 +29,7 @@ feature 'User creates a new trail', %Q{
     click_link 'Share Your Own Adventure'
     fill_in 'trail_name', with: 'Denver Urban Steam'
     select('Adventure', :from => 'trail_mood')
-    click_button 'Make New Trail'
+    click_button 'Submit'
 
     fill_in 'location_name', with: 'Denver, Colorado'
     fill_in 'location_location', with: 'Urban Roast is wild!'
@@ -57,7 +57,7 @@ feature 'User creates a new trail', %Q{
     fill_in 'trail_name', with: 'Denver Urban Steam'
     select('Adventure', :from => 'trail_mood')
     attach_file('trail_trail_photo', "#{Rails.root}/spec/support/images/photo.png")
-    click_button 'Make New Trail'
+    click_button 'Submit'
 
     fill_in 'location_name', with: 'Denver, Colorado'
     fill_in 'location_location', with: 'Urban Roast is wild!'
@@ -81,7 +81,7 @@ feature 'User creates a new trail', %Q{
     click_link 'Share Your Own Adventure'
     fill_in 'trail_name', with: 'Denver Urban Steam'
     select('Adventure', :from => 'trail_mood')
-    click_button 'Make New Trail'
+    click_button 'Submit'
 
     fill_in 'location_name', with: ''
     fill_in 'location_location', with: ''
@@ -107,7 +107,7 @@ feature 'User creates a new trail', %Q{
     click_link 'Share Your Own Adventure'
     fill_in 'trail_name', with: 'Denver Urban Steam'
     select('Adventure', :from => 'trail_mood')
-    click_button 'Make New Trail'
+    click_button 'Submit'
 
     fill_in 'location_name', with: 'Denver, Colorado'
     fill_in 'location_location', with: 'Urban Roast is wild!'

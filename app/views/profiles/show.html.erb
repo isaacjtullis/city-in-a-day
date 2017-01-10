@@ -1,21 +1,20 @@
 <link rel="stylesheet" href="profile" />
-
-<div class="profile-container">
-  <div class="picture">
+<div class="profile-header">
+  <div class="profile-picture">
     <%= image_tag @user.profile_photo.to_s if !@user.profile_photo.nil? %>
   </div>
 
   <div class="user-header">
-      <%= "#{@user.first_name} #{@user.last_name}"%>
-      <% if !@user.bio.nil? %>
-        <%= @user.bio %>
-      <% end %>
-  <%= link_to 'Edit Profile', edit_profile_path(@user) %>
-  <%= link_to 'Change Password', edit_user_registration_path %>
-  <%= "Home City" %>
-  <%= "Favorite City" %>
-  <%= "FOLLOWERS: #{@user.followers.count}" %>
-  <%= "FOLLOWING: #{@user.following.count}" %>
+    <div class="name"><%= "#{@user.first_name} #{@user.last_name}"%></div>
+    <% if !@user.bio.nil? %>
+      <%= @user.bio %>
+    <% end %>
+    <div class="edit-profile"><%= link_to 'Edit Profile', edit_profile_path(@user) %></div>
+    <div class="change-password"><%= link_to 'Change Password', edit_user_registration_path %></div>
+    <div class="user-engagement">
+      <div class="followers"><%= "FOLLOWERS: #{@user.followers.count}" %></div>
+      <div class="following"><%= "FOLLOWING: #{@user.following.count}" %></div>
+    </div>
     <% if current_user.nil? || current_user.id == @user.id %>
     <% elsif !current_user.following?(@user) %>
       <%= simple_form_for @relationship do |f| %>
@@ -26,18 +25,21 @@
       <%= link_to "Unfollow", relationship_path(current_user.active_relationships.find_by(followed_id: @user.id).id), method: :delete %>
     <% end %>
   </div>
-  <h1><%="TRAILS!" %></h1>
-  <% @trails.each do |trail| %>
-    <%= link_to trail.name, trail_path(trail.id) %>
-  <% end %>
-
-  <% if !@favorites.empty? %>
-    <%= 'FAVORITES:' %>
-    <% @favorites.each do |favorite| %>
-      <%= favorite.name %>
-      <%= link_to 'Remove Favorite', favorite_path(favorite.id), method: :delete, data: {confirm: "Are you sure you want to remove this?"} %>
-    <% end %>
-  <% end %>
-
-  <%= link_to 'Home', root_path %>
 </div>
+
+<% @trails.each do |trail| %>
+  <div class="image">
+    <%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
+    <div class="name"><%= link_to trail.name, trail_path(trail.id) %></div>
+  </div>
+<% end %>
+
+<% if !@favorites.empty? %>
+  <%= 'FAVORITES:' %>
+  <% @favorites.each do |favorite| %>
+    <%= favorite.name %>
+    <%= link_to 'Remove Favorite', favorite_path(favorite.id), method: :delete, data: {confirm: "Are you sure you want to remove this?"} %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Home', root_path %>

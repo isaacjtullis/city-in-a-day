@@ -1,6 +1,5 @@
-.profile-container {
-  margin-top: 80px;
-  background-color: #ecf0f1;
+.profile-header {
+  margin-top: 65px;
 }
 
 .user-header {
@@ -8,14 +7,38 @@
   float:none;
   margin-left: 500px;
   padding-top: 20px;
-  width: 15%;
 }
 
-.picture img {
-  height: 150px;
+.name {
+  display: inline-block;
+}
+
+.edit-profile a {
+  display: inline-block;
+}
+
+.change-password a {
+  display: inline-block;
+}
+
+.following {
+  display: inline-block;
+}
+
+.followers {
+  display: inline-block;
+}
+
+.profile-picture img {
+  height: 125px;
   width: 150px;
-  border-radius: 50%;
   left: 200px;
-  margin-top: 20px;
+  margin-top: 15px;
   position: absolute;
+}
+
+.user-images {
+  display: inline-block;
+  margin-left: 200px;
+  align-self: auto;
 }
