@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="trail" />
-
 <div class="trail-container">
   <div class="trail-details">
 
@@ -16,18 +14,20 @@
       <%= @trail.mood %>
     </div>
 
+    <div id="location-information">
       <% @locations.each_with_index do |location, index| %>
-        <div class="location-information">
-          <%= "#{index + 1}. #{location.name}" %><br/>
-          <%= "#{location.location}" %><br/>
-          <%= "#{location.description}" %><br/>
-          <%= "#{location.price}" %><br/>
-        </div>
+          <ul>
+            <%= "#{index + 1}. #{location.name}" %>
+            <%= "#{location.location}" %>
+            <%= "#{location.description}" %>
+            <%= "#{location.price}" %>
+          </ul>
       <% end %>
+    </div>
   </div>
 
   <div class="line-separator"></div>
-  
+
   <div class="comment-container">
     <%= render 'comment_form' %>
       <% if !@comments.nil? %>
@@ -36,10 +36,4 @@
         <% end %>
       <% end %>
   </div>
-
-  <% if !current_user.nil? && current_user.id == @user.id %>
-    <div class="location-form">
-      <%= render 'location_form' %>
-    </div>
-  <% end %>
 </div>

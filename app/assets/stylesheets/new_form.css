@@ -1,86 +1,64 @@
-img {
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-}
-
-.form-container {
-  color: white;
-  width: 500px;
-  height: 400px;
-  background-color: #34495e;
-  margin-top: 200px;
-  border-radius: 4px;
-  opacity: 0.9;
-  top: 30%;
+.new-trail {
+  background-color: white;
+  margin-top: 300px;
+  top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   display: block;
+  border-radius: 12px;
 }
 
-.form-container .error-messages {
+label {
+  color: #4A4A4A;
+  font-size: 26px;
+}
+
+.new-trail #trail_name {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #4A4A4A;
+  color: #083F46;
+  font-size: 26px;
+  letter-spacing: -1px;
+  outline: 0;
+  padding-top: 20px;
+  text-align: left;
+  width: 400px;
+}
+
+.new-trail #trail_mood {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #4A4A4A;
   color: black;
-  margin-top: 10px;
+  font-size: 26px;
+  padding-top: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  width: 400px;
 }
 
-.form-container .form-fields {
-  padding: 100px;
-  text-align: center;
-  font-size: 20px;
-}
-
-.form-container input {
-  text-align: center;
-  height: 25px;
-  width: 250px;
-  font-size: 20px;
-  padding: 10px;
-  font-family: sans-serif;
-}
-.form-container label {
+.new-trail #trail_trail_photo {
   display: inline-block;
-  padding: 20px 15px 5px 20px;
-  font-family: sans-serif;
-  font-size: 25px;
-  line-height: 1em;
-}
-
-.location-form-container {
-  color: white;
-  width: 500px;
-  height: 600px;
-  background-color: #34495e;
-  margin-top: 200px;
-  border-radius: 4px;
-  opacity: 0.9;
-  top: 30%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  display: block;
-}
-
-.location-form-container input {
+  background-color: transparent;
+  border: 0;
+  color: #083F46;
+  font-size: 10px;
+  padding: 20px 20px;
   text-align: center;
-  height: 25px;
-  width: 250px;
-  font-size: 20px;
-  padding: 10px 10px 10px 10px;
-  margin: 20px;
-  font-family: sans-serif;
-}
-.location-form-container label {
-  display: inline-block;
-  padding: 20px 15px 5px 20px;
-  font-family: sans-serif;
-  font-size: 25px;
-  line-height: 1em;
 }
 
-.location-form-fields {
-  padding-top: 100px;
-  padding-bottom: 100px;
+
+.new-trail .button {
   text-align: center;
-  font-size: 20px;
+  padding: 20px 20px;
+}
+
+.new-trail .button input {
+  border-radius: 50px;
+  background-color: white;
+  font-size: 15px;
+  color: black;
+  padding: 20px 20px 20px 20px;
 }

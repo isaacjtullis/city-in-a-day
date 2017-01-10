@@ -18,14 +18,14 @@ feature 'User follows a user', %Q{
     click_link 'Share Your Own Adventure'
     fill_in 'trail_name', with: 'Denver Urban Steam'
     select('Adventure', :from => 'trail_mood')
-    click_button 'Make New Trail'
+    click_button 'Submit'
 
     fill_in 'location_name', with: 'Denver, Colorado'
     fill_in 'location_location', with: 'Urban Roast is wild!'
     fill_in 'location_description', with: 'Bring cash!'
     select('10', :from => 'location_price')
     click_button 'Make New Location'
-    
+
     click_link 'Sign Out'
 
     visit root_path

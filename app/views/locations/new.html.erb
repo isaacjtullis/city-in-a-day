@@ -1,17 +1,11 @@
-<link rel="stylesheet" href="location_new_form" />
+<div class="locations">
+  <ul></ul> 
+</div>
 
-<img src="https://twistedsifter.files.wordpress.com/2015/07/nyc-streets-from-above-by-navid-baraty-2.jpg?w=800&h=531" alt="">
+<div id="stop-location-form">
+  <%= render 'form' %>
+</div>
 
-<div class="location-form-container">
-  <%= simple_form_for [@trail, @location] do |f| %>
-    <div class="location-form-fields">
-      <%= "Adventure Name: #{@trail.name}" %>
-      <%= "#{@trail.mood}" %>
-      <%= f.input :name, placeholder: 'Name of Location', label: false %>
-      <%= f.input :location, placeholder: 'Where was it?', label: false %>
-      <%= f.input :description, placeholder: 'Tell us a little bit about it', label: false %>
-      <%= f.input :price, label: 'What was the price?', collection: Location::PRICES %>
-      <%= f.submit 'Make New Location' %>
-    </div>
-  <% end %>
+<div class="next-page">
+  <%= link_to 'Finished', trail_path(@trail) %>
 </div>
