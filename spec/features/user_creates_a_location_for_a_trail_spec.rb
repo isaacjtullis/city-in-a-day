@@ -8,8 +8,6 @@ feature 'User creates a location for a trail', %Q{
   scenario 'Unregistered user cannot make a form' do
     visit root_path
 
-    visit root_path
-
     click_link 'Share Your Own Adventure'
     fill_in 'trail_name', with: 'Denver Urban Steam'
     select('Adventure', :from => 'trail_mood')
