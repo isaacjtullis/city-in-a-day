@@ -14,12 +14,19 @@
  *= require_self
  */
 
- body {
-   margin: 0px auto;
-   background-size: 100% 720px;;
-   position: relative;
-   padding-top: 40px;
- }
+body {
+  margin: 0px auto;
+  background-size: 100% 720px;
+  position: relative;
+  padding-top: 40px;
+  height: 100%!important;
+  overflow: auto!important;
+  max-height: 100% !important;
+}
+
+#content {
+  min-height: 100vh;
+}
 
 .navbar {
   z-index: 1000;
