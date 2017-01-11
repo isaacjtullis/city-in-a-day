@@ -1,9 +1,14 @@
 .footer {
-  height: 59px;
-  margin: 0 auto;
-  color: #fff;
   clear: both;
-  padding: 2em;
-  background: #000;
   position: relative;
+  z-index: 10;
+  height: 15em;
+  margin-top: -3em;
+  background-color: black;
+  text-align: center;
+}
+
+.footer p {
+  padding-top: 125px;
+  color: white;
 }
