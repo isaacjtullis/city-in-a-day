@@ -24,10 +24,6 @@ body {
   max-height: 100% !important;
 }
 
-#content {
-  min-height: 100vh;
-}
-
 .navbar {
   z-index: 1000;
   width: 100%;
