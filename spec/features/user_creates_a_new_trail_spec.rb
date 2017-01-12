@@ -34,7 +34,7 @@ feature 'User creates a new trail', %Q{
     fill_in 'location_name', with: 'Denver, Colorado'
     fill_in 'location_location', with: 'Urban Roast is wild!'
     fill_in 'location_description', with: 'Bring cash!'
-    select('10', :from => 'location_price')
+    fill_in 'location_price', with: '10'
     click_button 'Make New Location'
 
     expect(page).to have_content('Denver Urban Steam')
