@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :trails do
     resources :comments, only: [:create, :edit, :destroy]
-    resources :locations, only: [:new, :create, :edit, :destroy]
+    resources :locations
   end
 
   namespace :api do

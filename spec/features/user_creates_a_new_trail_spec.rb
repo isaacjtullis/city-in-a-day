@@ -62,7 +62,7 @@ feature 'User creates a new trail', %Q{
     fill_in 'location_name', with: 'Denver, Colorado'
     fill_in 'location_location', with: 'Urban Roast is wild!'
     fill_in 'location_description', with: 'Bring cash!'
-    select('10', :from => 'location_price')
+    fill_in 'location_price', with: '10'
     click_button 'Make New Location'
 
     visit root_path
@@ -86,7 +86,7 @@ feature 'User creates a new trail', %Q{
     fill_in 'location_name', with: ''
     fill_in 'location_location', with: ''
     fill_in 'location_description', with: ''
-    select('10', :from => 'location_price')
+    fill_in 'location_price', with: '10'
     click_button 'Make New Location'
 
 
@@ -114,7 +114,7 @@ feature 'User creates a new trail', %Q{
     fill_in 'location_description', with: 'This is going to be a very long Description
       because I do not want it to pass. It has to be over 140 char in length. This
       is now too long'
-    select('10', :from => 'location_price')
+    fill_in 'location_price', with: '10'
     click_button 'Make New Location'
 
     expect(page).to have_content('is too long')

@@ -11,5 +11,4 @@ describe Location do
   it { should_not have_valid(:name).when(nil, '') }
 
   it { should have_valid(:price).when(10, 'FREE') }
-  it { should_not have_valid(:price).when(300, 'WHAT') }
 end
