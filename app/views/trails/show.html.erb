@@ -21,7 +21,9 @@
             <%= "#{location.location}" %>
             <%= "#{location.description}" %>
             <%= "#{location.price}" %>
-            <%= link_to "Edit Location", edit_trail_location_path(location) %>
+            <% if !current_user.nil? && current_user.id == @trail.user_id %>
+              <%= link_to "Edit Location", edit_trail_location_path(location) %>
+            <% end %>
           </ul>
       <% end %>
     </div>
