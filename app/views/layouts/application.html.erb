@@ -35,7 +35,10 @@
       <% end %>
       <!-- main content -->
     </div>
+    <div class="wrapper">
       <%= yield %>
-    <%= render "layouts/footer" %>
+      <div class="push"></div>
+    </div>
+    <div class="footer"><%= render "layouts/footer" %></div>
   </body>
 </html>

@@ -1,7 +1,35 @@
+.footer, .push {
+  height: 20px; /* .push must be the same height as .footer */
+}
+.footer {
+  background-color: black;
+  height: 15em;
+}
+
+.footer p {
+  color: white;
+  text-align: center;
+  padding-top: 125px;
+}
+
+/*
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height
+}
+.footer {
+position:absolute;
+bottom:0;
+width:100%;
+height: 15em;
+background-color: black;
+}
+
 .footer {
   clear: both;
   position: relative;
-  z-index: 10;
   height: 15em;
   margin-top: -3em;
   background-color: black;
@@ -13,3 +41,4 @@
   padding-top: 125px;
   color: white;
 }
+*/
