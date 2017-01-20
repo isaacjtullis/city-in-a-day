@@ -1,10 +1,8 @@
 .new-trail {
   background-color: white;
-  margin-top: 300px;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  text-align: center;
+  margin-top: 150px;
+  position: relative;
   display: block;
   border-radius: 12px;
 }
@@ -12,6 +10,7 @@
 label {
   color: #4A4A4A;
   font-size: 26px;
+  padding-right: 15px;
 }
 
 .new-trail #trail_name {
