@@ -114,4 +114,64 @@ feature 'User creates a location for a trail', %Q{
 
     expect(page).to_not have_content('Edit Location')
   end
+  scenario 'User can delete a location' do
+    user = FactoryGirl.create(:user)
+
+    visit new_user_session_path
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
+    click_button 'Sign In'
+
+    visit root_path
+
+    click_link 'Share Your Own Adventure'
+    fill_in 'trail_name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'trail_mood')
+    click_button 'Submit'
+
+    fill_in 'location_name', with: 'Denver, Colorado'
+    fill_in 'location_location', with: 'Urban Roast is wild!'
+    fill_in 'location_description', with: 'Bring cash!'
+    fill_in 'location_price', with: '10'
+    click_button 'Make New Location'
+
+    click_link 'Delete'
+
+    expect(page).to have_content('Location deleted!')
+  end
+  scenario 'User cannot delete a location they did not make' do
+    user = FactoryGirl.create(:user)
+
+    visit new_user_session_path
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
+    click_button 'Sign In'
+
+    visit root_path
+
+    click_link 'Share Your Own Adventure'
+    fill_in 'trail_name', with: 'Denver Urban Steam'
+    select('Adventure', :from => 'trail_mood')
+    click_button 'Submit'
+
+    fill_in 'location_name', with: 'Denver, Colorado'
+    fill_in 'location_location', with: 'Urban Roast is wild!'
+    fill_in 'location_description', with: 'Bring cash!'
+    fill_in 'location_price', with: '10'
+    click_button 'Make New Location'
+
+    click_link 'Sign Out'
+    user = FactoryGirl.create(:user)
+
+    visit new_user_session_path
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
+    click_button 'Sign In'
+
+    visit root_path
+
+    click_link 'Denver Urban Steam'
+
+    expect(page).to_not have_content('Delete Location')
+  end
 end
