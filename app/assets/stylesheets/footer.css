@@ -1,9 +1,11 @@
 .footer, .push {
-  height: 20px; /* .push must be the same height as .footer */
+  height: 40px; /* .push must be the same height as .footer */
 }
 .footer {
   background-color: black;
-  height: 15em;
+  height: 40px;
+  width: 100%;
+  position: fixed;
 }
 
 .footer p {

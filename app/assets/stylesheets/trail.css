@@ -1,34 +1,29 @@
 .trail-container {
   margin-top: 100px;
   color: black;
-  text-align: center;
+  display: inline-block;
 }
 
+.trail-image {
+  width: 25%;
+  display: inline-block;
+  margin-left: 100px;
+}
 .trail-image img {
-  height: 250px;
-  width: 450px;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0px;
+  height: 80%;
+  width: 100%;
 }
 
-.trail-details .users-name a {
+.main-content {
+  vertical-align: top;
+  display: inline-block;
+  width: 50%;
+  background-color: #f0f8ff;
+}
+
+.trail-header {
   text-align: center;
-  display: block;
-  padding-top: 30px;
-}
-
-.trail-identity {
-  text-align: center;
-  display: block;
-  padding-top: 20px;
-  font-size: 20px;
-}
-
-.location-information {
-  display: block;
-  padding-top: 10px;
 }
 
 .line-separator {

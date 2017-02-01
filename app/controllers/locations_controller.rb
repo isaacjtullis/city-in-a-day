@@ -37,6 +37,19 @@ class LocationsController < ApplicationController
     end
   end
 
+  def destroy
+    location = Location.find(params[:trail_id])
+    trail = Trail.find(params[:id])
+    if trail.user_id != current_user.id
+      flash[:notice] = "You cannot delete a location you did not make!"
+      redirect_to trail
+    else
+      location.destroy
+      flash[:notice] = "Location deleted!"
+      redirect_to trail
+    end
+  end
+
   private
 
   def location_params
