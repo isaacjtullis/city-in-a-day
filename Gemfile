@@ -13,6 +13,7 @@ gem 'simple_form'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem "fog"
 gem 'gmaps4rails'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug', platform: :mri
