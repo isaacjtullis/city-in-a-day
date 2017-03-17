@@ -1,14 +1,34 @@
 html {
   margin-bottom: 0px;
 }
-.cover-photo img {
-  position: relative;
-  margin-top: 40px;
+
+.col-md-12.cover-photo {
+  margin-top: 80px;
+  background-image: url('new-york.png');
+  background-size: cover;
   height: 500px;
-  width: 100%;
-  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.text.center {
+  background-color: #fff;
+}
+
+#text {
+  background-color: #fff;
+  color: #121212;
+  border: 1px;
+  border-radius: 40px;
+  font-family: Gotham SSm, sans-serif;
+  font-size: 20px;
+  letter-spacing: .5em;
+  line-height: 1em;
+  padding: 1.5em 2.5em;
+  text-align: center;
+}
+/*
 #text {
   background-color: #fff;
   color: #121212;
@@ -24,7 +44,20 @@ html {
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
+  min-width: 378.96px;
 }
+/*
+/*
+@media screen and (max-width:760px){
+  #text{
+    color: green;
+    /*
+    change either font-size or change the size of button
+
+  }
+}
+    */
+
 
 .featured-trails {
   background-color: #FDFFFC;
