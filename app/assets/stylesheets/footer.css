@@ -1,18 +1,4 @@
-.footer, .push {
-  height: 40px; /* .push must be the same height as .footer */
-}
-.footer {
-  background-color: black;
-  height: 40px;
-  width: 100%;
-  position: fixed;
-}
 
-.footer p {
-  color: white;
-  text-align: center;
-  padding-top: 125px;
-}
 
 /*
 .wrapper {
