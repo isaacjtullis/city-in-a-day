@@ -1,53 +1,53 @@
 <link rel="stylesheet" href="home" />
-<div class="home-container">
+<div class="fluid-container">
   <div class="col-md-12 col-xs-12 cover-photo">
     <div id='text'>
       Where to Next?
     </div>
   </div>
-</div>
-
-<div class="search-feature">
-  <%= form_tag trails_path, method: "get" do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", name: nil %>
-  <% end %>
-</div>
-
-<div class="featured-trails">
-  <p>FEATURED TRAILS</p>
-
-  <% if !@all_trails.nil? %>
-    <% @all_trails.each do |trail| %>
-      <div class="image"><%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
-        <div class="name"><%= link_to trail.name, trail_path(trail.id) %></div>
-          <%= simple_form_for @favorite do |f| %>
-            <%= f.input :trail_id, as: :hidden, input_html: { value: trail.id } %>
-            <%= f.submit %>
-          <% end %>
-        </div>
+  <div class="col-md-12 search-feature">
+    <%= form_tag trails_path, method: "get" do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", name: nil %>
     <% end %>
-  <% end %>
-
-<% if !@trails.nil? && !@trails.empty? %>
-  <% @trails.each do |trail| %>
+    <%if !@trails.nil? && !@trails.empty? %>
+    <% @trails.each do |trail| %>
     <%= link_to trail.name, trail_path(trail.id) %>
-  <% end %>
-<% else %>
-  <%= @error %>
-<% end %>
-
-
-<div class="form">
-  <h1><%= link_to 'Share Your Own Adventure', new_trail_path %></h1>
-</div>
-<div class="container">
-  <div class="col-md-6">
-    <h3> <%= "Ever been passing through a city & want to explore it, but you're
-    only there for one day? We've been there & we've got you..."%></h3>
+    <% end %>
+    <% else %>
+    <%= @error %>
+    <% end %>
   </div>
-  <div class="col-md-6">
-    <iframe src="https://player.vimeo.com/video/118781912" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <a href="https://vimeo.com/118781912">City in a Day - Welcome to the Adventure</a> from <a href="https://vimeo.com/cityinaday">City In A Day</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
+  <div class="col-md-12 text-center">
+    <div class="featured-trails">
+      <p>FEATURED TRAILS</p>
+    </div>
+
+    <% if !@all_trails.nil? %>
+    <% @all_trails.each do |trail| %>
+    <div class="col-md-4 text-center">
+        <%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
+      <%= link_to trail.name, trail_path(trail.id) %>
+      <%= simple_form_for @favorite do |f| %>
+      <%= f.input :trail_id, as: :hidden, input_html: { value: trail.id } %>
+      <%= f.submit %>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
+    <div class="col-md-12 form">
+      <h1><%= link_to 'Share Your Own Adventure', new_trail_path %></h1>
+    </div>
+  <div class='col-md-12 about-us'>
+    <div class="col-md-6">
+      <h3> <%= "Ever been passing through a city & want to explore it, but you're
+      only there for one day? We've been there & we've got you..."%></h3>
+    </div>
+    <div class="col-md-6">
+      <iframe src="https://player.vimeo.com/video/118781912" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <a href="https://vimeo.com/118781912">City in a Day - Welcome to the Adventure</a> from <a href="https://vimeo.com/cityinaday">City In A Day</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+    </div>
   </div>
 </div>
