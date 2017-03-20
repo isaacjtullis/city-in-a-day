@@ -26,7 +26,7 @@
 
     <% if !@all_trails.nil? %>
     <% @all_trails.each do |trail| %>
-    <div class="col-md-4 text-center">
+    <div class="col-md-4 trail-description text-center">
         <%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
       <%= link_to trail.name, trail_path(trail.id) %>
       <%= simple_form_for @favorite do |f| %>
