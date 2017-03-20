@@ -1,10 +1,13 @@
 <link rel="stylesheet" href="new_form" />
-
-<div class="new-trail">
-  <%= simple_form_for @trail do |f| %>
-  <%= f.input :name, required: false %>
-  <%= f.input :mood, collection: Trail::MOOD, required: false %>
-  <div class="photo-button"><%= f.input :trail_photo, type: :file, label: 'Add Photo' %></div>
-  <div class="button"><%= f.submit 'Submit' %></div>
-  <% end %>
+<div class="container">
+  <div class="col-md-12 text-center">
+    <div class="new-trail">
+      <%= simple_form_for @trail do |f| %>
+      <%= f.input :name, required: false %>
+      <%= f.input :mood, collection: Trail::MOOD, required: false %>
+      <div class="photo-button"><%= f.input :trail_photo, type: :file, label: 'Add Photo' %></div>
+      <div class="button"><%= f.submit 'Submit' %></div>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,63 +1,40 @@
 .new-trail {
-  background-color: white;
-  text-align: center;
   margin-top: 150px;
-  position: relative;
-  display: block;
-  border-radius: 12px;
 }
 
 label {
-  color: #4A4A4A;
-  font-size: 26px;
-  padding-right: 15px;
+  padding-right: 1%;
 }
 
-.new-trail #trail_name {
-  background-color: transparent;
+.new-trail #trail_name,
+.new-trail #trail_mood,
+.new-trail #trail_trail_photo {
   border: 0;
-  border-bottom: 1px solid #4A4A4A;
-  color: #083F46;
-  font-size: 26px;
-  letter-spacing: -1px;
   outline: 0;
-  padding-top: 20px;
-  text-align: left;
-  width: 400px;
-}
-
-.new-trail #trail_mood {
-  background-color: transparent;
-  border: 0;
   border-bottom: 1px solid #4A4A4A;
-  color: black;
-  font-size: 26px;
   padding-top: 20px;
-  letter-spacing: 0px;
-  text-align: left;
-  width: 400px;
+  background-color: white;
+  width: 25%;
+}
+.new-trail #trail_mood {
+  margin-top: 20px;
 }
 
 .new-trail #trail_trail_photo {
   display: inline-block;
-  background-color: transparent;
   border: 0;
-  color: #083F46;
   font-size: 10px;
   padding: 20px 20px;
-  text-align: center;
 }
-
-
-.new-trail .button {
-  text-align: center;
-  padding: 20px 20px;
+.new-trail input#trail_name,
+.new-trail select#trail_mood {
+  font-size: 20px;
+  padding-left: 5px;
 }
-
 .new-trail .button input {
   border-radius: 50px;
+  border: 1px solid black;
   background-color: white;
   font-size: 15px;
-  color: black;
   padding: 20px 20px 20px 20px;
 }
