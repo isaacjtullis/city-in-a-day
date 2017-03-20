@@ -25,18 +25,6 @@ html {
   text-align: center;
 }
 
-/*
-@media screen and (max-width:760px){
-  #text{
-    color: green;
-    /*
-    change either font-size or change the size of button
-
-  }
-}
-*/
-
-
 .featured-trails {
   margin-top: 100px;
 }
@@ -48,31 +36,12 @@ html {
   line-height: 1em;
 }
 
-.col-md-4 img {
+.trail-description img {
   height: 350px;
   max-width: 386.66px;
   border-radius: 50%;
 }
 
-/*
-.image {
-  display: inline-block;
-  margin-left: 200px;
-  align-self: auto;
-}
-
-
-.image img {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  display: block;
-}
-
-.image .name a {
-  text-align: center;
-}
-*/
 .form {
   background-color: #EFEFEF;
   margin-top: 100px;
@@ -99,39 +68,3 @@ html {
 .about-us {
   margin: 60px 20px;
 }
-/*
-#about-us .container h2 {
-  width: 45%;
-  margin-left: 50px;
-  margin-bottom: 50px;
-  font-family: "Raleway";
-  font-size: 32px;
-  line-height: 1.3em;
-  text-transform: none;
-  letter-spacing: 0px;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.video .container {
-  margin-left: 20px;
-  width: 50%;
-  display: inline-block;
-}
-
-.about-us-text {
-  width: 40%;
-  margin-top: 140px;
-  margin-right: 50px;
-  text-align: center;
-  font-family: "Raleway";
-  font-size: 32px;
-  line-height: 1.3em;
-  text-transform: none;
-  letter-spacing: 0px;
-  font-weight: 600;
-  font-style: normal;
-
-  float: right;
-}
-*/
