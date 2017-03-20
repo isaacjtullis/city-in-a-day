@@ -1,62 +1,7 @@
-#location-container {
-  width: 100%;
-}
-
-#map-container {
-  width: 100%;
-  text-align: center;
-}
-
-.locations {
-  display: block;
-  margin-top: 150px;
-}
-
-.locations ul {
-  text-align: center;
-}
-
-hr {
-  display: block;
-  position: relative;
-  padding: 0;
-  margin: 8px auto;
-  height: 0;
-  width: 100%;
-  max-height: 0;
-  font-size: 1px;
-  line-height: 0;
-  clear: both;
-  border: none;
-  border-top: 1px solid #aaaaaa;
-  border-bottom: 1px solid #ffffff;
-}
-
-#map-box {
-  display: inline-block;
-  width: 40%;
-  margin: auto;
-}
-
-#form-box {
-  display: inline-block;
-  width: 40%;
-  margin: auto;
-}
-
-#finished-button-box {
-  margin-top: 50px;
-  text-align: center;
-  width: 100%;
-}
-#finished-button-box a {
-  text-align: center;
-  color: black;
-  border: solid 1px;
-  font-size: 15px;
-  border-radius: 50px;
-  padding: 20px 20px 20px 20px;
-  text-decoration: none;
+div.input.string.optional.location_location,
+div.input.string.optional.location_description,
+div.input.string.optional.location_price {
+  margin-top: 20px;
 }
 
 label {
@@ -64,68 +9,39 @@ label {
   font-size: 26px;
 }
 
-.new-location {
-  background-color: white;
-  display: block;
-  border-radius: 12px;
-}
-
-.new-location #location_name {
-  background-color: transparent;
-  border: 0;
-  border-bottom: 1px solid #4A4A4A;
-  color: #083F46;
-  font-size: 26px;
-  letter-spacing: -1px;
-  outline: 0;
-  padding-top: 20px;
-  text-align: left;
-  width: 400px;
-}
-.new-location #location_location {
-  background-color: transparent;
-  border: 0;
-  border-bottom: 1px solid #4A4A4A;
-  color: #083F46;
-  font-size: 26px;
-  letter-spacing: -1px;
-  outline: 0;
-  padding-top: 20px;
-  text-align: left;
-  width: 400px;
-}
-
-.new-location #location_description {
-  background-color: transparent;
-  border: 0;
-  border-bottom: 1px solid #4A4A4A;
-  color: #083F46;
-  font-size: 26px;
-  letter-spacing: -1px;
-  outline: 0;
-  padding-top: 20px;
-  text-align: left;
-  width: 400px;
-}
+.new-location #location_name,
+.new-location #location_location,
+.new-location #location_description,
 .new-location #location_price {
   background-color: transparent;
   border: 0;
+  padding-top: 10px;
   border-bottom: 1px solid #4A4A4A;
   color: #083F46;
   font-size: 26px;
-  letter-spacing: -1px;
   outline: 0;
-  padding-top: 20px;
   text-align: left;
-  width: 400px;
+  width: 100%;
 }
 
 .new-location .button {
-  text-align: center;
   padding: 20px 20px;
 }
 
 .new-location .button input {
+  border-radius: 50px;
+  border: 1px solid black;
+  background-color: white;
+  font-size: 15px;
+  color: black;
+  padding: 20px 20px 20px 20px;
+}
+.trail-button {
+  margin-top: 50px;
+}
+.trail-button a {
+  padding-top: 30px;
+  border: 1px solid black;
   border-radius: 50px;
   background-color: white;
   font-size: 15px;
@@ -134,8 +50,8 @@ label {
 }
 
 #map {
-  height: 400px;
-  width: 400px;
+  height: 415px;
+  width: 90%;
 }
 
 .controls {
@@ -164,10 +80,6 @@ label {
   border-color: #4d90fe;
 }
 
-.pac-container {
-  font-family: Roboto;
-}
-
 #type-selector {
   color: #fff;
   background-color: #4d90fe;
@@ -179,21 +91,16 @@ label {
   font-size: 13px;
   font-weight: 300;
 }
+
 #target {
   width: 345px;
 }
 
-
-.next-page {
-  width: 100%;
+.locations {
+  display: block;
+  margin-top: 150px;
 }
 
-.next-page a {
-  padding: 20px;
-  border-radius: 50px;
-  border: solid 1px;
-  background-color: white;
-  color: black;
-  font-size: 15px;
-  text-decoration: none;
+.locations ul {
+  text-align: center;
 }
