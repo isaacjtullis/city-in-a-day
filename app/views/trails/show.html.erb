@@ -8,7 +8,7 @@
       <h4><%= @trail.name %></h4>
       <h4><%= @trail.mood %></h4>
     </div>
-    <div class="trail-info col-md-12 col-xs-12">
+    <div class="trail-info col-md-6 col-xs-6">
       <% @locations.each_with_index do |location, index| %>
         <ul>
           <%= "#{index + 1}. #{location.name}" %>
