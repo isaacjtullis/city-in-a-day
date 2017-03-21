@@ -39,11 +39,11 @@ var newLocationCreator = function(nameAttributes, locationAttributes, descriptio
       $("input[value='Making new location']:first-child").removeAttr('disabled').attr('value', 'Add New Location');
     },
     append: function() {
-      $('.locations').append('<ul>' + this.name + '</ul>');
-      $('.locations').append('<ul>' + this.location + '</ul>');
-      $('.locations').append('<ul>' + this.description + '</ul>');
-      $('.locations').append('<ul>' + this.price + '</ul>');
-      $('.locations').append('<ul>' + '<hr>' + '</ul>')
+      $('.locations .col-md-12 .col-xs-12').append('<ul>' + this.name + '</ul>');
+      $('.locations .col-md-12 .col-xs-12').append('<ul>' + this.location + '</ul>');
+      $('.locations .col-md-12 .col-xs-12').append('<ul>' + this.description + '</ul>');
+      $('.locations .col-md-12 .col-xs-12').append('<ul>' + this.price + '</ul>');
+      $('.locations .col-md-12 .col-xs-12').append('<ul>' + '<hr>' + '</ul>')
     }
   }
 };

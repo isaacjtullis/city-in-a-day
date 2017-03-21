@@ -1,3 +1,6 @@
+.locations {
+  margin-top: 150px;
+}
 div.input.string.optional.location_location,
 div.input.string.optional.location_description,
 div.input.string.optional.location_price {
@@ -96,11 +99,8 @@ label {
   width: 345px;
 }
 
-.locations {
-  display: block;
-  margin-top: 150px;
-}
-
-.locations ul {
-  text-align: center;
+@media screen and (max-width: 991px) {
+  #location-form {
+    margin-top: 70px;
+  }
 }
