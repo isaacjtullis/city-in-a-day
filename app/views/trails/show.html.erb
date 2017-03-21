@@ -1,42 +1,38 @@
-<div class="trail-container">
-  <div class="trail-image">
-    <%= image_tag @trail.trail_photo %>
-  </div>
-
-  <div class="main-content">
-
-    <div class="trail-header">
-      Created By: <%= link_to"#{@user.first_name} #{@user.last_name}", profile_path(@user.id) %><br/>
-      <%= @trail.name %><br/>
-      <%= @trail.mood %>
+<div class="container-fluid">
+  <div class="trail-container">
+    <div class="trail-image col-md-4 col-xs-4">
+      <%= image_tag @trail.trail_photo %>
     </div>
-
-    <div id="location-information">
+    <div class="trail-user-info col-md-8 col-xs-8">
+      <h3>Created By: <%= link_to"#{@user.first_name} #{@user.last_name}", profile_path(@user.id) %></h3>
+      <h4><%= @trail.name %></h4>
+      <h4><%= @trail.mood %></h4>
+    </div>
+    <div class="trail-info col-md-12 col-xs-12">
       <% @locations.each_with_index do |location, index| %>
-      <ul>
-        <%= "#{index + 1}. #{location.name}" %>
-        <%= "#{location.location}" %>
-        <%= "#{location.description}" %>
-        <%= "#{location.price}" %>
-        <% if !current_user.nil? && current_user.id == @trail.user_id %>
-        <%= link_to "Edit Location", edit_trail_location_path(location) %>
-        <%= link_to "Delete Location", trail_location_path(location), method: :delete, data: {confirm: "Are you sure you want to delete this question?" } %>
-        <% end %>
-      </ul>
+        <ul>
+          <%= "#{index + 1}. #{location.name}" %>
+          <%= "#{location.location}" %>
+          <%= "#{location.description}" %>
+          <%= "#{location.price}" %>
+            <% if !current_user.nil? && current_user.id == @trail.user_id %>
+              <%= link_to "Edit Location", edit_trail_location_path(location) %>
+              <%= link_to "Delete Location", trail_location_path(location), method: :delete, data: {confirm: "Are you sure you want to delete this question?" } %>
+            <% end %>
+        </ul>
       <% end %>
     </div>
-  </div>
-
-
-
-  <div class="line-separator"></div>
-
-  <div class="comment-container">
-    <%= render 'comment_form' %>
+    <div class="comment-container col-md-12 col-xs-12">
+      <%= render 'comment_form' %>
       <% if !@comments.nil? %>
-        <% @comments.each do |comment| %>
+      <% @comments.each do |comment| %>
+      <div class="col-md-12">
+        <div class="col-md-4">
           <%= comment.description %>
-        <% end %>
+        </div>
+      </div>
       <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

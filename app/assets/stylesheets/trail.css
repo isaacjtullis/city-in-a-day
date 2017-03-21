@@ -1,40 +1,27 @@
 .trail-container {
-  margin-top: 100px;
-  color: black;
-  display: inline-block;
+  margin-top: 150px;
+}
+
+.trail-container .col-md-8 h4,
+.trail-container .col-md-8 h3,
+.trail-container .col-xs-8 h4
+.trail-container .col-md-8 h3 {
+  margin: 0px;
+}
+
+.trail-image img {
+  margin: 0px;
+  height: 200px;
+  min-width: 100%;
 }
 
 .trail-image {
-  width: 25%;
-  display: inline-block;
-  margin-left: 100px;
-}
-.trail-image img {
-  margin: 0px;
-  height: 80%;
-  width: 100%;
-}
-
-.main-content {
-  vertical-align: top;
-  display: inline-block;
-  width: 50%;
-  background-color: #f0f8ff;
-}
-
-.trail-header {
-  text-align: center;
-}
-
-.line-separator {
-  height:1px;
-  background: gray;
-  border-bottom: 0.5px solid gray;
-  margin-top: 40px;
+  max-width: auto;
+  height: 200px;
 }
 
 .comment-container {
-  display: block;
-  margin-left: 50px;
+  border-top: 0.5px solid gray;
+  margin-top: 20px;
   float: left;
 }
