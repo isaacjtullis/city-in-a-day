@@ -1,7 +1,7 @@
 html {
   margin-bottom: 0px;
+  background-color: #f9f9f9;
 }
-
 .home .cover-photo {
   margin-top: 30px;
   background-image: url('new-york.png');
@@ -17,7 +17,6 @@ html {
   color: #121212;
   border: 1px;
   border-radius: 40px;
-  font-family: Gotham SSm, sans-serif;
   font-size: 20px;
   letter-spacing: .5em;
   line-height: 1em;
@@ -26,24 +25,86 @@ html {
 }
 
 .home .featured-trails {
-  margin-top: 100px;
+  margin: 200px 0 100px 0;
 }
 
 .home .featured-trails p {
-  font-family: sans-serif;
   font-size: 1.5em;
   letter-spacing: .5em;
   line-height: 1em;
 }
 
-.home .trail-description img {
-  max-width: 100%;
-  height: 250px;
+.home .trail-container {
+  margin: 0 10%;
 }
 
 .home .trail-description {
+  padding: 0% 5% 1% 5%;;
+
+}
+.home .post {
+  background-color: #ffffff;
+  border-color: #edeeee;
+  border-style: solid;
+  border-radius: 9px;
+  border-width: 1px;
+  margin-bottom: 40px;
+  padding: 25px 0 25px 0;
+}
+
+.home .post-close input {
+  background-color: white;
+  border: none;
+}
+
+.home .post-close input:active {
+  background-color: #DDDDDD;
+  box-shadow: 0 3px 0 #DDDDDD;
+  top: 3px;
+}
+
+.home .post-close input:hover {
+  background-color: #DDDDDD;
+  border-radius: 5px;
+}
+
+.home .image img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.home .form {
+  background-color: white;
+  margin-top: 100px;
+  padding: 100px 0;
+}
+
+.home .form h1 {
+  width: 35%;
+  margin: auto;
+  background-color: black;
+  padding: 0.86363%;
+  text-align: center;
+}
+
+#bootstrap-overrides .home .form h1 a {
+  text-transform: uppercase;
+  color: white;
+}
+
+.home .about-us {
+  margin-top: 50px;
+}
+
+/*
+
+#bootstrap-overrides .home .trail-description {
   height: 250px;
   max-width: auto;
+}
+
+#bootstrap-overrides .home .col-md-12.form a {
+  color: white;
 }
 
 .home .form {
@@ -53,22 +114,18 @@ html {
 }
 
 .home .form h1 {
-  margin: auto;
   width: 35%;
+  margin: auto;
   background-color: black;
-  text-align: center;
-  font-family: "Raleway";
-  font-style: normal;
   padding: 0.86363%;
 }
 
 .home .form h1 a {
-  color: white;
   font-size: 15px;
   text-transform: uppercase;
-  letter-spacing: .4px;
 }
 
 .home .about-us {
   margin: 60px 20px;
 }
+*/

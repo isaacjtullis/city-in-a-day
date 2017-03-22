@@ -9,12 +9,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
   <body id="bootstrap-overrides">
-    <div class="navbar navbar-default navbar-fixed-top">
-      <nav class="container">
+      <div class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-header">
           <div class="navbar-brand">
             <%= link_to "CITY IN A DAY", root_path %>
@@ -30,16 +28,15 @@
           <li><%= link_to 'About Us', '#about-us' %></li>
           <li><%= link_to 'FAQ', '#' %></li>
           <% if user_signed_in? %>
-            <li><%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user)%></li>
-            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user)%></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to 'Sign In', new_user_session_path %></li>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <% end %>
         </ul>
-      </nav>
     </div>
-
+    <%= yield %>
     <% flash.each do |type, message| %>
       <span class="error_msgs">
         <div data-alert class="alert-box <%= type %>">
@@ -47,6 +44,5 @@
         </div>
       </span>
     <% end %>
-    <%= yield %>
   </body>
 </html>

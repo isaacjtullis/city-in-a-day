@@ -13,61 +13,30 @@
  *= require_tree .
  *= require_self
  */
- body {
-   font-size: 62.5%;
-   height: 100%;
-   width: 100%;
- }
+
+body#bootstrap-overrides {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body#bootstrap-overrides a {
+  color: black;
+}
+
+body {
+ font-size: 62.5%;
+ height: 100%;
+ width: 100%;
+ padding-bottom: 70px;
+}
 
 .navbar {
-  z-index: 1;
-  background-color: white;
   box-shadow: 0 .5px .03px;
-  font-family: helvetica, sans-serif;
   line-height: 2em;
   padding: 1.5625%;
 }
 
-.container a {
-  font-family: helvetica, sans-serif;
-  font-size: 1em;
-}
-
-.navbar ul {
-  /*
-  width: 100%;
-  list-style: none;
-  */
-}
-
-.navbar ul li {
-
-}
-
-.navbar ul li a {
-  /*
-  display: inline-block;
-  margin-left: 20px;
-  font-family: helvetica, sans-serif;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 3px;
-  line-height: 2em;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 14px;
-  line-height: 70px;
-  color: #42464c;
-  */
-}
-
-#logo a {
-  font-size: 20px;
-  display: inline-block;
-}
-
-#user-authentication a {
-  display: inline-block;
+.navbar-brand a {
+  font-size: 30px;
 }
 
 .alert-box {
@@ -77,17 +46,3 @@
   background-color: #A2E3C4;
   border-radius: 2px;
 }
-.footer {
-  background-color: black;
-}
-
-/*
-<div class="footer navbar-inverse">
-  <div class="container">
-    <div class="row">
-      <li>Post</li>
-      <li>Post</li>
-    </div>
-  </div>
-</div>
-*/
