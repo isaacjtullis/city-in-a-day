@@ -1,7 +1,3 @@
-html {
-  margin-bottom: 0px;
-  background-color: #f9f9f9;
-}
 .home .cover-photo {
   margin-top: 30px;
   background-image: url('new-york.png');
@@ -39,9 +35,9 @@ html {
 }
 
 .home .trail-description {
-  padding: 0% 5% 1% 5%;;
-
+  padding: 0% 5% 1% 5%;
 }
+
 .home .post {
   background-color: #ffffff;
   border-color: #edeeee;
@@ -60,7 +56,10 @@ html {
 .home .post-close input:active {
   background-color: #DDDDDD;
   box-shadow: 0 3px 0 #DDDDDD;
-  top: 3px;
+  outline: none;
+}
+input:focus {
+  outline: none;
 }
 
 .home .post-close input:hover {
