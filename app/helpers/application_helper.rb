@@ -1,11 +1,9 @@
 module ApplicationHelper
   def user_avatar(user)
-    binding.pry
     if !user.empty?
       image_tag user.to_s
     else
       # Assuming you have a default.jpg in your assets folder
-      binding.pry
       image_tag user.default_url
     end
   end

@@ -1,6 +1,8 @@
 import 'babel-polyfill';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import LocationList from './LocationList.js';
+/*
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
 const SortableItem = SortableElement(({value}) =>
@@ -16,12 +18,12 @@ const SortableList = SortableContainer(({items}) => {
     </ul>
   );
 });
-
+*/
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      items: ['Item 1', 'Item 2', 'Item 3']
+      items: [name: 'Item 1', name: 'Item 2', name: 'Item 3']
     };
     this.onSortEnd = this.onSortEnd.bind(this);
   }
@@ -31,8 +33,13 @@ class App extends Component {
     });
   };
   render(){
-    return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />;
+    return (
+      <div>
+        <LocationList />
+      </div>
+    );
   }
 }
 
+//return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />;
 export default App;
