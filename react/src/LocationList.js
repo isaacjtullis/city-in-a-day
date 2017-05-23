@@ -2,30 +2,19 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
-/*
-const SortableItem = SortableElement(({value}) =>
-  <li>{value}</li>
-);
 
-const SortableList = SortableContainer(({locations}) => {
-  if(locations.length > 0) {
-    return (
-      <ul>
-        {locations.map((value, index) => (
-          <SortableItem key={`location-${index}`} index={index} value={value} />
-        ))}
-      </ul>
-    );
-  } else {
-    return (
-      <div>
-        Hi
-      </div>
-    )
-  }
+const SortableItem = SortableElement((props) => {
+  return(
+    <div>
+      <li>{props.name}</li>
+      <li>{props.location}</li>
+      <li>{props.description}</li>
+      <li>{props.price}</li>
+      <li>{props.order}</li>
+    </div>
+  )
 });
-*/
-/*
+
 $(function() {
   $("#stop-location-form").submit(function(event){
     event.preventDefault();
@@ -33,8 +22,27 @@ $(function() {
     var locationCreator = newLocationCreator(locationForm.attributes().name, locationForm.attributes().location, locationForm.attributes().description, locationForm.attributes().price, locationForm.attributes().trail_id, "div#location-information");
     locationCreator.create();
   });
+})
+
+const SortableList = SortableContainer(locations => {
+  return (
+    <ul>
+      {locations.locations.map((value, index) => (
+        <SortableItem
+          key={`location-${index}`}
+          index={index}
+          name={value.name}
+          location={value.location}
+          description={value.description}
+          price={value.price}
+          order={value.order}
+        />
+        ))
+      }
+    </ul>
+  );
 });
-*/
+
 class LocationList extends React.Component {
   constructor(props){
     super(props)
@@ -43,7 +51,8 @@ class LocationList extends React.Component {
       name: '',
       location: '',
       description: '',
-      price: ''
+      price: '',
+      order: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.makeLocation = this.makeLocation.bind(this);
@@ -58,25 +67,30 @@ class LocationList extends React.Component {
     e.preventDefault();
     if(this.state.name !== '' && this.state.location !== '' && this.state.description !== '' && this.state.price !== '') {
       const res = window.location.pathname.match(/^\/trails\/(\d+)/);
-      const name = this.state.name
-      const location = this.state.location
-      const description = this.state.description
-      const price = this.state.price
+      const name = this.state.name;
+      const location = this.state.location;
+      const description = this.state.description;
+      const price = this.state.price;
       const trail_id = res[1];
+      const order = this.state.completeLocation.length;
       const locationDetails = {
         location: location,
         description: description,
         name: name,
         price: price,
-        trail_id: trail_id
-      }
-      debugger;
+        trail_id: trail_id,
+        order: order
+      };
+
+      //let data = { location: locationDetails };
+      //let jsonStringData = JSON.stringify(data);
 
       var request = $.ajax({
         method: "POST",
         url: '/api/v1/locations',
         data: { location: locationDetails }
       });
+
       //var request = new Request(url
       //{ Data: Data, body: body})
       this.setState({
@@ -85,6 +99,7 @@ class LocationList extends React.Component {
         location: '',
         description: '',
         price: '',
+        order: ''
       })
     } else {
       return <div>There is an error with your form</div>
@@ -94,6 +109,21 @@ class LocationList extends React.Component {
   }
 
   onSortEnd({oldIndex, newIndex}) {
+    debugger;
+    const res = window.location.pathname.match(/^\/trails\/(\d+)/);
+    const updateOrder = {
+      oIndex: oldIndex,
+      nIndex: newIndex,
+      trail_id: res[1]
+    }
+    const num = oldIndex;
+
+    var requestData = {
+      method: "PATCH",
+      url: `/api/v1/locations/${num}`,
+      data: { location: updateOrder }
+    }
+    let request = $.ajax(requestData)
     this.setState({
       completeLocation: arrayMove(this.state.completeLocation, oldIndex, newIndex),
     });
@@ -143,24 +173,11 @@ class LocationList extends React.Component {
   }
 
   render() {
-    const locations = this.state.completeLocation;
-    console.log(this.state.completeLocation)
     return (
       <div>
         <div className="row react-locations">
           {this.printLocationForm()}
-          {
-            locations.map(location =>{
-              return(
-                <div className="row col-md-4 col-md-offset-2">
-                  <h1>{location.name}</h1>
-                  <h1>{location.location}</h1>
-                  <h1>{location.description}</h1>
-                  <h1>{location.price}</h1>
-                </div>
-              );
-            })
-          }
+          <SortableList key={0} locations={this.state.completeLocation} onSortEnd={this.onSortEnd} />
         </div>
         <div className="row col-md-4">
         </div>
