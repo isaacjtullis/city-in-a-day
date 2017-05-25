@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import { sortBy } from 'lodash';
 
 const SortableItem = SortableElement((props) => {
   return(
@@ -63,6 +64,26 @@ class LocationList extends React.Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
+  componentDidMount() {
+    const res = window.location.pathname.match(/^\/trails\/(\d+)/);
+
+    let request = $.ajax({
+      method: "GET",
+      data: { location: res[1] },
+      url: `/api/v1/locations`
+    });
+
+    request.done((data) => {
+      let sortedData = sortBy(data, (info) => {
+        return info.order;
+      });
+      if(sortedData.length !== 0) {
+        sortedData.map((info)=>{
+          this.setState({ completeLocation: [...this.state.completeLocation, info] })
+        })
+      }
+    })
+  }
   makeLocation(e){
     e.preventDefault();
     if(this.state.name !== '' && this.state.location !== '' && this.state.description !== '' && this.state.price !== '') {
@@ -109,7 +130,6 @@ class LocationList extends React.Component {
   }
 
   onSortEnd({oldIndex, newIndex}) {
-    debugger;
     const res = window.location.pathname.match(/^\/trails\/(\d+)/);
     const updateOrder = {
       oIndex: oldIndex,
