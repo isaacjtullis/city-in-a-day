@@ -1,8 +1,7 @@
 .home .cover-photo {
-  margin-top: 30px;
   background-image: url('new-york.png');
   background-size: cover;
-  height: 500px;
+  height: 75vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,6 +93,31 @@ input:focus {
 .home .about-us {
   margin-top: 50px;
 }
+
+.mood-box {
+  background-color: #F5F5F5;
+  height: 700px;
+}
+
+.mood-selector .arrange-unit {
+  height: 100px;
+  background-color: #FFFFFF;
+  border: 1px solid #e6e6e6;
+  box-shadow: 1px;
+  border-radius: 4px;
+    vertical-align: middle;
+}
+.mood-selector img {
+  margin-top: 0px;
+  height: 72px;
+  width: 72px;
+  padding-top: 15px;
+}
+/*.mood-selector span {
+  height: 50px;
+  background-image: url('http://previews.123rf.com/images/grgroup/grgroup1701/grgroup170102386/69738997-Skydiving-extreme-sport-icon-vector-illustration-graphic-design-Stock-Vector.jpg');
+  background-size: contain;
+}*/
 
 /*
 

@@ -22,21 +22,30 @@ body#bootstrap-overrides a {
   color: black;
 }
 
-body {
+/*body {
  font-size: 62.5%;
  height: 100%;
  width: 100%;
  padding-bottom: 70px;
-}
+}*/
 
+nav.navbar {
+  background: transparent;
+  border: none;
+}
 .navbar {
   box-shadow: 0 .5px .03px;
   line-height: 2em;
   padding: 1.5625%;
+  box-shadow: 0 0 0 0;
+}
+nav.navbar.navbar-default {
+  box-shadow: 0 0 0 0;
+  -webkit-box-shadow: 0 0 0 0;
 }
 
 .navbar-brand a {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .alert-box {

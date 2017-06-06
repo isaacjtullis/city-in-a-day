@@ -151,8 +151,9 @@ class LocationList extends React.Component {
 
   printLocationForm() {
     return (
+      <div id="location-form">
+      <div className="new-location">
       <div className="col-md-4">
-        <label>Name of Location</label>
         <input
           type="text"
           name="name"
@@ -160,17 +161,14 @@ class LocationList extends React.Component {
           placeholder="Name of Location"
           onChange={this.handleChange}
         />
-
-        <label>Where was it?</label>
         <input
+          id="location_location"
           type="text"
           name="location"
           value={this.state.location}
           placeholder="Where was it?"
           onChange={this.handleChange}
         />
-
-        <label>Lil bit of info</label>
         <input
           type="text"
           name="description"
@@ -178,8 +176,6 @@ class LocationList extends React.Component {
           placeholder="Tell us a little bit about it"
           onChange={this.handleChange}
         />
-
-        <label>What was the PRICE?</label>
         <input
           type="text"
           name="price"
@@ -188,6 +184,8 @@ class LocationList extends React.Component {
           onChange={this.handleChange}
         />
         <button type="submit" className="btn btn-default" onClick={this.makeLocation}>Submit</button>
+      </div>
+      </div>
       </div>
     );
   }

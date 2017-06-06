@@ -12,19 +12,21 @@ label {
   font-size: 26px;
 }
 
-.new-location #location_name,
-.new-location #location_location,
-.new-location #location_description,
-.new-location #location_price {
+.new-location {
   background-color: transparent;
   border: 0;
   padding-top: 10px;
-  border-bottom: 1px solid #4A4A4A;
   color: #083F46;
   font-size: 26px;
   outline: 0;
   text-align: left;
   width: 100%;
+}
+
+.new-location input {
+  margin-top: 20px;
+  border: none;
+  border-bottom: 1px solid #4A4A4A;
 }
 
 .new-location .button {

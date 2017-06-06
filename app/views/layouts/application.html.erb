@@ -12,30 +12,30 @@
   </head>
 
   <body id="bootstrap-overrides">
-      <div class="navbar navbar-default navbar-fixed-top">
-        <div class="navbar-header">
-          <div class="navbar-brand">
-            <%= link_to "CITY IN A DAY", root_path %>
-          </div>
-          <button type="button" class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
-            <span class='sr-only'>Toggle Navigation</span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-          </button>
+    <nav class="navbar navbar-default navbar-fixed-top scrolling-navbar navbar-dark bg-primary">
+      <div class="navbar-header">
+        <div class="navbar-brand">
+          <%= link_to "CITY IN A DAY", root_path %>
         </div>
-        <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
-          <li><%= link_to 'About Us', '#about-us' %></li>
-          <li><%= link_to 'FAQ', '#' %></li>
-          <% if user_signed_in? %>
-          <li><%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user)%></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <% else %>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <% end %>
-        </ul>
-    </div>
+        <button type="button" class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
+          <span class='sr-only'>Toggle Navigation</span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+      </div>
+      <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
+        <li><%= link_to 'About Us', '#about-us' %></li>
+        <li><%= link_to 'FAQ', '#' %></li>
+        <% if user_signed_in? %>
+        <li><%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user)%></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </nav>
     <%= yield %>
     <% flash.each do |type, message| %>
       <span class="error_msgs">
