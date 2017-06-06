@@ -6,6 +6,9 @@
     <div class="trail-user-info col-md-8 col-xs-8">
       <h3>Created By: <%= link_to"#{@user.first_name} #{@user.last_name}", profile_path(@user.id) %></h3>
       <h4><%= @trail.name %></h4>
+        <% if !current_user.nil? && current_user.id == @trail.user_id %>
+          <%= link_to "Edit Trail", edit_trail_path(@trail) %>
+        <% end %>
       <h4><%= @trail.mood %></h4>
     </div>
     <div class="trail-info col-md-6 col-xs-6">
@@ -22,7 +25,7 @@
         </ul>
       <% end %>
     </div>
-    
+
     <div class="comment-container col-md-12 col-xs-12">
       <%= render 'comment_form' %>
       <% if !@comments.nil? %>

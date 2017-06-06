@@ -41,6 +41,9 @@ class TrailsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   private
 
   def trail_params
