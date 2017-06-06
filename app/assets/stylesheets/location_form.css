@@ -99,6 +99,19 @@ label {
   width: 345px;
 }
 
+.locations-container {
+
+}
+.complete-location {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #4A4A4A;
+  border-radius: 4px;
+}
+.complete-location li {
+  list-style: none;
+  padding: 5px 10px;
+}
 @media screen and (max-width: 991px) {
   #location-form {
     margin-top: 70px;

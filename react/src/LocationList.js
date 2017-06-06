@@ -6,12 +6,14 @@ import { sortBy } from 'lodash';
 
 const SortableItem = SortableElement((props) => {
   return(
-    <div>
-      <li>{props.name}</li>
-      <li>{props.location}</li>
-      <li>{props.description}</li>
-      <li>{props.price}</li>
-      <li>{props.order}</li>
+    <div className="locations-container col-md-12">
+      <div className="complete-location col-md-offset-6 col-md-4">
+        <li>{props.name}</li>
+        <li>{props.location}</li>
+        <li>{props.description}</li>
+        <li>{props.price}</li>
+        <li>{props.order}</li>
+      </div>
     </div>
   )
 });
@@ -152,40 +154,40 @@ class LocationList extends React.Component {
   printLocationForm() {
     return (
       <div id="location-form">
-      <div className="new-location">
-      <div className="col-md-4">
-        <input
-          type="text"
-          name="name"
-          value={this.state.name}
-          placeholder="Name of Location"
-          onChange={this.handleChange}
-        />
-        <input
-          id="location_location"
-          type="text"
-          name="location"
-          value={this.state.location}
-          placeholder="Where was it?"
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="description"
-          value={this.state.description}
-          placeholder="Tell us a little bit about it"
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="price"
-          value={this.state.price}
-          placeholder="What was the price?"
-          onChange={this.handleChange}
-        />
-        <button type="submit" className="btn btn-default" onClick={this.makeLocation}>Submit</button>
-      </div>
-      </div>
+        <div className="new-location">
+          <div className="col-md-4">
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              placeholder="Name of Location"
+              onChange={this.handleChange}
+            />
+            <input
+              id="location_location"
+              type="text"
+              name="location"
+              value={this.state.location}
+              placeholder="Where was it?"
+              onChange={this.handleChange}
+            />
+            <input
+              type="text"
+              name="description"
+              value={this.state.description}
+              placeholder="Tell us a little bit about it"
+              onChange={this.handleChange}
+            />
+            <input
+              type="text"
+              name="price"
+              value={this.state.price}
+              placeholder="What was the price?"
+              onChange={this.handleChange}
+            />
+            <button type="submit" className="btn btn-default" onClick={this.makeLocation}>Submit</button>
+          </div>
+        </div>
       </div>
     );
   }
@@ -196,8 +198,6 @@ class LocationList extends React.Component {
         <div className="row react-locations">
           {this.printLocationForm()}
           <SortableList key={0} locations={this.state.completeLocation} onSortEnd={this.onSortEnd} />
-        </div>
-        <div className="row col-md-4">
         </div>
       </div>
     );
