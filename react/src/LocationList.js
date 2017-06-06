@@ -6,8 +6,8 @@ import { sortBy } from 'lodash';
 
 const SortableItem = SortableElement((props) => {
   return(
-    <div className="locations-container col-md-12">
-      <div className="complete-location col-md-offset-6 col-md-4">
+    <div className="row display-locations col-md-offset-1">
+      <div className="complete-location col-md-4">
         <li>{props.name}</li>
         <li>{props.location}</li>
         <li>{props.description}</li>
@@ -29,7 +29,7 @@ $(function() {
 
 const SortableList = SortableContainer(locations => {
   return (
-    <ul>
+    <ul className="location-list-items">
       {locations.locations.map((value, index) => (
         <SortableItem
           key={`location-${index}`}
@@ -153,9 +153,9 @@ class LocationList extends React.Component {
 
   printLocationForm() {
     return (
-      <div id="location-form">
+      <div id="location-form container">
         <div className="new-location">
-          <div className="col-md-4">
+          <div className="col-md-5 col-md-offset-1">
             <input
               type="text"
               name="name"
@@ -195,9 +195,9 @@ class LocationList extends React.Component {
   render() {
     return (
       <div>
-        <div className="row react-locations">
-          {this.printLocationForm()}
+        <div className="react-locations">
           <SortableList key={0} locations={this.state.completeLocation} onSortEnd={this.onSortEnd} />
+          {this.printLocationForm()}
         </div>
       </div>
     );

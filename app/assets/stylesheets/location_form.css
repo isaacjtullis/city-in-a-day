@@ -55,7 +55,7 @@ label {
 }
 
 #map {
-  height: 415px;
+  height: 240px;
   width: 90%;
 }
 
@@ -98,20 +98,23 @@ label {
 #target {
   width: 345px;
 }
-
-.locations-container {
-
+.location-list-items {
+  margin-top: 100px;
 }
 .complete-location {
-  margin-top: 10px;
   margin-bottom: 20px;
   border: 1px solid #4A4A4A;
   border-radius: 4px;
+}
+
+ul.location-list-items {
+  padding-left: 15px;
 }
 .complete-location li {
   list-style: none;
   padding: 5px 10px;
 }
+
 @media screen and (max-width: 991px) {
   #location-form {
     margin-top: 70px;
