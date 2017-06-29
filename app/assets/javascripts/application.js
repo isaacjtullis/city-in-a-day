@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
+/*
 $(function() {
   $("#stop-location-form").submit(function(event){
     event.preventDefault();
@@ -22,3 +22,4 @@ $(function() {
     locationCreator.create();
   });
 });
+*/

@@ -9,4 +9,5 @@ class Location < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :trail
   validates_presence_of :price
+  validates_presence_of :order
 end

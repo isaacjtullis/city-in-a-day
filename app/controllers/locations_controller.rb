@@ -2,6 +2,7 @@ class LocationsController < ApplicationController
   def new
     @location = Location.new
     @trail = Trail.find(params[:trail_id])
+    @locations = Location.where(trail_id: @trail.id)
   end
 
   def edit

@@ -9,10 +9,10 @@ var newLocationCreator = function(nameAttributes, locationAttributes, descriptio
     create: function() {
       var locationCreatorObject = this;
       var request = $.ajax({
-      method: "POST",
-      url: '/api/v1/locations',
-      data: { location: { name: locationCreatorObject.name, location: locationCreatorObject.location, description: locationCreatorObject.description, price: locationCreatorObject.price, trail_id: locationCreatorObject.trail_id } }
-    });
+        method: "POST",
+        url: '/api/v1/locations',
+        data: { location: { name: locationCreatorObject.name, location: locationCreatorObject.location, description: locationCreatorObject.description, price: locationCreatorObject.price, trail_id: locationCreatorObject.trail_id } }
+      });
 
       request.done(function() {
         locationCreatorObject.setFlash("notice", "Your location is saved!");
