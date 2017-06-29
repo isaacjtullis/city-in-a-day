@@ -102,8 +102,10 @@ label {
   margin-top: 100px;
 }
 .complete-location {
-  margin-bottom: 20px;
-  border: 1px solid #4A4A4A;
+  background-color: #e5e5e5;
+  margin: 10px 0;
+  /*margin-bottom: 20px;*/
+  /*border: 1px solid #4A4A4A;*/
   border-radius: 4px;
 }
 
@@ -112,7 +114,6 @@ ul.location-list-items {
 }
 .complete-location li {
   list-style: none;
-  padding: 5px 10px;
 }
 
 @media screen and (max-width: 991px) {

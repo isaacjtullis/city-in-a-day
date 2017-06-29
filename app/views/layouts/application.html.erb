@@ -38,10 +38,10 @@
     </nav>
     <%= yield %>
     <% flash.each do |type, message| %>
-      <span class="error_msgs">
-        <div data-alert class="alert-box <%= type %>">
-          <%= message %>
-        </div>
+      <span class="error_msgs alert-box">
+        <!-- <div data-alert class="alert-box"> -->
+          <p><%= message %></p>
+        <!-- </div> -->
       </span>
     <% end %>
   </body>
