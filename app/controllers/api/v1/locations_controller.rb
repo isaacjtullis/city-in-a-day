@@ -23,6 +23,7 @@ class Api::V1::LocationsController < ApplicationController
     oldIndex = params[:location][:oIndex]
     newIndex = params[:location][:nIndex]
     trail_id = params[:location][:trail_id]
+    @trail = Trail.where(trail_id: trail_id)
     locations = Location.where(trail_id: trail_id)
     if newIndex != oldIndex && oldIndex > newIndex
       nIndex = newIndex.to_i

@@ -87,6 +87,7 @@ class LocationList extends React.Component {
     })
   }
   makeLocation(e){
+    console.log('making location');
     e.preventDefault();
     if(this.state.name !== '' && this.state.location !== '' && this.state.description !== '' && this.state.price !== '') {
       const res = window.location.pathname.match(/^\/trails\/(\d+)/);

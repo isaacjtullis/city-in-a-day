@@ -21,7 +21,8 @@ class TrailsController < ApplicationController
     @trail = Trail.find(params[:id])
     @user = User.find(@trail.user_id)
     @location = Location.new
-    @locations = Location.where(trail_id: @trail.id)
+    locations = Location.where(trail_id: @trail.id)
+    @locations = locations.sort { |x, y| x.order <=> y.order }
     @comment = Comment.new
     @comments = Comment.where(trail_id: @trail.id)
   end
@@ -42,6 +43,30 @@ class TrailsController < ApplicationController
   end
 
   def edit
+    @trail = Trail.find(params[:id])
+    flash[:notice] = "You cannot modify an account that is not yours" if current_user.id != @trail.user_id
+  end
+
+  def update
+    @trail = Trail.find(params[:id])
+    if @trail.update(trail_params)
+      flash[:notice] = 'You have successfully modified your profile'
+      redirect_to trail_path(@trail)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    trail = Trail.find(params[:id])
+    if trail.user_id != current_user.id
+      flash[:notice] = "You cannot delete a location you did not make!"
+      redirect_to trail
+    else
+      location.destroy
+      flash[:notice] = "Location deleted!"
+      redirect_to trail
+    end
   end
 
   private

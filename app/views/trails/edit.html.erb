@@ -1,5 +1,16 @@
-<div id="stop-location-form">
-  <div id="app">
+<link rel="stylesheet" href="new_form" />
+<div class="container">
+  <div class="col-md-12 col-xs-12 text-center">
+    <div class="new-trail">
+      <%= simple_form_for(@trail, url: trail_path(@trail)) do |f| %>
+        <%= f.input :name, required: false %>
+        <%= f.input :mood, collection: Trail::MOOD, required: false %>
+        <div class="photo-button"><%= f.input :trail_photo, type: :file, label: 'Add Photo' %></div>
+        <%= f.submit 'Edit Trail' %>
+      <% end %>
+    </div>
   </div>
-  <%= render 'form' %>
 </div>
+
+
+<%= link_to 'Add Locations', new_trail_location_path(@trail.id) %>
