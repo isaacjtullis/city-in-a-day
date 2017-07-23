@@ -9,6 +9,7 @@
         <% if !current_user.nil? && current_user.id == @trail.user_id %>
           <%= link_to "Edit Trail", edit_trail_path(@trail.id) %>
           <%= link_to 'Delete Trail', trail_path(@trail), method: :delete, data: {confirm: 'are you sure you want to delete this trail?'} %>
+          <%= link_to 'Edit All Locations', new_trail_location_path(@trail.id) %>
         <% end %>
       <h4><%= @trail.mood %></h4>
     </div>
