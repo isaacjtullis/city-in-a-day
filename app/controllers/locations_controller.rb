@@ -17,6 +17,7 @@ class LocationsController < ApplicationController
   def update
     @location = Location.find(params[:id])
     @trail = Trail.find(@location.trail_id)
+    #comment
     if @location.update(location_params)
       flash[:notice] = 'Congrats! Location edited'
       redirect_to @trail
