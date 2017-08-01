@@ -106,17 +106,12 @@ class LocationList extends React.Component {
         order: order
       };
 
-      //let data = { location: locationDetails };
-      //let jsonStringData = JSON.stringify(data);
-
       var request = $.ajax({
         method: "POST",
         url: '/api/v1/locations',
         data: { location: locationDetails }
       });
 
-      //var request = new Request(url
-      //{ Data: Data, body: body})
       this.setState({
         completeLocation: [...this.state.completeLocation, locationDetails],
         name: '',
@@ -127,8 +122,6 @@ class LocationList extends React.Component {
       })
     } else {
       return <div>There is an error with your form</div>
-      //Error message Ajax call inside of a promise and handle the Error
-      //In the catch
     }
   }
 
