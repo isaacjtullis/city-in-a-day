@@ -4,7 +4,7 @@
       <div id='text'>
         Where to Next?
       </div>
-    </div>      
+    </div>
     <div class="col-md-12 text-center">
       <div class="featured-trails">
         <p>FEATURED TRAILS</p>
@@ -14,7 +14,7 @@
     <div class="trail-container center-block">
       <% if !@all_trails.nil? %>
         <% @all_trails.each do |trail| %>
-          <div class="trail-description col-md-6 text-center">
+          <div class="trail-description col-md-4 text-center">
             <div class="post">
               <div class="image">
                 <%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
