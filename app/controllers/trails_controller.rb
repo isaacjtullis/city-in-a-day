@@ -63,8 +63,8 @@ class TrailsController < ApplicationController
       flash[:notice] = "You cannot delete a location you did not make!"
       redirect_to trail
     else
-      location.destroy
-      flash[:notice] = "Location deleted!"
+      trail.destroy
+      flash[:notice] = "Trail successfully deleted!"
       redirect_to trail
     end
   end
