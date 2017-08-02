@@ -15,6 +15,7 @@ class TrailsController < ApplicationController
 
   def new
     @trail = Trail.new
+    @user = User.find(current_user)
   end
 
   def show
@@ -34,7 +35,7 @@ class TrailsController < ApplicationController
       flash[:notice] = 'Congrats! You have an adventure name.'
       redirect_to new_trail_location_path(@trail.id)
     elsif current_user.nil?
-      flash[:notice] = 'You must be signed in'
+      flash[:notice] = 'Sign up for an account to start sharing today.'
       render 'index'
     else
       flash[:notice] = 'Opps. We got some problems with that form'

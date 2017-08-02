@@ -13,7 +13,7 @@ feature 'User creates a location for a trail', %Q{
     select('Adventure', :from => 'trail_mood')
     click_button 'Submit'
 
-    expect(page).to have_content('You must be signed in')
+    expect(page).to have_content('Sign up for an account to start sharing today.')
     expect(page).to have_content('Sign In')
   end
   scenario 'User can edit the trail they made' do

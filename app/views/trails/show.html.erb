@@ -4,7 +4,12 @@
       <%= image_tag @trail.trail_photo %>
     </div>
     <div class="trail-user-info col-md-8 col-xs-8">
-      <h3>Created By: <%= link_to"#{@user.first_name} #{@user.last_name}", profile_path(@user.id) %></h3>
+      <%= @user.username %>
+      <% if "#{@user.username}" == '' %>
+        <h3>Created By: <%= link_to"#{@user.first_name} #{@user.last_name}", profile_path(@user.id) %></h3>
+      <% else %>
+        <h3>Created By: <%= link_to"#{@user.username}", profile_path(@user.id) %></h3>
+      <% end %>
       <h4><%= @trail.name %></h4>
         <% if !current_user.nil? && current_user.id == @trail.user_id %>
           <%= link_to "Edit Trail", edit_trail_path(@trail.id) %>

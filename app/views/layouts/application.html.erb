@@ -28,7 +28,7 @@
         <li><%= link_to 'About Us', '#about-us' %></li>
         <li><%= link_to 'FAQ', '#' %></li>
         <% if user_signed_in? %>
-        <li><%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user)%></li>
+        <li><%= link_to "@#{current_user.username}", profile_path(current_user)%></li>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <% else %>
         <li><%= link_to 'Sign In', new_user_session_path %></li>
