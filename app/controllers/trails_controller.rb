@@ -1,4 +1,6 @@
 class TrailsController < ApplicationController
+  before_action :require_login, only: [:new, :create]
+
   def index
     @all_trails = Trail.all
     if params[:search] == ""
@@ -45,5 +47,13 @@ class TrailsController < ApplicationController
 
   def trail_params
     params.require(:trail).permit( :name, :mood, :trail_photo)
+  end
+
+  protected
+  def require_login
+    unless current_user
+      flash[:notice] = "You must be logged in to comment!"
+      redirect_to root_path
+    end
   end
 end

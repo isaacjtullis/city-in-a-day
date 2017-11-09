@@ -7,34 +7,57 @@ const SortableItem = SortableElement(({value}) =>
   <li>{value}</li>
 );
 
-const SortableList = SortableContainer(({locations}) => {
-  if(locations.length > 0) {
-    return (
-      <ul>
-        {locations.map((value, index) => (
-          <SortableItem key={`location-${index}`} index={index} value={value} />
-        ))}
-      </ul>
-    );
-  } else {
-    return (
-      <div>
-        Hi
+const SortableItem = SortableElement((props) => {
+  console.log('hitting sortable item');
+  console.log('--------------');
+  console.log("checking props");
+  console.log(props)
+  console.log('--------------');
+  return(
+    <div className="row display-locations col-md-offset-1">
+      <div className="complete-location col-md-4">
+        <li>{props.name}</li>
+        <li>{props.location}</li>
+        <li>{props.description}</li>
+        <li>{props.price}</li>
+        <li>{props.order}</li>
       </div>
     )
   }
 });
-*/
-/*
-$(function() {
-  $("#stop-location-form").submit(function(event){
-    event.preventDefault();
-    var locationForm = newLocationForm("#stop-location-form");
-    var locationCreator = newLocationCreator(locationForm.attributes().name, locationForm.attributes().location, locationForm.attributes().description, locationForm.attributes().price, locationForm.attributes().trail_id, "div#location-information");
-    locationCreator.create();
-  });
+
+const SortableList = SortableContainer(locations => {
+  console.log('hitting sortable list');
+  console.log('--------------');
+  console.log("checking locations");
+  console.log(locations);
+  console.log('--------------');
+  return (
+    <ul className="location-list-items">
+      {locations.locations.map((value, index) => (
+        <SortableItem
+          key={`location-${index}`}
+          index={index}
+          name={value.name}
+          location={value.location}
+          description={value.description}
+          price={value.price}
+          order={value.order}
+        />
+        ))
+      }
+    </ul>
+  );
 });
-*/
+
+// $(function() {
+//   $("#location-form").submit(function(e){
+//     e.preventDefault();
+//     var locationCreator = LocationList();
+//     locationCreator.create();
+//   });
+// });
+
 class LocationList extends React.Component {
   constructor(props){
     super(props)
@@ -43,34 +66,100 @@ class LocationList extends React.Component {
       name: '',
       location: '',
       description: '',
-      price: ''
+      price: '',
+      order: '',
+      photos: ''
     }
     this.handleChange = this.handleChange.bind(this);
-    this.makeLocation = this.makeLocation.bind(this);
     this.onSortEnd = this.onSortEnd.bind(this);
+    // this.printLocationForm = this.printLocationForm.bind(this);
+    // this.stopLocationForm = this.stopLocationForm.bind(this);
+    this.postForm = this.postForm.bind(this);
   }
 
   handleChange(e){
     this.setState({[e.target.name]: e.target.value});
   }
 
-  makeLocation(e){
-    e.preventDefault();
-    if(this.state.name !== '' && this.state.location !== '' && this.state.description !== '' && this.state.price !== '') {
+  componentDidMount() {
+    const self = this;
+    console.log('component did mount');
+    console.log(this.state.completeLocation);
+    const res = window.location.pathname.match(/^\/trails\/(\d+)/);
+
+    document.querySelector("form#new_location").addEventListener("submit", function(e){
+      e.preventDefault();    //stop form from submitting
+      console.log("I am inside of my event listener for new location submission");
+      self.postForm();
+    });
+
+    let request = $.ajax({
+      method: "GET",
+      data: { location: res[1] },
+      url: `/api/v1/locations`
+    });
+
+    request.done((data) => {
+      // let sortedData = data.map(info =>{
+      //   return info.order;
+      // });
+      let sortedData = sortBy(data, (info) => {
+        console.log('checking data and info');
+        console.log('------');
+        console.log(info);
+        console.log('--------');
+        return info.order;
+      });
+      if(sortedData.length !== 0) {
+        sortedData.map((info)=>{
+          this.setState({ completeLocation: [...this.state.completeLocation, info] })
+        })
+      }
+    })
+  }
+
+  handleEvent() {
+    console.log('testing this');
+  }
+
+  enableForm() {
+    var locationForm = $("form")[0].elements;
+    setTimeout(function(){
+      var btn = document.getElementById("location-creator");
+      btn.removeAttribute('disabled');
+    }, 1000);
+
+    locationForm[2].value = '';
+    locationForm[3].value = '';
+    locationForm[4].value = '';
+    locationForm[5].value = '';
+    locationForm[6].value = '';
+    locationForm[7].value = '';
+  }
+
+  postForm() {
+      console.log('length of complete locations');
+      console.log(this.state.completeLocation.length);
       const res = window.location.pathname.match(/^\/trails\/(\d+)/);
-      const name = this.state.name
-      const location = this.state.location
-      const description = this.state.description
-      const price = this.state.price
-      const trail_id = res[1];
+      var locationForm = $("form")[0].elements;
+      var location = locationForm[2].value;
+      var description = locationForm[3].value;
+      var name = locationForm[4].value;
+      var price = locationForm[5].value;
+      var trailID = res[1];
+      var photos = locationForm[7].value;
+      var order = this.state.completeLocation.length;
+
+      console.log('these are the most recent changes');
       const locationDetails = {
         location: location,
         description: description,
         name: name,
         price: price,
-        trail_id: trail_id
+        trail_id: trailID,
+        photos: photos,
+        order: order
       }
-      debugger;
 
       var request = $.ajax({
         method: "POST",
@@ -85,85 +174,82 @@ class LocationList extends React.Component {
         location: '',
         description: '',
         price: '',
+        photos: ''
       })
-    } else {
-      return <div>There is an error with your form</div>
-      //Error message Ajax call inside of a promise and handle the Error
-      //In the catch
-    }
+      this.enableForm();
   }
+  // makeLocation(e){
+  //   console.log('making location');
+  //   e.preventDefault();
+  //   if(this.state.name !== '' && this.state.location !== '' && this.state.description !== '' && this.state.price !== '') {
+  //     const res = window.location.pathname.match(/^\/trails\/(\d+)/);
+  //     const name = this.state.name;
+  //     const location = this.state.location;
+  //     const description = this.state.description;
+  //     const price = this.state.price;
+  //     const trail_id = res[1];
+  //     const order = this.state.completeLocation.length;
+  //     const photos = this.state.photos;
+  //     const locationDetails = {
+        // location: location,
+        // description: description,
+        // name: name,
+        // price: price,
+        // trail_id: trail_id,
+        // order: order,
+        // photos: photos
+  //     };
+  //
+    //   var request = $.ajax({
+    //     method: "POST",
+    //     url: '/api/v1/locations',
+    //     data: { location: locationDetails }
+    //   });
+    //
+    //   this.setState({
+    //     completeLocation: [...this.state.completeLocation, locationDetails],
+    //     name: '',
+    //     location: '',
+    //     description: '',
+    //     price: '',
+    //     order: '',
+    //     photos: ''
+    //   })
+    // } else {
+    //   return <div>There is an error with your form</div>
+    // }
+  // }
 
   onSortEnd({oldIndex, newIndex}) {
+    console.log('hitting on sort end');
+    console.log('checking old index and new index');
+    console.log(oldIndex, newIndex);
+    console.log('---------');
+    const res = window.location.pathname.match(/^\/trails\/(\d+)/);
+    const updateOrder = {
+      oIndex: oldIndex,
+      nIndex: newIndex,
+      trail_id: res[1]
+    }
+    const num = oldIndex;
+
+    var requestData = {
+      method: "PATCH",
+      url: `/api/v1/locations/${num}`,
+      data: { location: updateOrder }
+    }
+    let request = $.ajax(requestData)
     this.setState({
       completeLocation: arrayMove(this.state.completeLocation, oldIndex, newIndex),
     });
   };
-
-  printLocationForm() {
-    return (
-      <div className="col-md-4">
-        <label>Name of Location</label>
-        <input
-          type="text"
-          name="name"
-          value={this.state.name}
-          placeholder="Name of Location"
-          onChange={this.handleChange}
-        />
-
-        <label>Where was it?</label>
-        <input
-          type="text"
-          name="location"
-          value={this.state.location}
-          placeholder="Where was it?"
-          onChange={this.handleChange}
-        />
-
-        <label>Lil bit of info</label>
-        <input
-          type="text"
-          name="description"
-          value={this.state.description}
-          placeholder="Tell us a little bit about it"
-          onChange={this.handleChange}
-        />
-
-        <label>What was the PRICE?</label>
-        <input
-          type="text"
-          name="price"
-          value={this.state.price}
-          placeholder="What was the price?"
-          onChange={this.handleChange}
-        />
-        <button type="submit" className="btn btn-default" onClick={this.makeLocation}>Submit</button>
-      </div>
-    );
-  }
 
   render() {
     const locations = this.state.completeLocation;
     console.log(this.state.completeLocation)
     return (
       <div>
-        <div className="row react-locations">
-          {this.printLocationForm()}
-          {
-            locations.map(location =>{
-              return(
-                <div className="row col-md-4 col-md-offset-2">
-                  <h1>{location.name}</h1>
-                  <h1>{location.location}</h1>
-                  <h1>{location.description}</h1>
-                  <h1>{location.price}</h1>
-                </div>
-              );
-            })
-          }
-        </div>
-        <div className="row col-md-4">
-        </div>
+        <SortableList key={0} locations={this.state.completeLocation} onSortEnd={this.onSortEnd} />
       </div>
     );
   };

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="location-form col-md-6 col-12-xs">
       <div id="map">
         <script>
@@ -86,7 +86,21 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACtIQEVjdUv4i8kaQHqApZpc0CA7jUCA&libraries=places&callback=initAutocomplete"
       async defer></script>
     </div>
+  </div> -->
+  <div id="trail-locations">
   </div>
+  <div id="location-form">
+    <%= simple_form_for [@trail, @location] do |f| %>
+      <%= f.input :location, required: false %>
+      <%= f.input :description, required: false %>
+      <%= f.input :name, required: false %>
+      <%= f.input :price, required: false %>
+      <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
+      <%= f.input :photos, type: :file %>
+      <%= f.button :submit, 'New Location 3', id: 'location-creator' %>
+    <% end %>
+  </div>
+<<<<<<< Updated upstream
   <div class="col-md-6 col-xs-12">
     <div id="location-form">
       <div class="new-location">
@@ -113,6 +127,8 @@
       </div>
     </div>
   </div>
+=======
+>>>>>>> Stashed changes
   <div class="col-md-12">
     <div class="col-md-12 text-center">
       <div class="trail-button">

@@ -6,6 +6,6 @@ import App from './App.js';
 $(function() {
   ReactDOM.render(
     <App />,
-    document.getElementById('app')
+    document.getElementById('trail-locations')
   );
 });

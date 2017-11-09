@@ -11,6 +11,7 @@
     <div class="trail-info col-md-6 col-xs-6">
       <% @locations.each_with_index do |location, index| %>
         <ul>
+          <%= image_tag location.photos %>
           <%= "#{index + 1}. #{location.name}" %>
           <%= "#{location.location}" %>
           <%= "#{location.description}" %>

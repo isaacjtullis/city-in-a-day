@@ -1,5 +1,24 @@
+<<<<<<< Updated upstream
 <div class="locations">
   <ul></ul>
+=======
+
+<!-- <div class="trail-button">
+  <%= link_to 'Edit Trail', trail_path(@trail) %>
+</div>
+<%= render 'form' %> -->
+<link rel="stylesheet" href="new_form" />
+<div class="col-md-6 col-xs-6 text-center">
+    <%= simple_form_for [@trail, @location] do |f| %>
+    <%= f.input :location, required: false %>
+    <%= f.input :description, required: false %>
+    <%= f.input :name, required: false %>
+    <%= f.input :price, required: false %>
+    <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
+    <%= f.input :photos, type: :file %>
+    <div class="button"><%= f.submit 'Edit Location' %></div>
+    <% end %>
+>>>>>>> Stashed changes
 </div>
 
 <%= render 'form' %>

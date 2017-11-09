@@ -27,6 +27,10 @@ class App extends Component {
     };
     this.onSortEnd = this.onSortEnd.bind(this);
   }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   onSortEnd({oldIndex, newIndex}) {
     this.setState({
       items: arrayMove(this.state.items, oldIndex, newIndex),

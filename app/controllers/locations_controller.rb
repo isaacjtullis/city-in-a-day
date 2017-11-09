@@ -15,7 +15,11 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
+<<<<<<< Updated upstream
     @trail = Trail.find(params[:trail_id])
+=======
+    @trail = Trail.find(@location.trail_id)
+>>>>>>> Stashed changes
     if @location.update(location_params)
       flash[:notice] = 'Congrats! Location edited'
       redirect_to @trail
@@ -28,6 +32,8 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     @trail = Trail.find(params[:trail_id])
+    order = @trail.locations.length + 1
+    @location.order = order
     if @location.save
       flash[:notice] = 'Congrats! Location saved'
       redirect_to @trail
@@ -53,6 +59,6 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit( :location, :description, :name, :price, :trail_id)
+    params.require(:location).permit( :location, :description, :name, :price, :trail_id, :photos)
   end
 end
