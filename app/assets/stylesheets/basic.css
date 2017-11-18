@@ -1,0 +1,11 @@
+.ciad-button {
+  height: 70px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px 15px;
+  letter-spacing: 0.5px;
+  border-radius: 0px;
+  /*margin-top: 150px;*/
+}

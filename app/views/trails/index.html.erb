@@ -1,18 +1,111 @@
-<div class="home">
-  <div class="fluid-container">
-    <div class="col-md-12 col-xs-12 cover-photo">
-      <div id='text'>
-        Where to Next?
-      </div>
-    </div>
+<div class="header">CITY IN A DAY
+  <div class="sub-header">Where to Next?</div>
+</div>
 
-    <div class="col-md-12 text-center">
-      <div class="featured-trails">
-        <p>FEATURED TRAILS</p>
-      </div>
-    </div>
+<div class="authentication">
+  <div class="row">
+    <div class="space-left col-md-3"></div>
+    <div class="sign-in-button col-md-3 text-center">Login</div>
+    <div class="sign-up-button col-md-3 text-center">Sign up</div>
+    <div class="space-right col-md-3"></div>
+  </div>
+<div>
 
-    <div class="trail-container center-block">
+<div id='sign-in-form' class='hide-form'>
+  <%= render "devise/sessions/new.html.erb" %>
+</div>
+
+<div class="row">
+  <div class="text col-md-12 col-xs-12">
+    From Breakfast until the <br />
+    "I want this night to last <br />
+    forever" hangout spot<br />
+    we ate, we  drank, we danced, <br />
+    we took pictures, we avoided traffic, <br />
+    and we made epic memories. <br />
+    We've gone ahead of you <br />
+    and blazed a trail<br />
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="ciad-button-border-left col-md-3 text-center">
+    <button class='ciad-button left-button'>
+      Choose an Adventure
+    </button>
+  </div>
+  <div class="ciad-button-border col-md-3 text-center">
+    <button class='ciad-button'>
+      Share an Adventure
+    </button>
+  </div>
+</div>
+<row>
+  <div class='col-md-2'></div>
+  <% if !@all_trails.nil? %>
+    <div class="col-md-8">
+      <% @all_trails.each do |trail| %>
+        <div class="trail col-md-6">
+          <div class="image">
+            <%= image_tag trail.trail_photo.to_s %>
+            <div class="trail-user-name">
+              <%= trail.user.first_name %>
+              <%= trail.user.last_name %>
+              <%= link_to trail.name, trail_path(trail.id) %>
+            </div>
+          </div>
+        </div>
+        <!-- <% @all_users.each do |user| %>
+          <% if(trail.user_id === user.id) %>
+            <%= user.first_name %>
+          <% end %>
+        <% end %> -->
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-12 text-center">
+    <div class="col-md-3"></div>
+    <button class='col-md-6 ciad-button'>LOAD MORE</button>
+  </div>
+</row>
+
+<row>
+  <div class="col-md-12 trending-routes text-center">TRENDING ROUTES</div>
+</row>
+
+<row>
+  <div class="col-md-12 adventure-builder">
+    Want to</br>
+    share your</br>
+    own adventure?
+ </div>
+</row>
+<row>
+ </div>
+  <div class="col-md-2"><hr></div>
+  <div class="col-md-4">
+    <button class="ciad-button">Adventure Builder</button>
+  </div>
+  <div class="col-md-6"><hr /></div>
+</row>
+
+<row>
+  <div class="footer col-md-12"></div>
+  <div class="footer-authentication">
+    <div class="space-left col-md-3"></div>
+    <div class="sign-in-button col-md-3 text-center">Login</div>
+    <div class="sign-up-button col-md-3 text-center">Sign up</div>
+    <div class="space-right col-md-3"></div>
+  </div>
+</row>
+  <!-- <div class="col-md-12 text-center">
+    <div class="featured-trails">
+      <p>FEATURED TRAILS</p>
+    </div>
+  </div> -->
+
+    <!-- <div class="trails-container">
       <% if !@all_trails.nil? %>
         <% @all_trails.each do |trail| %>
           <div class="trail-description col-md-6 text-center">
@@ -31,9 +124,9 @@
           </div>
         <% end %>
       <% end %>
-    </div>
+    </div> -->
 
-
+<!--
     <div class="col-md-12 form">
       <h1><%= link_to 'Share Your Own Adventure', new_trail_path %></h1>
     </div>
@@ -48,6 +141,4 @@
         <a href="https://vimeo.com/118781912">City in a Day - Welcome to the Adventure</a> from <a href="https://vimeo.com/cityinaday">City In A Day</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
       </div>
     </div>
-  </div>
-  <div class="footer"></div>
-</div>
+  <div class="footer"></div> -->

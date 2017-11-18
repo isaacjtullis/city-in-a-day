@@ -1,0 +1,92 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// body#bootstrap-overrides {
+//   font-family: 'Open Sans', sans-serif;
+// }
+//
+// body#bootstrap-overrides a {
+//   color: black;
+// }
+
+// body {
+//  font-size: 62.5%;
+//  height: 100%;
+//  width: 100%;
+//  padding-bottom: 70px;
+// }
+.header {
+  font-size: 36px;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  .sub-header {
+    font-size: 22px;
+    font-weight: 600;
+  }
+}
+
+.authentication {
+  height: 70px;
+  margin-left: 0px;
+  margin-right: 0px;
+  // margin-bottom: 300px;
+  // background-color: black;
+  // .space-left {
+  //   background-color: black;
+  //   height: 70px;
+  // }
+  // .space-right {
+  //   background-color: black;
+  //   height: 70px;
+  // }
+  .space-left {
+    background-color: black;
+    height: 70px;
+  }
+  .sign-in-button, .sign-up-button {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    // margin-right: 5px;
+    font-size: 24px;
+    font-weight: 500;
+    height: 70px;
+    letter-spacing: 1px;
+  }
+  .space-right {
+    background-color: black;
+    height: 70px;
+  }
+}
+// .navbar {
+//   box-shadow: 0 .5px .03px;
+//   line-height: 2em;
+//   padding: 1.5625%;
+//   a {
+//     font-size: 30px;
+//     color: green;
+//   }
+// }
+
+// .alert-box {
+//   margin-top: 68px;
+//   color: black;
+//   padding: 8px 14px;
+//   background-color: #A2E3C4;
+//   border-radius: 2px;
+// }

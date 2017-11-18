@@ -1,6 +1,33 @@
 class TrailsController < ApplicationController
+  helper_method :resource_name, :resource, :devise_mapping, :resource_class
+  #
+  # loading in devise variables start
+  #
+  def resource_name
+   :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def resource_class
+    User
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+  #
+  # loading in devise variables end
+  #
   def index
     @all_trails = Trail.all
+    @all_users = User.all
+    # all_trails = {}
+    # user_trails user_id trail_id rating
+    # @trails = Trail.all.includes(:user)
+    # binding.pry
     if params[:search] == ""
       @trails = nil
     elsif !params[:search].nil? && params[:search] != ""

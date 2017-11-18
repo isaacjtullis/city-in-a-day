@@ -4,7 +4,7 @@
     <title>CityInADay</title>
     <%= csrf_meta_tags %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -12,7 +12,7 @@
   </head>
 
   <body id="bootstrap-overrides">
-      <div class="navbar navbar-default navbar-fixed-top">
+      <!-- <div class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-header">
           <div class="navbar-brand">
             <%= link_to "CITY IN A DAY", root_path %>
@@ -35,7 +35,7 @@
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <% end %>
         </ul>
-    </div>
+    </div> -->
     <%= yield %>
     <% flash.each do |type, message| %>
       <span class="error_msgs">

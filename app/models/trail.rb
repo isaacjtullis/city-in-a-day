@@ -10,7 +10,7 @@ class Trail < ActiveRecord::Base
 
   has_many :favorites, through: :active_favorites, source: :user
 
-  MOOD = ['Adventure', 'Romance', 'Chill']
+  MOOD = ['Adventure', 'Romance', 'Chill'] # TODO: make enum
 
   validates :mood, inclusion: { in: MOOD, message: "Not a valid mood"}
   validates_presence_of :name
