@@ -1,7 +1,7 @@
 <div id="app"></div>
-<div id="stop-location-form">
+<div id="location-form">
   <div class="col-md-6 col-xs-12">
-    <div id="location-form">
+    <div id="location-creator">
       <div class="new-location">
         <%= simple_form_for [@trail, @location] do |f| %>
         <div class="error-messages">
@@ -28,3 +28,15 @@
   </div>
   <%= render 'form' %>
 </div>
+<!--
+<div id="location-form">
+  <%= simple_form_for [@trail, @location] do |f| %>
+    <%= f.input :location, required: false %>
+    <%= f.input :description, required: false %>
+    <%= f.input :name, required: false %>
+    <%= f.input :price, required: false %>
+    <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
+    <%= f.input :photos, type: :file %>
+    <%= f.button :submit, 'New Location 3', id: 'location-creator' %>
+  <% end %>
+</div> -->

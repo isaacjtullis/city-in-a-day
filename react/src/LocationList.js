@@ -148,7 +148,7 @@ class LocationList extends React.Component {
     setTimeout(function(){
       var btn = document.getElementById("location-creator");
       btn.removeAttribute('disabled');
-    }, 2000);
+    }, 1000);
 
     locationForm[2].value = '';
     locationForm[3].value = '';
@@ -256,6 +256,7 @@ class LocationList extends React.Component {
           this.enableForm();
         // });
       } else {
+        this.enableForm();
         console.log('fail!');
       }
   }
