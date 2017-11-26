@@ -20,6 +20,7 @@
         <%= f.input :description, label: 'Tell us a little bit about it:', required: false %>
         <%= f.input :price, label: 'What was the price? (ex: 5-10, 10-20)', required: false %>
         <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
+        <%= f.input :photos, type: :file %>
         <%= f.button :submit, 'New Location', id: 'location-creator' %>
         <% end %>
       </div>

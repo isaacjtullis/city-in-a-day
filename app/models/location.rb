@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  mount_uploader :photos, LocationPhotoUploader
   belongs_to :trail
 
   validates :description,
