@@ -61,6 +61,7 @@ class LocationList extends React.Component {
     this.onSortEnd = this.onSortEnd.bind(this);
     this.checkForSubmission = this.checkForSubmission.bind(this);
     this.postForm = this.postForm.bind(this);
+    this.makeLocation = this.makeLocation.bind(this);
   }
 
   handleChange(e){
@@ -77,7 +78,7 @@ class LocationList extends React.Component {
     document.querySelector("form#new_location").addEventListener("submit", function(e){
       e.preventDefault();    //stop form from submitting
       console.log("I am inside of my event listener for new location submission");
-      self.postForm();
+      self.makeLocation();
     });
     // const self = this;
     // // const res = window.location.pathname.match(/^\/trails\/(\d+)/);
@@ -147,7 +148,7 @@ class LocationList extends React.Component {
     setTimeout(function(){
       var btn = document.getElementById("location-creator");
       btn.removeAttribute('disabled');
-    }, 1000);
+    }, 2000);
 
     locationForm[2].value = '';
     locationForm[3].value = '';
@@ -199,7 +200,19 @@ class LocationList extends React.Component {
       this.enableForm();
   }
 
-  // makeLocation(){
+  makeLocation(){
+
+  const res = window.location.pathname.match(/^\/trails\/(\d+)/);
+  var locationForm = $("form")[0].elements;
+  var location = locationForm[2].value;
+  var description = locationForm[3].value;
+  var name = locationForm[4].value;
+  var price = locationForm[5].value;
+  var trailID = res[1];
+  var photos = locationForm[7].value;
+  var order = this.state.completeLocation.length;
+  if(name !== '' && descrition !== '' && price !== '' && location !== ''){
+
   //   const name = document.getElementById("location_name");
   //   const location = document.getElementById("location_location");
   //   const description = document.getElementById("location_description");
@@ -212,36 +225,40 @@ class LocationList extends React.Component {
   //         // const price = document.getElementById("location_price");
   //         const trail_id = res[1];
   //         const order = this.state.completeLocation.length;
-  //         const locationDetails = {
-  //           location: location,
-  //           description: description,
-  //           name: name,
-  //           price: price,
-  //           trail_id: trail_id,
-  //           order: order
-  //         };
+          const locationDetails = {
+            location: location,
+            description: description,
+            name: name,
+            price: price,
+            trail_id: trailID,
+            order: order
+          };
   //
   //         // document.getElementById("location_name") = '';
   //         // document.getElementById("location_location") = '';
   //         // document.getElementById("location_description") = '';
   //         // document.getElementById("location_price") = '';
   //
-  //         var request = $.ajax({
-  //           method: "POST",
-  //           url: '/api/v1/locations',
-  //           data: { location: locationDetails }
-  //         });
+          var request = $.ajax({
+            method: "POST",
+            url: '/api/v1/locations',
+            data: { location: locationDetails }
+          });
   //
-  //         this.setState({
-  //           completeLocation: [...this.state.completeLocation, locationDetails]
-  //           // name: '',
-  //           // location: '',
-  //           // description: '',
-  //           // price: '',
-  //           // order: ''
-  //         })
-  //       // });
-  // }
+          this.setState({
+            completeLocation: [...this.state.completeLocation, locationDetails],
+            name: '',
+            location: '',
+            description: '',
+            price: '',
+            order: ''
+          })
+          this.enableForm();
+        // });
+      } else {
+        console.log('fail!');
+      }
+  }
 
   onSortEnd({oldIndex, newIndex}) {
     const res = window.location.pathname.match(/^\/trails\/(\d+)/);
