@@ -4,7 +4,7 @@
     <title>CityInADay</title>
     <%= csrf_meta_tags %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -12,36 +12,36 @@
   </head>
 
   <body id="bootstrap-overrides">
-    <nav class="navbar navbar-default navbar-fixed-top scrolling-navbar navbar-dark bg-primary">
-      <div class="navbar-header">
-        <div class="navbar-brand">
-          <%= link_to "CITY IN A DAY", root_path %>
+      <!-- <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <%= link_to "CITY IN A DAY", root_path %>
+          </div>
+          <button type="button" class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
+            <span class='sr-only'>Toggle Navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
         </div>
-        <button type="button" class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
-          <span class='sr-only'>Toggle Navigation</span>
-          <span class='icon-bar'></span>
-          <span class='icon-bar'></span>
-          <span class='icon-bar'></span>
-        </button>
-      </div>
-      <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
-        <li><%= link_to 'About Us', '#about-us' %></li>
-        <li><%= link_to 'FAQ', '#' %></li>
-        <% if user_signed_in? %>
-        <li><%= link_to "@#{current_user.username}", profile_path(current_user)%></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <% end %>
-      </ul>
-    </nav>
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
+          <li><%= link_to 'About Us', '#about-us' %></li>
+          <li><%= link_to 'FAQ', '#' %></li>
+          <% if user_signed_in? %>
+          <li><%= link_to "#{current_user.first_name}" + " #{current_user.last_name}", profile_path(current_user)%></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+    </div> -->
     <%= yield %>
     <% flash.each do |type, message| %>
-      <span class="error_msgs alert-box">
-        <!-- <div data-alert class="alert-box"> -->
-          <p><%= message %></p>
-        <!-- </div> -->
+      <span class="error_msgs">
+        <div data-alert class="alert-box <%= type %>">
+          <%= message %>
+        </div>
       </span>
     <% end %>
   </body>
