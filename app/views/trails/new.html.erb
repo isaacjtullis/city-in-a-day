@@ -2,7 +2,6 @@
 <div class="container">
   <div class="col-md-12 col-xs-12 text-center">
     <div class="new-trail">
-      <%= "#{@user.username}" %>
       <%= simple_form_for @trail do |f| %>
       <%= f.input :name, collection: Trail::CITY, required: false, label: 'Pick City from list:' %>
       <%= f.input :mood, collection: Trail::MOOD, required: false %>
