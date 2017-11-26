@@ -1,7 +1,6 @@
 <div id="app"></div>
 <div id="location-form">
   <div class="col-md-6 col-xs-12">
-    <div id="location-creator">
       <div class="new-location">
         <%= simple_form_for [@trail, @location] do |f| %>
         <div class="error-messages">
@@ -21,10 +20,9 @@
         <%= f.input :description, label: 'Tell us a little bit about it:', required: false %>
         <%= f.input :price, label: 'What was the price? (ex: 5-10, 10-20)', required: false %>
         <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
-        <div id="form-submit" class="button text-center"><%= f.submit 'Make New Location', data: { disable_with: 'Making new location'} %></div>
+        <%= f.button :submit, 'New Location', id: 'location-creator' %>
         <% end %>
       </div>
-    </div>
   </div>
   <%= render 'form' %>
 </div>

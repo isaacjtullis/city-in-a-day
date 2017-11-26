@@ -211,7 +211,7 @@ class LocationList extends React.Component {
   var trailID = res[1];
   var photos = locationForm[7].value;
   var order = this.state.completeLocation.length;
-  if(name !== '' && descrition !== '' && price !== '' && location !== ''){
+  if(name !== '' && description !== '' && price !== '' && location !== ''){
 
   //   const name = document.getElementById("location_name");
   //   const location = document.getElementById("location_location");
