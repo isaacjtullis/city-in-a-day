@@ -46,9 +46,10 @@ class TrailsController < ApplicationController
 
   def show
     @trail = Trail.find(params[:id])
-    @user = User.find(@trail.user_id)
-    @location = Location.new
-    @locations = Location.where(trail_id: @trail.id)
+    @user = @trail.user
+    # @user = User.find(@trail.user_id)
+    # @location = Location.new
+    # @locations = Location.where(trail_id: @trail.id)
     @comment = Comment.new
     @comments = Comment.where(trail_id: @trail.id)
   end
