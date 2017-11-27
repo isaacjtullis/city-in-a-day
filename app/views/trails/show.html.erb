@@ -22,6 +22,7 @@
                 <%= "#{location.location}" %>
                 <%= "#{location.description}" %>
                 <%= "#{location.price}" %>
+                <%= image_tag location.photos.to_s %>
               </div>
             </div>
               <% if !current_user.nil? && current_user.id == @trail.user_id %>

@@ -210,6 +210,9 @@ class LocationList extends React.Component {
   var price = locationForm[5].value;
   var trailID = res[1];
   var photos = locationForm[7].value;
+  console.log('am I adding a photo to this?');
+  console.log(photos);
+  console.log(locationForm);
   var order = this.state.completeLocation.length;
   if(name !== '' && description !== '' && price !== '' && location !== ''){
 
@@ -231,6 +234,7 @@ class LocationList extends React.Component {
             name: name,
             price: price,
             trail_id: trailID,
+            photos: photos,
             order: order
           };
   //

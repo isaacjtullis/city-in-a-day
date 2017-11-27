@@ -10,6 +10,7 @@ class Api::V1::LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    binding.pry
     if @location.save
       flash[:notice] = 'Congrats! Location saved'
       render json: { trail_id: @location.trail_id }.to_json
@@ -80,6 +81,6 @@ class Api::V1::LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit( :location, :description, :name, :price, :trail_id, :order, :oIndex, :nIndex)
+    params.require(:location).permit(:photos, :location, :description, :name, :price, :trail_id, :order, :oIndex, :nIndex)
   end
 end
