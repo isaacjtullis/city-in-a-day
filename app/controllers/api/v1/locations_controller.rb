@@ -10,7 +10,6 @@ class Api::V1::LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    binding.pry
     if @location.save
       flash[:notice] = 'Congrats! Location saved'
       render json: { trail_id: @location.trail_id }.to_json

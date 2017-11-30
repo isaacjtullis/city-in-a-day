@@ -5,7 +5,7 @@
       <%= simple_form_for @trail do |f| %>
       <%= f.input :name, collection: Trail::CITY, required: false, label: 'Pick City from list:' %>
       <%= f.input :mood, collection: Trail::MOOD, required: false %>
-      <div class="photo-button"><%= f.input :trail_photo, type: :file, label: 'Add Photo' %></div>
+      <div class="photo-button"><%= f.input :trail_photo, type: :file, label: 'Add Photo Please' %></div>
       <div class="button"><%= f.submit 'Submit' %></div>
       <% end %>
     </div>
