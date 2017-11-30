@@ -15,7 +15,14 @@
   padding: 1.5em 2.5em;
   text-align: center;*/
 }
-
+.sign-in-button {
+  width: 49.7%;
+  display: inline-block;
+}
+.sign-up-button {
+  width: 50%;
+  display: inline-block;
+}
 #sign-in-form.show-form {
   visibility: visible;
   margin-top: 150px;
@@ -60,16 +67,23 @@ input#user_email, input#user_password {
   color: black;
   font-size: 12px;
 }
-.ciad-button-border-left {
+
+.find-make-guide {
   margin-top: 150px;
   margin-bottom: 150px;
   height: 350px;
-  border-right: 1px solid black;
 }
-.ciad-button-border {
-  margin-top: 150px;
+.find-make-guide .ciad-button {
+  margin-top: 125px;
+}
+.ciad-button-border-left {
+  border-right: 1px solid black;
   height: 350px;
 }
+.ciad-button-border {
+  height: 350px;
+}
+
 /*input#user_password {
   border: none;
   border-bottom: 1px solid black;

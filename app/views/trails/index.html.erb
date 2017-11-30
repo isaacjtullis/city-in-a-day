@@ -4,10 +4,8 @@
 
 <div class="authentication">
   <div class="row">
-    <div class="space-left col-md-3"></div>
-    <div class="sign-in-button col-md-3 text-center">Login</div>
-    <div class="sign-up-button col-md-3 text-center">Sign up</div>
-    <div class="space-right col-md-3"></div>
+    <div class="sign-in-button text-center ciad-button">Login</div>
+    <div class="sign-up-button text-center ciad-button">Sign up</div>
   </div>
 <div>
 
@@ -29,16 +27,14 @@
 </div>
 
 <div class="row">
-  <div class="col-md-3"></div>
-  <div class="ciad-button-border-left col-md-3 text-center">
-    <button class='ciad-button left-button'>
-      Choose an Adventure
-    </button>
-  </div>
-  <div class="ciad-button-border col-md-3 text-center">
-    <button class='ciad-button'>
-      <%=  link_to 'Make new trail', new_trail_path  %>
-    </button>
+  <div class="find-make-guide text-center">
+    <div class='col-md-3'></div>
+    <div class="ciad-button-border-left col-md-3 text-center">
+      <button class='ciad-button'>Choose an Adventure</button>
+    </div>
+    <div class="col-md-3 text-center">
+      <button class='ciad-button'><%=  link_to 'Make new trail', new_trail_path  %></button>
+    </div>
   </div>
 </div>
 <row>
