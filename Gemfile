@@ -5,6 +5,11 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
+gem 'sprockets-rails', github: 'rails/sprockets-rails', branch: 'master'
+gem 'sprockets', github: 'rails/sprockets', branch: 'master'
+gem 'babel-transpiler'
+gem 'turbolinks'
+gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
@@ -13,8 +18,6 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem "fog"
-gem "sprockets"
-gem "sprockets-es6"
 gem 'gmaps4rails'
 gem 'rails_12factor', group: :production
 
