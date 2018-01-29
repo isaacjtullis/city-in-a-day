@@ -1,5 +1,5 @@
 window.onload = function() {
-  let trails = [];
+  var trails = [];
   function printSignInForm() {
     console.log('Inside of here!');
     // if(){
@@ -67,7 +67,7 @@ window.onload = function() {
     trails = [];
     users = [];
     if(trails.length <=0){
-      let request = $.ajax({
+      var request = $.ajax({
         method: "GET",
         url: `/api/v1/trails`
       });
