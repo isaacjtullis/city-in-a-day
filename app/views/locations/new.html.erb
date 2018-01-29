@@ -1,14 +1,41 @@
-<div class="container-fluid">
-  <div class="locations">
-    <div class=".col-md-12 col-xs-12 text-center">
-      <ul>
+<div id="app"></div>
+<div id="location-form">
+  <div class="col-md-6 col-xs-12">
+      <div class="new-location">
+        <%= simple_form_for [@trail, @location] do |f| %>
+        <div class="error-messages">
+          <% if @location.errors.any? %>
+          <h2><%= pluralize(@location.errors.count, "error") %> prohibiited this answer from being saved:</h2>
+          <% end %>
 
-      </ul>
-    </div>
+          <% @location.errors.full_messages.each do |message| %>
+          <ul>
+            <li><%= message %></li>
+          </ul>
+          <% end %>
+        </div>
+
+        <%= f.input :name, label: 'Name of Location', required: false %>
+        <%= f.input :location, label: 'Where was it?', required: false %>
+        <%= f.input :description, label: 'Tell us a little bit about it Please:', required: false %>
+        <%= f.input :price, label: 'What was the price? (ex: 5-10, 10-20)', required: false %>
+        <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
+        <%= f.input :photos, as: :file, label: 'Add Photo' %>
+        <%= f.button :submit, 'New Location', id: 'location-creator' %>
+        <% end %>
+      </div>
   </div>
-</div>
-<div id="stop-location-form">
   <%= render 'form' %>
-  <div id="app">
-  </div>
 </div>
+<!--
+<div id="location-form">
+  <%= simple_form_for [@trail, @location] do |f| %>
+    <%= f.input :location, required: false %>
+    <%= f.input :description, required: false %>
+    <%= f.input :name, required: false %>
+    <%= f.input :price, required: false %>
+    <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
+    <%= f.input :photos, type: :file %>
+    <%= f.button :submit, 'New Location 3', id: 'location-creator' %>
+  <% end %>
+</div> -->

@@ -2,11 +2,12 @@ class LocationsController < ApplicationController
   def new
     @location = Location.new
     @trail = Trail.find(params[:trail_id])
+    @locations = Location.where(trail_id: @trail.id)
   end
 
   def edit
     @location = Location.find(params[:trail_id])
-    @trail = Trail.find(params[:id])
+    @trail = Trail.find(@location.trail_id)
     if current_user.id != @trail.user_id
       flash[:notice] = 'You didnt make this jackass'
       redirect_to @trail
@@ -15,7 +16,8 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
-    @trail = Trail.find(params[:trail_id])
+    @trail = Trail.find(@location.trail_id)
+    #comment
     if @location.update(location_params)
       flash[:notice] = 'Congrats! Location edited'
       redirect_to @trail

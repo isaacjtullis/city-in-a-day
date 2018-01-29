@@ -1,11 +1,16 @@
 <link rel="stylesheet" href="new_form" />
-<div class="container">
+<div class="row">
+  <div class=" col-md-offset-1 col-md-1 back-button">
+    <%= link_to 'Home', root_path  %>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-12 col-xs-12 text-center">
     <div class="new-trail">
       <%= simple_form_for @trail do |f| %>
-      <%= f.input :name, required: false %>
+      <%= f.input :name, collection: Trail::CITY, required: false, label: 'Pick a city:' %>
       <%= f.input :mood, collection: Trail::MOOD, required: false %>
-      <div class="photo-button"><%= f.input :trail_photo, type: :file, label: 'Add Photo' %></div>
+      <div class="photo-button"><%= f.input :trail_photo, type: :file, label: 'Add Photo Please' %></div>
       <div class="button"><%= f.submit 'Submit' %></div>
       <% end %>
     </div>

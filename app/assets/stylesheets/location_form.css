@@ -12,19 +12,21 @@ label {
   font-size: 26px;
 }
 
-.new-location #location_name,
-.new-location #location_location,
-.new-location #location_description,
-.new-location #location_price {
+.new-location {
   background-color: transparent;
   border: 0;
   padding-top: 10px;
-  border-bottom: 1px solid #4A4A4A;
   color: #083F46;
   font-size: 26px;
   outline: 0;
   text-align: left;
   width: 100%;
+}
+
+.new-location input {
+  margin-top: 20px;
+  border: none;
+  border-bottom: 1px solid #4A4A4A;
 }
 
 .new-location .button {
@@ -53,7 +55,7 @@ label {
 }
 
 #map {
-  height: 415px;
+  height: 240px;
   width: 90%;
 }
 
@@ -95,6 +97,23 @@ label {
 
 #target {
   width: 345px;
+}
+.location-list-items {
+  margin-top: 100px;
+}
+.complete-location {
+  background-color: #e5e5e5;
+  margin: 10px 0;
+  /*margin-bottom: 20px;*/
+  /*border: 1px solid #4A4A4A;*/
+  border-radius: 4px;
+}
+
+ul.location-list-items {
+  padding-left: 15px;
+}
+.complete-location li {
+  list-style: none;
 }
 
 @media screen and (max-width: 991px) {

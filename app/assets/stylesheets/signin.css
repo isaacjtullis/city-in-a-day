@@ -1,25 +1,20 @@
-img {
+/*img {
   position: relative;
   margin-top: 40px;
   height: 700px;
   width: 100%;
   z-index: 0;
-}
+}*/
 
 .sign-in-container {
   color: white;
   width: 500px;
-  height: 500px;
+  min-height: 500px;
   background-color: #34495e;
   margin: 0 auto;
   border-radius: 4px;
-  margin-top: 150px;
   opacity: 0.9;
   text-align: center;
-  top: 30%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
 }
 
 .sign-in-container .login {
@@ -28,13 +23,17 @@ img {
 }
 
 .sign-in-container input {
-  height: 25px;
-  width: 250px;
+  height: 55px;
+  width: 275px;
   font-size: 20px;
   margin-top: 20px;
   padding: 10px;
+  color: black;
 }
 
+.sign-in-container input#user_profile_photo {
+  display: inline-block;
+}
 .sign-in-container label {
   color: transparent;
 }

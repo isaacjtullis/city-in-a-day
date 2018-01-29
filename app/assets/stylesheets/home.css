@@ -1,4 +1,191 @@
-.home .cover-photo {
+.cover-photo {
+  background-image: url('new-york.png');
+  background-size: cover;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0.9;
+}
+
+.text {
+  background-color: #040404;
+  color: white;
+  text-align: center;
+  font-size: 22px;
+  margin-top: 350px;
+  /*padding-top: 215px;*/
+  /*padding-bottom: 165px;*/
+  line-height: 60px;
+  padding: 45px 25px;
+  /*color: #121212;
+  border: 1px;
+  border-radius: 40px;
+  font-size: 20px;
+  letter-spacing: .5em;
+  line-height: 1em;
+  padding: 1.5em 2.5em;
+  text-align: center;*/
+}
+.login-form {
+  margin-bottom: 50px;
+}
+.sign-in-button {
+  display: inline-block;
+  text-align: center;
+}
+.sign-up-button {
+  display: inline-block;
+  text-align: center;
+}
+#sign-in-form.show-form {
+  visibility: visible;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  text-align: center;
+}
+#sign-up-form.show-form {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+#sign-in-form.hide-form {
+  visibility: hidden;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 0px;
+}
+
+#sign-up-form.show-form {
+  visibility: visible;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  text-align: center;
+}
+#sign-up-form.hide-form {
+  visibility: hidden;
+  margin-top: 0px;
+  margin-bottom: 150px;
+  height: 0px;
+}
+
+
+.login-form {
+  background-color: white;
+}
+.form-inputs {
+  border: none;
+}
+
+.form-inputs
+
+input#user_email, input#user_password, input#user_first_name,
+input#user_last_name, input#user_email, input#user_first_name, input#user_username,
+input#user_password, input#user_password_confirmation  {
+  margin-top: 200px;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  margin: 22px;
+  width: 25%;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.form-actions input {
+  background-color: #202020;
+  color: white;
+  width: 25%;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.other {
+  display: inline-block;
+  color: black;
+  font-size: 12px;
+}
+
+.find-make-guide {
+  /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWYnb4cXmmWfBCCr3qsjtLhgrucWCQmpBtNweDmsbypcz2jbkx');
+  background-size: contain;
+  background-repeat: no-repeat; */
+  color: black;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  height: 350px;
+}
+
+.find-make-guide .ciad-button {
+  margin-top: 125px;
+}
+.ciad-button-border-left {
+  border-right: 1px solid black;
+  height: 350px;
+}
+.ciad-button-border {
+  height: 350px;
+}
+
+/*input#user_password {
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 15px;
+  margin: 22px;
+  width: 25%;
+  font-weight: 600;
+}*/
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: black;
+}
+
+.trail {
+  margin-bottom: 15px;
+}
+.image {
+  padding-bottom: 10px;
+}
+.image .trail-user-name {
+  font-weight: 300;
+  font-size: 14px;
+}
+.image img {
+  max-width: 100%;
+}
+
+/* .image-container {
+  height: 45vh;
+  margin-bottom: 50px;
+} */
+/* .ciad-city-image {
+  background-image: url('ciad-city.png');
+  background-size: cover;
+} */
+
+.trending-routes {
+  margin-top: 85px;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-bottom: 1px solid black;
+}
+
+.adventure-builder {
+  margin-top: 50px;
+  font-size: 66px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.footer {
+  margin-top: 50px;
+}
+/*// .login-form {
+//   text-align: center;
+// }*/
+
+/*.home .cover-photo {
   margin-top: 30px;
   background-image: url('new-york.png');
   background-size: cover;
