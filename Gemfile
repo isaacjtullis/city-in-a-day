@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+require "sprockets/es6"
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
@@ -12,6 +13,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem "fog"
+gem "sprockets"
+gem "sprockets-es6"
 gem 'gmaps4rails'
 gem 'rails_12factor', group: :production
 

@@ -48,7 +48,7 @@ window.onload = function() {
     // ajax (get) on click of load more
     console.log('insde of display more trails');
     // console.log(trails);
-    trails.map((trail, index) => {
+    trails.map((trail, index)=>{
       users.map(user=>{
         if((index + 1) <= 6){
           if(user.id === trail.user_id){
