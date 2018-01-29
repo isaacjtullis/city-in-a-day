@@ -1,4 +1,4 @@
-<div class="container-fluid">
+
     <!-- <div class="trail-image col-md-4 col-xs-4">
       <%= image_tag @trail.trail_photo %>
     </div>
@@ -7,32 +7,50 @@
       <h4><%= @trail.name %></h4>
       <h4><%= @trail.mood %></h4>
     </div> -->
-    <row>
-      <div class="trail-info">
-        <% @trail.locations.each_with_index do |location, index| %>
-          <ul>
-              <div class="number-of-location">
-                <div class="number">
-                  <%= "#{index + 1}." %>
-                </div>
-              </div>
-            <div class="col-md-12 text-center">
-              <div class="trail-info">
-                <%= "#{location.name}" %>
-                <%= "#{location.location}" %>
-                <%= "#{location.description}" %>
-                <%= "#{location.price}" %>
-                <%= image_tag location.photos.to_s %>
+<div class="container">
+  <div class="row">
+    <div class=" col-md-offset-1 col-md-1 back-button">
+      <%= link_to 'Home', root_path  %>
+    </div>
+  </div>
+    <% @trail.locations.each_with_index do |location, index| %>
+        <row>
+            <div class='col-md-12 circle-container'>
+              <div class='number-of-location text-center'>
+                <%= "#{index + 1}." %>
               </div>
             </div>
-              <% if !current_user.nil? && current_user.id == @trail.user_id %>
-                <%= link_to "Edit Location", edit_trail_location_path(location) %>
-                <%= link_to "Delete Location", trail_location_path(location), method: :delete, data: {confirm: "Are you sure you want to delete this question?" } %>
-              <% end %>
-          </ul>
-        <% end %>
-      </div>
-    </row>
+        </row>
+        <row>
+            <div class="col-md-12">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 trail-location">
+                    <%= "#{location.description}" %>
+                </div>
+                <div class="bottom-line"></div>
+            </div>
+        </row>
+        <row>
+            <div class="col-md-12">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 trail-info">
+                    <%= "#{location.location}" %>
+                    <%= "#{location.name}" %>
+                    <%= "#{location.price}" %>
+                    <%= image_tag location.photos.to_s %>
+                </div>
+            </div>
+        </row>
+        <row>
+            <div class="col-md-12 text-center">
+                <% if !current_user.nil? && current_user.id == @trail.user_id %>
+                    <%= link_to "Edit Location", edit_trail_location_path(location) %>
+                    <%= link_to "Delete Location", trail_location_path(location), method: :delete, data: {confirm: "Are you sure you want to delete this question?" } %>
+                <% end %>
+            </div>
+        </row>
+    <% end %>
+</div>
     <div class="comment-container col-md-12 col-xs-12">
       <%= render 'comment_form' %>
       <% if !@comments.nil? %>
@@ -45,4 +63,3 @@
       <% end %>
       <% end %>
     </div>
-</div>

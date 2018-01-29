@@ -7,9 +7,12 @@ Rails.application.routes.draw do
     resources :locations
   end
 
+  resources :searches
+
   namespace :api do
     namespace :v1 do
       resources :locations
+      resources :trails
     end
   end
 

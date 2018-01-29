@@ -19,7 +19,7 @@ class Trail < ActiveRecord::Base
   validates :mood, inclusion: { in: MOOD, message: "Not a valid mood"}
   validates_presence_of :name
   validates_presence_of :user
-
+  
   def self.search(search)
     if search
       where("name ILIKE ?", "%#{search}")

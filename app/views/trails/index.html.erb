@@ -1,20 +1,26 @@
-<div class="header">CITY IN A DAY
-  <div class="sub-header">Where to Next?</div>
+<div class="header cover-photo">
+  CITY IN A DAY<br/>
+  Where to Next?
 </div>
 
 <div class="authentication">
   <div class="row">
-    <div class="sign-in-button text-center ciad-button">Login</div>
-    <div class="sign-up-button text-center ciad-button">Sign up</div>
+    <div class="col-md-offset-3 col-md-3 sign-in-button text-center ciad-button">Login</div>
+    <div class="col-md-3 sign-up-button text-center ciad-button">Sign up</div>
   </div>
-<div>
-
-<div id='sign-in-form' class='hide-form'>
-  <%= render "devise/sessions/new.html.erb" %>
+  <div class="row">
+    <div id='sign-in-form' class='hide-form'>
+      <%= render "devise/sessions/new.html.erb" %>
+    </div>
+    <div id="sign-up-form" class="hide-form">
+       <%= render 'devise/registrations/new.html.erb' %>
+    </div>
+  </div>
 </div>
 
 <div class="row">
-  <div class="text col-md-12 col-xs-12">
+  <div class="col-md-3"></div>
+  <div class="text col-md-6 col-xs-12">
     From Breakfast until the <br />
     "I want this night to last <br />
     forever" hangout spot<br />
@@ -28,16 +34,34 @@
 
 <div class="row">
   <div class="find-make-guide text-center">
-    <div class='col-md-3'></div>
-    <div class="ciad-button-border-left col-md-3 text-center">
-      <button class='ciad-button'>Choose an Adventure</button>
+    <div class="ciad-button-border-left col-md-offset-3 col-md-3  text-center">
+      <button class='ciad-button'><%= link_to 'Find an Adventure', searches_path %></button>
     </div>
     <div class="col-md-3 text-center">
       <button class='ciad-button'><%=  link_to 'Make new trail', new_trail_path  %></button>
     </div>
   </div>
 </div>
-<row>
+
+<div class="row">
+  <div class="col-md-12 image-container">
+    <div class="ciad-city-image"></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-2 text-center">
+    <div class='display-trails'>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <button class='col-md-offset-3 col-md-6 ciad-button display-more-trails'>LOAD MORE</button>
+  </div>
+</div>
+
+<!-- <div class="row">
   <div class='col-md-2'></div>
   <% if !@all_trails.nil? %>
     <div class="col-md-8">
@@ -52,19 +76,15 @@
             </div>
           </div>
         </div>
-        <!-- <% @all_users.each do |user| %>
+        <% @all_users.each do |user| %>
           <% if(trail.user_id === user.id) %>
             <%= user.first_name %>
           <% end %>
-        <% end %> -->
+        <% end %>
       <% end %>
     <% end %>
-  </div>
-  <div class="col-md-12 text-center">
-    <div class="col-md-3"></div>
-    <button class='col-md-6 ciad-button'>LOAD MORE</button>
-  </div>
-</row>
+  </div> -->
+<!-- </div> -->
 
 <row>
   <div class="col-md-12 trending-routes text-center">TRENDING ROUTES</div>

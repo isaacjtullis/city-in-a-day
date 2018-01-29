@@ -1,11 +1,24 @@
+.cover-photo {
+  background-image: url('new-york.png');
+  background-size: cover;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0.9;
+}
+
 .text {
   background-color: #040404;
   color: white;
   text-align: center;
   font-size: 22px;
-  padding-top: 215px;
-  padding-bottom: 165px;
+  margin-top: 350px;
+  /*padding-top: 215px;*/
+  /*padding-bottom: 165px;*/
   line-height: 60px;
+  padding: 45px 25px;
   /*color: #121212;
   border: 1px;
   border-radius: 40px;
@@ -15,19 +28,26 @@
   padding: 1.5em 2.5em;
   text-align: center;*/
 }
+.login-form {
+  margin-bottom: 50px;
+}
 .sign-in-button {
-  width: 49.7%;
   display: inline-block;
+  text-align: center;
 }
 .sign-up-button {
-  width: 50%;
   display: inline-block;
+  text-align: center;
 }
 #sign-in-form.show-form {
   visibility: visible;
   margin-top: 150px;
   margin-bottom: 150px;
   text-align: center;
+}
+#sign-up-form.show-form {
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 #sign-in-form.hide-form {
   visibility: hidden;
@@ -36,14 +56,32 @@
   height: 0px;
 }
 
-.login-form {
+#sign-up-form.show-form {
+  visibility: visible;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  text-align: center;
+}
+#sign-up-form.hide-form {
+  visibility: hidden;
+  margin-top: 0px;
+  margin-bottom: 150px;
+  height: 0px;
+}
 
+
+.login-form {
+  background-color: white;
 }
 .form-inputs {
   border: none;
 }
 
-input#user_email, input#user_password {
+.form-inputs
+
+input#user_email, input#user_password, input#user_first_name,
+input#user_last_name, input#user_email, input#user_first_name, input#user_username,
+input#user_password, input#user_password_confirmation  {
   margin-top: 200px;
   border: none;
   border-bottom: 1px solid black;
@@ -69,10 +107,15 @@ input#user_email, input#user_password {
 }
 
 .find-make-guide {
+  /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWYnb4cXmmWfBCCr3qsjtLhgrucWCQmpBtNweDmsbypcz2jbkx');
+  background-size: contain;
+  background-repeat: no-repeat; */
+  color: black;
   margin-top: 150px;
   margin-bottom: 150px;
   height: 350px;
 }
+
 .find-make-guide .ciad-button {
   margin-top: 125px;
 }
@@ -101,7 +144,6 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   margin-bottom: 15px;
 }
 .image {
-  border-bottom: 1px solid black;
   padding-bottom: 10px;
 }
 .image .trail-user-name {
@@ -111,6 +153,15 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .image img {
   max-width: 100%;
 }
+
+/* .image-container {
+  height: 45vh;
+  margin-bottom: 50px;
+} */
+/* .ciad-city-image {
+  background-image: url('ciad-city.png');
+  background-size: cover;
+} */
 
 .trending-routes {
   margin-top: 85px;
