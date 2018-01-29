@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-require "sprockets/es6"
+# require "sprockets/es6"
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
