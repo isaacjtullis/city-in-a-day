@@ -1,0 +1,123 @@
+.locations {
+  margin-top: 150px;
+}
+div.input.string.optional.location_location,
+div.input.string.optional.location_description,
+div.input.string.optional.location_price {
+  margin-top: 20px;
+}
+
+label {
+  color: #4A4A4A;
+  font-size: 26px;
+}
+
+.new-location {
+  background-color: transparent;
+  border: 0;
+  padding-top: 10px;
+  color: #083F46;
+  font-size: 26px;
+  outline: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.new-location input {
+  margin-top: 20px;
+  border: none;
+  border-bottom: 1px solid #4A4A4A;
+}
+
+.new-location .button {
+  padding: 20px 20px;
+}
+
+.new-location .button input {
+  border-radius: 50px;
+  border: 1px solid black;
+  background-color: white;
+  font-size: 15px;
+  color: black;
+  padding: 20px 20px 20px 20px;
+}
+.trail-button {
+  margin-top: 50px;
+}
+.trail-button a {
+  padding-top: 30px;
+  border: 1px solid black;
+  border-radius: 50px;
+  background-color: white;
+  font-size: 15px;
+  color: black;
+  padding: 20px 20px 20px 20px;
+}
+
+#map {
+  height: 240px;
+  width: 90%;
+}
+
+.controls {
+  margin-top: 30px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#target {
+  width: 345px;
+}
+.location-list-items {
+  margin-top: 100px;
+}
+.complete-location {
+  background-color: #e5e5e5;
+  margin: 10px 0;
+  /*margin-bottom: 20px;*/
+  /*border: 1px solid #4A4A4A;*/
+  border-radius: 4px;
+}
+
+ul.location-list-items {
+  padding-left: 15px;
+}
+.complete-location li {
+  list-style: none;
+}
+
+@media screen and (max-width: 991px) {
+  #location-form {
+    margin-top: 70px;
+  }
+}

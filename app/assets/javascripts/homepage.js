@@ -58,7 +58,7 @@ var ready = function(){
     console.log('inside of load trails');
     trails = [];
     users = [];
-    if(trails.length <=0){
+    if(trails.length <= 0){
       var request = $.ajax({
         method: "GET",
         url: `/api/v1/trails`

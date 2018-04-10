@@ -1,0 +1,102 @@
+.profile .container {
+  margin-top: 100px;
+}
+
+.profile-picture img {
+  max-height: 150px;
+  max-width: 160px;
+  margin: 0;
+}
+
+.profile .info p {
+  margin: 0px;
+}
+
+.user-information h3,
+.user-information h5,
+.user-information .col-md-6,
+.user-information .col-md-8,
+.profile .image.col-md-12,
+.user-information .col-md-3 {
+  margin: 0;
+  padding: 0;
+}
+
+.user-information h3 {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.user-trail {
+  margin-top: 40px;
+}
+
+.profile .image img {
+  width: auto;
+  height: 250px;
+}
+
+.profile .image {
+  height: 250px;
+  width: 400px;
+  overflow: hidden;
+}
+
+.profile .col-md-4.img-thumbnail {
+  margin: 20px 0;
+}
+.follow-button {
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.profile .follow-button input {
+
+}
+
+/*
+.profile-header {
+  margin-top: 65px;
+}
+
+.user-header {
+  font-size: 20px;
+  float:none;
+  margin-left: 500px;
+  padding-top: 20px;
+}
+
+.name {
+  display: inline-block;
+}
+
+.edit-profile a {
+  display: inline-block;
+}
+
+.change-password a {
+  display: inline-block;
+}
+
+.following {
+  display: inline-block;
+}
+
+.followers {
+  display: inline-block;
+}
+
+.profile-picture img {
+  height: 125px;
+  width: 150px;
+  left: 200px;
+  margin-top: 15px;
+  position: absolute;
+}
+
+.user-images {
+  display: inline-block;
+  margin-left: 200px;
+  align-self: auto;
+}
+*/
