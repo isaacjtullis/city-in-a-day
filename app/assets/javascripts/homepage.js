@@ -80,7 +80,7 @@ var ready = function(){
         if((index + 1) <= 6){
           if(user.id === trail.user_id){
             url = '/trails/'+trail.id+'';
-            $('.display-trails').append('<div class="col-md-5 image"><img src='+trail.trail_photo.url+'>' + `${user.first_name} ` + `${user.last_name}` +' <a href="' + url + '">' + trail.name + '</a>'+'</div>');
+            $('.display-trails').append('<div class="col-md-6 image"><img src='+trail.trail_photo.url+'>' + `${user.first_name} ` + `${user.last_name}` +' <a href="' + url + '">' + trail.name + '</a>'+'</div>');
             trails.shift();
           }
         }

@@ -1,3 +1,4 @@
+
 <div class="header cover-photo">
   CITY IN A DAY<br/>
   Where to Next?
@@ -5,8 +6,8 @@
 
 <div class="authentication">
   <div class="row">
-    <div class="col-md-offset-3 col-md-3 sign-in-button text-center ciad-button">Login</div>
-    <div class="col-md-3 sign-up-button text-center ciad-button">Sign up</div>
+    <div class="col-md-3 col-md-offset-3 sign-in-button ciad-button">Login</div>
+    <div class="col-md-3 sign-up-button ciad-button">Sign up</div>
   </div>
   <div class="row">
     <div id='sign-in-form' class='hide-form'>
@@ -18,9 +19,8 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <div class="text col-md-6 col-xs-12">
+<div class="row text-center">
+  <div class="text col-md-offset-3 col-md-6 col-xs-12">
     From Breakfast until the <br />
     "I want this night to last <br />
     forever" hangout spot<br />
@@ -34,25 +34,18 @@
 
 <div class="row">
   <div class="find-make-guide text-center">
-    <div class="ciad-button-border-left col-md-offset-3 col-md-3  text-center">
+    <div class="ciad-button-border-left col-md-offset-4 col-md-2 text-center">
       <button class='ciad-button'><%= link_to 'Find an Adventure', searches_path %></button>
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-md-2 text-center">
       <button class='ciad-button'><%=  link_to 'Make new trail', new_trail_path  %></button>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12 image-container">
-    <div class="ciad-city-image"></div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-offset-2 text-center">
-    <div class='display-trails'>
-    </div>
+  <div class="container">
+    <div class='display-trails'></div>
   </div>
 </div>
 <div class="row">
