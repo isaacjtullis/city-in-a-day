@@ -29,7 +29,7 @@ var ready = function(){
           if(user.id === trail.user_id){
             console.log(trail);
             url = '/trails/'+trail.id+'';
-            $('.display-trails').append('<div class="col-md-5 image"><img src='+trail.trail_photo.url+'>' + user.first_name + user.last_name +' <a href="' + url + '">' + trail.name + '</a>'+'</div>');
+            $('.display-trails').append('<div class="col-md-6 image"><img src='+trail.trail_photo.url+'>' + user.first_name + user.last_name +' <a href="' + url + '">' + trail.name + '</a>'+'</div>');
             trails.shift();
           }
         }
@@ -74,13 +74,15 @@ var ready = function(){
 
   function displayTrails(trails, users){
     console.log('inside of display trails');
-    var url;
+    var url = '';
+    var userProfileURL = '';
     trails.map((trail, index) => {
       users.map(user=>{
         if((index + 1) <= 6){
           if(user.id === trail.user_id){
             url = '/trails/'+trail.id+'';
-            $('.display-trails').append('<div class="col-md-6 image"><img src='+trail.trail_photo.url+'>' + `${user.first_name} ` + `${user.last_name}` +' <a href="' + url + '">' + trail.name + '</a>'+'</div>');
+            userProfileURL = '/profiles/'+user.id+'';
+            $('.display-trails').append('<div class="col-md-6 image"><img src='+trail.trail_photo.url+'>' + ' <a href="' + userProfileURL + '">' +`${user.first_name} ` + `${user.last_name}` +'</a>' +' <a href="' + url + '">' + trail.name + '</a>'+'</div>');
             trails.shift();
           }
         }
