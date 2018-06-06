@@ -54,31 +54,6 @@
   </div>
 </div>
 
-<!-- <div class="row">
-  <div class='col-md-2'></div>
-  <% if !@all_trails.nil? %>
-    <div class="col-md-8">
-      <% @all_trails.each do |trail| %>
-        <div class="trail col-md-6">
-          <div class="image">
-            <%= image_tag trail.trail_photo.to_s %>
-            <div class="trail-user-name">
-              <%= trail.user.first_name %>
-              <%= trail.user.last_name %>
-              <%= link_to trail.name, trail_path(trail.id) %>
-            </div>
-          </div>
-        </div>
-        <% @all_users.each do |user| %>
-          <% if(trail.user_id === user.id) %>
-            <%= user.first_name %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div> -->
-<!-- </div> -->
-
 <row>
   <div class="col-md-12 trending-routes text-center">TRENDING ROUTES</div>
 </row>

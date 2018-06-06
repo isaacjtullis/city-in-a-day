@@ -1,3 +1,6 @@
+// body {
+//   background-color: white;
+// }
 .cover-photo {
   background-image: url('new-york.png');
   background-size: cover;
@@ -168,10 +171,14 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   font-weight: 600;
   letter-spacing: 2px;
 }
-
-.footer {
+.display-more-trails {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
+
+// .footer {
+//   margin-top: 50px;
+// }
 /*// .login-form {
 //   text-align: center;
 // }*/
