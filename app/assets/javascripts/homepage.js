@@ -92,4 +92,6 @@ var ready = function(){
 
   loadTrails();
 };
+
 $(document).ready(ready);
+// $(document).on('turbolinks:load', ready);

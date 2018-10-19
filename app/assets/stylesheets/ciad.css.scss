@@ -1,34 +1,4 @@
-.header {
-  font-size: 46px;
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 150px;
-}
 
-.authentication {
-  height: 70px;
-  margin-left: 0px;
-  margin-right: 0px;
-  background-color: white;
-  .space-left {
-    background-color: black;
-    height: 70px;
-  }
-  .sign-in-button, .sign-up-button {
-    background-color: black;
-    color: white;
-    padding: 15px;
-    // margin-right: 5px;
-    font-size: 24px;
-    font-weight: 500;
-    height: 70px;
-    letter-spacing: 1px;
-  }
-  .space-right {
-    background-color: black;
-    height: 70px;
-  }
-}
 
 // html {
 //   box-sizing: border-box;
