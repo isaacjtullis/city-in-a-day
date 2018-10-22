@@ -30,7 +30,8 @@ var ready = function(){
             console.log(trail);
             url = '/trails/'+trail.id+'';
             userProfileURL = '/profiles/'+user.id+'';
-            $('.display-trails').append('<div class="offset-md-2 col-md-3"><div class="card trail-card" style="width: 20rem;"><img class="card-img-top" src='+trail.trail_photo.url+'>' + ' <div class="card-body"> <h5 class="card-title"><a href="' + userProfileURL + '">' +`${user.first_name} ` + `${user.last_name}` +'</a></h5>' +' <a href="' + url + '">' + trail.name + '</a>'+'</div></div></div>');
+            userName = user.first_name + user.last_name
+            $('.display-trails').append('<div class="offset-md-2 col-md-3"><div class="card trail-card" style="width: 20rem;"><img class="card-img-top" src='+trail.trail_photo.url+'>' + ' <div class="card-body"> <h5 class="card-title"><a href="' + userProfileURL + '">' + userName +'</a></h5>' +' <a href="' + url + '">' + trail.name + '</a>'+'</div></div></div>');
             trails.shift();
           }
         }
@@ -62,7 +63,7 @@ var ready = function(){
     if(trails.length <= 0){
       var request = $.ajax({
         method: "GET",
-        url: `/api/v1/trails`
+        url: '/api/v1/trails'
       });
       request.done((data)=>{
         trails = data;
@@ -77,13 +78,15 @@ var ready = function(){
     console.log('inside of display trails');
     var url = '';
     var userProfileURL = '';
+    var userName = '';
     trails.map(function(trail,index){
       users.map(function(user){
         if((index + 1) <= 6){
           if(user.id === trail.user_id){
             url = '/trails/'+trail.id+'';
             userProfileURL = '/profiles/'+user.id+'';
-            $('.display-trails').append('<div class="offset-md-2 col-md-3"><div class="card trail-card" style="width: 20rem;"><img class="card-img-top" src='+trail.trail_photo.url+'>' + ' <div class="card-body"> <h5 class="card-title"><a href="' + userProfileURL + '">' +`${user.first_name} ` + `${user.last_name}` +'</a></h5>' +' <a href="' + url + '">' + trail.name + '</a>'+'</div></div></div>');
+            userName = user.first_name + user.last_name;
+            $('.display-trails').append('<div class="offset-md-2 col-md-3"><div class="card trail-card" style="width: 20rem;"><img class="card-img-top" src='+trail.trail_photo.url+'>' + ' <div class="card-body"> <h5 class="card-title"><a href="' + userProfileURL + '">' + userName +'</a></h5>' +' <a href="' + url + '">' + trail.name + '</a>'+'</div></div></div>');
             trails.shift();
           }
         }
