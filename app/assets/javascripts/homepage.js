@@ -65,7 +65,7 @@ var ready = function(){
         method: "GET",
         url: '/api/v1/trails'
       });
-      request.done((data)=>{
+      request.done(function(data){
         trails = data;
         trails = data[0];
         users = data[1];
