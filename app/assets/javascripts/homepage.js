@@ -23,8 +23,8 @@ var ready = function(){
 
   $(document).on("click", ".display-more-trails", function(e){
     e.preventDefault();
-    trails.map((trail, index)=>{
-      users.map(user=>{
+    trails.map(function(trail,index){
+      users.map(function(user){
         if((index + 1) <= 6){
           if(user.id === trail.user_id){
             console.log(trail);
@@ -77,8 +77,8 @@ var ready = function(){
     console.log('inside of display trails');
     var url = '';
     var userProfileURL = '';
-    trails.map((trail, index) => {
-      users.map(user=>{
+    trails.map(function(trail,index){
+      users.map(function(user){
         if((index + 1) <= 6){
           if(user.id === trail.user_id){
             url = '/trails/'+trail.id+'';
