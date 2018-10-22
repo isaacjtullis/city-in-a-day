@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'sprockets-rails', github: 'rails/sprockets-rails', branch: 'master'
 # gem 'sprockets', github: 'rails/sprockets', branch: 'master'
-gem "sprockets", "~> 4.0.0.beta6"
+gem "sprockets"
 gem 'babel-transpiler'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
@@ -20,6 +20,8 @@ gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem "fog"
 gem 'gmaps4rails'
 gem 'rails_12factor', group: :production
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
