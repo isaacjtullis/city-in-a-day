@@ -3,10 +3,6 @@ label {
   font-size: 18px;
 }
 
-#map {
-  margin-top: 50px;
-}
-
 .new-location {
   background-color: transparent;
   border: 0;
@@ -17,6 +13,7 @@ label {
   text-align: left;
   width: 100%;
   margin-top: 50px;
+  margin-left: 30px;
 }
 
 .new-location input {
@@ -51,9 +48,16 @@ label {
   padding: 20px 20px 20px 20px;
 }
 
+.location-search {
+  .form-group {
+    margin: 0 15px 0px 15px;
+  }
+}
+
 #map {
-  height: 240px;
-  width: 90%;
+  height: 440px;
+  width: 100%;
+  margin-top: 0px;
 }
 
 .controls {

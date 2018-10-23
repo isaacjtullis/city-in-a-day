@@ -194,18 +194,14 @@ class LocationList extends React.Component {
   }
 
   makeLocation(){
-
   const res = window.location.pathname.match(/^\/trails\/(\d+)/);
-  var locationForm = $("form")[0].elements;
+  var locationForm = $("form#new_location")[0].elements;
   var location = locationForm[2].value;
   var description = locationForm[3].value;
   var name = locationForm[4].value;
   var price = locationForm[5].value;
   var trailID = res[1];
   var photos = locationForm[7].value;
-  console.log('am I adding a photo to this?');
-  console.log(photos);
-  console.log(locationForm);
   var order = this.state.completeLocation.length;
   if(name !== '' && description !== '' && price !== '' && location !== ''){
 

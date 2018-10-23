@@ -1,4 +1,4 @@
-<div class="location-form col-md-6 col-12-xs">
+<div class="location-form col-md-12">
     <div id="map">
       <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
@@ -51,7 +51,7 @@
         // Create the search box and link it to the UI element.
         //var locationLocation = document.getElementById('location_location');
         //$('pac-input').val($('pac-input').val() + locationLocation);
-        var input = document.getElementById('location_location');
+        var input = document.getElementById('trailLocation');
 
         var searchBox = new google.maps.places.SearchBox(input);
         //var searchBox = new google.maps.places.SearchBox(input);
@@ -117,12 +117,4 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACtIQEVjdUv4i8kaQHqApZpc0CA7jUCA&libraries=places&callback=initAutocomplete"
     async defer></script>
-  </div>
-
-  <div class="col-md-12">
-    <div class="col-md-12 text-center">
-      <div class="trail-button">
-        <%= link_to 'New Trail', trail_path(@trail) %>
-      </div>
-    </div>
   </div>
