@@ -14,41 +14,39 @@
     </div>
   </div>
     <% @trail.locations.each_with_index do |location, index| %>
-        <row>
+        <div class="row justify-content-center">
           <div class='col-md-12 circle-container'>
             <div class='number-of-location'>
               <%= "#{index + 1}." %>
             </div>
           </div>
-        </row>
-        <row>
+        </div>
+        <div class="row justify-content-center">
           <div class="col-md-12">
-              <div class="col-md-2"></div>
-              <div class="col-md-8 trail-location">
+              <div class="trail-location">
                   <%= "#{location.description}" %>
               </div>
               <div class="bottom-line"></div>
           </div>
-        </row>
-        <row>
+        </div>
+        <div class="row justify-content-center">
           <div class="col-md-12">
-              <div class="col-md-2"></div>
-              <div class="col-md-8 trail-info">
+              <div class="trail-info">
                   <%= "#{location.location}" %>
                   <%= "#{location.name}" %>
                   <%= "#{location.price}" %>
                   <%= image_tag location.photos.to_s %>
               </div>
           </div>
-        </row>
-        <row>
+        </div>
+        <div class="row">
             <div class="col-md-12 text-center">
                 <% if !current_user.nil? && current_user.id == @trail.user_id %>
                     <%= link_to "Edit Location", edit_trail_location_path(location) %>
                     <%= link_to "Delete Location", trail_location_path(location), method: :delete, data: {confirm: "Are you sure you want to delete this question?" } %>
                 <% end %>
             </div>
-        </row>
+        </div>
     <% end %>
 </div>
     <!-- <div class="comment-container col-md-12 col-xs-12">
