@@ -52,7 +52,6 @@ class LocationList extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.onSortEnd = this.onSortEnd.bind(this);
-    this.checkForSubmission = this.checkForSubmission.bind(this);
     this.postForm = this.postForm.bind(this);
     this.makeLocation = this.makeLocation.bind(this);
   }
@@ -126,18 +125,8 @@ class LocationList extends React.Component {
     // })
   }
 
-
-  checkForSubmission(){
-    console.log('inside of check for submission');
-    // const element = document.querySelector('form');
-    // $('#form-submit')[0].submit(function(e){
-    //   e.preventDefault
-    //   this.makeLocation();
-    // });
-  }
-
   enableForm() {
-    var locationForm = $("form")[0].elements;
+    var locationForm = $("form#new_location")[0].elements;
     setTimeout(function(){
       var btn = document.getElementById("location-creator");
       btn.removeAttribute('disabled');

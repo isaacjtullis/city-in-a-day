@@ -5,43 +5,41 @@
 
   <div class="row justify-content-around"><h3>City In A Day</h3></div>
 
-  <div class="location-search col-md-12">
+  <div class="location-search col-md-8">
     <form>
       <div class="form-group">
         <input type="location" class="form-control" id="trailLocation" placeholder="Enter the Location Name">
       </div>
     </form>
   </div>
-  <div class="col-md-12">
-    <%= render 'form' %>
-  </div>
 
   <div class="row">
-    <div class="col-md-12">
-        <div class="new-location">
-          <%= simple_form_for [@trail, @location] do |f| %>
-          <div class="error-messages">
-            <% if @location.errors.any? %>
-            <h2><%= pluralize(@location.errors.count, "error") %> prohibiited this answer from being saved:</h2>
-            <% end %>
+    <div class="col-md-8"> <%= render 'form' %> </div></div>
+      <div class="col-md-4">
+          <div class="new-location">
+            <%= simple_form_for [@trail, @location] do |f| %>
+            <div class="error-messages">
+              <% if @location.errors.any? %>
+              <h2><%= pluralize(@location.errors.count, "error") %> prohibiited this answer from being saved:</h2>
+              <% end %>
 
-            <% @location.errors.full_messages.each do |message| %>
-            <ul>
-              <li><%= message %></li>
-            </ul>
+              <% @location.errors.full_messages.each do |message| %>
+              <ul>
+                <li><%= message %></li>
+              </ul>
+              <% end %>
+            </div>
+
+            <%= f.input :name, label: 'Name', required: false %>
+            <%= f.input :location, label: 'Location', required: false %>
+            <%= f.input :description, label: 'Summary:', required: false %>
+            <%= f.input :price, label: 'Average Price:', required: false %>
+            <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
+            <%= f.input :photos, as: :file, label: 'Add Photo' %>
+            <%= f.button :submit, 'New Location', id: 'location-creator' %>
             <% end %>
           </div>
-
-          <%= f.input :name, label: 'Name', required: false %>
-          <%= f.input :location, label: 'Location', required: false %>
-          <%= f.input :description, label: 'Summary:', required: false %>
-          <%= f.input :price, label: 'Average Price:', required: false %>
-          <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
-          <%= f.input :photos, as: :file, label: 'Add Photo' %>
-          <%= f.button :submit, 'New Location', id: 'location-creator' %>
-          <% end %>
-        </div>
-    </div>
+      </div>
   </div>
   <div class="row">
     <div class="col-md-12">

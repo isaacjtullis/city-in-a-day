@@ -6,13 +6,11 @@ label {
 .new-location {
   background-color: transparent;
   border: 0;
-  padding-top: 10px;
   color: #083F46;
   font-size: 16px;
   outline: 0;
   text-align: left;
   width: 100%;
-  margin-top: 50px;
   margin-left: 30px;
 }
 
@@ -26,6 +24,7 @@ label {
 }
 
 #location-creator {
+  margin-top: 25px;
   border-radius: 50px;
   border: 1px solid black;
   background-color: white;
@@ -50,14 +49,15 @@ label {
 
 .location-search {
   .form-group {
-    margin: 0 15px 0px 15px;
+    margin: 30px 15px 0px 15px;
   }
 }
 
 #map {
   height: 440px;
-  width: 100%;
+  width: 93.2%;
   margin-top: 0px;
+  margin-left: 30px;
 }
 
 .controls {
