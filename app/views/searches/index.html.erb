@@ -1,33 +1,35 @@
-<div class="row">
-  <div class=" col-md-offset-1 col-md-1 back-button">
-    <%= link_to 'Home', root_path, method: :get  %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="search-feature text-center">
-      <%= form_tag searches_path, method: "get" do %>
-      <%= text_field_tag :search, nil, placeholder: 'Enter search here'%>
-      <span class='ciad-button'><%= button_tag "Search", name: nil %></span>
-      <% end %>
+<div class="container">
+  <div class="row justify-content-start">
+    <div class="col-md-1 back-button">
+      <%= link_to 'Home', root_path, method: :get  %>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <% if @trails %>
-    <% @trails.map do |trail| %>
-      <div class="trail col-md-6">
-        <div class="image">
-          <%= image_tag trail.trail_photo.to_s %>
-          <div class="trail-user-name">
-            <%= trail.user.first_name %>
-            <%= trail.user.last_name %>
-            <%= link_to trail.name, trail_path(trail.id) %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="search-feature text-center">
+        <%= form_tag searches_path, method: "get" do %>
+        <%= text_field_tag :search, nil, placeholder: 'Enter search here'%>
+        <span class='ciad-button'><%= button_tag "Search", name: nil %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <% if @trails %>
+      <% @trails.each do |trail| %>
+        <div class="col-md-3 card-group">
+          <div class="card profile-trail-card">
+            <%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
+            <div class="card-body">
+              <%= trail.user.first_name %>
+              <%= trail.user.last_name %>
+              <%= link_to trail.name, trail_path(trail.id) %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

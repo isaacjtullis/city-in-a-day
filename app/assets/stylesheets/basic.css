@@ -31,3 +31,7 @@
   border-radius: 0px;
   width: 100%;
 }
+
+.ciad-button button {
+  color: white;
+}
