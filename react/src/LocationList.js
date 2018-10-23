@@ -20,15 +20,6 @@ const SortableItem = SortableElement((props) => {
   )
 });
 
-// $(function() {
-//   $("#stop-location-form").submit(function(event){
-//     event.preventDefault();
-//     var locationForm = newLocationForm("#stop-location-form");
-//     var locationCreator = newLocationCreator(locationForm.attributes().name, locationForm.attributes().location, locationForm.attributes().description, locationForm.attributes().price, locationForm.attributes().trail_id, "div#location-information");
-//     locationCreator.create();
-//   });
-// })
-
 const SortableList = SortableContainer(locations => {
   return (
     <div className="card-group location-list-items">

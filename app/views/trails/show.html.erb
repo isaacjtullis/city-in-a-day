@@ -15,31 +15,31 @@
   </div>
     <% @trail.locations.each_with_index do |location, index| %>
         <row>
-            <div class='col-md-12 circle-container'>
-              <div class='number-of-location text-center'>
-                <%= "#{index + 1}." %>
+          <div class='col-md-12 circle-container'>
+            <div class='number-of-location'>
+              <%= "#{index + 1}." %>
+            </div>
+          </div>
+        </row>
+        <row>
+          <div class="col-md-12">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 trail-location">
+                  <%= "#{location.description}" %>
               </div>
-            </div>
+              <div class="bottom-line"></div>
+          </div>
         </row>
         <row>
-            <div class="col-md-12">
-                <div class="col-md-2"></div>
-                <div class="col-md-8 trail-location">
-                    <%= "#{location.description}" %>
-                </div>
-                <div class="bottom-line"></div>
-            </div>
-        </row>
-        <row>
-            <div class="col-md-12">
-                <div class="col-md-2"></div>
-                <div class="col-md-8 trail-info">
-                    <%= "#{location.location}" %>
-                    <%= "#{location.name}" %>
-                    <%= "#{location.price}" %>
-                    <%= image_tag location.photos.to_s %>
-                </div>
-            </div>
+          <div class="col-md-12">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 trail-info">
+                  <%= "#{location.location}" %>
+                  <%= "#{location.name}" %>
+                  <%= "#{location.price}" %>
+                  <%= image_tag location.photos.to_s %>
+              </div>
+          </div>
         </row>
         <row>
             <div class="col-md-12 text-center">
@@ -51,7 +51,7 @@
         </row>
     <% end %>
 </div>
-    <div class="comment-container col-md-12 col-xs-12">
+    <!-- <div class="comment-container col-md-12 col-xs-12">
       <%= render 'comment_form' %>
       <% if !@comments.nil? %>
       <% @comments.each do |comment| %>
@@ -62,4 +62,4 @@
       </div>
       <% end %>
       <% end %>
-    </div>
+    </div> -->
