@@ -22,6 +22,7 @@ gem 'gmaps4rails'
 gem 'rails_12factor', group: :production
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

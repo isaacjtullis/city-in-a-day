@@ -6,8 +6,8 @@ import { sortBy } from 'lodash';
 
 const SortableItem = SortableElement((props) => {
   return(
-    <div className="row display-locations col-md-offset-1">
-      <div className="complete-location col-md-4">
+    <div className="display-locations">
+      <div className="complete-location">
         <li>{props.name}</li>
         <li>{props.location}</li>
         <li>{props.description}</li>
