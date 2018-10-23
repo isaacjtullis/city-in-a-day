@@ -5,6 +5,12 @@
 
   <div class="row justify-content-around"><h3>City In A Day</h3></div>
 
+  <div class="row ">
+    <div class="col-md-12">
+      <div id="app"></div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-6">
         <div class="new-location">
@@ -33,24 +39,4 @@
     </div>
     <%= render 'form' %>
   </div>
-
-  <div class="row justify-content-around">
-    <div class="col-md-12">
-      <div id="app"></div>
-    </div>
-  </div>
 </div>
-
-
-<!--
-<div id="location-form">
-  <%= simple_form_for [@trail, @location] do |f| %>
-    <%= f.input :location, required: false %>
-    <%= f.input :description, required: false %>
-    <%= f.input :name, required: false %>
-    <%= f.input :price, required: false %>
-    <%= f.input :trail_id, as: :hidden, input_html: { value: @trail.id } %>
-    <%= f.input :photos, type: :file %>
-    <%= f.button :submit, 'New Location 3', id: 'location-creator' %>
-  <% end %>
-</div> -->

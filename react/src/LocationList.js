@@ -6,13 +6,15 @@ import { sortBy } from 'lodash';
 
 const SortableItem = SortableElement((props) => {
   return(
-    <div className="display-locations">
-      <div className="complete-location">
-        <li>{props.name}</li>
-        <li>{props.location}</li>
-        <li>{props.description}</li>
-        <li>{props.price}</li>
-        <li>{props.order}</li>
+    <div className="col-md-4">
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">{props.name}</h5>
+          <p className="card-text">Location: {props.location}</p>
+          <p className="card-text">Average Price: {props.price}</p>
+          <p className="card-text">Summary: {props.description}</p>
+          <p className="card-text">{props.order}</p>
+        </div>
       </div>
     </div>
   )
@@ -29,7 +31,7 @@ const SortableItem = SortableElement((props) => {
 
 const SortableList = SortableContainer(locations => {
   return (
-    <ul className="location-list-items">
+    <div className="card-group location-list-items">
       {locations.locations.map((value, index) => (
         <SortableItem
           key={`location-${index}`}
@@ -42,7 +44,7 @@ const SortableList = SortableContainer(locations => {
         />
         ))
       }
-    </ul>
+    </div>
   );
 });
 
