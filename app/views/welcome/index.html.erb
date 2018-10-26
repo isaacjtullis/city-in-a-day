@@ -1,3 +1,59 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<a class="btn btn-primary" href="#">Click me</a>
+<div class="header cover-photo">
+  CITY IN A DAY<br/>
+  Where to Next?
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 location-cards card-group">
+      <div class="col-md-3">
+        <%= link_to trails_path(:city => "Colorado") do %>
+        <div class="card" style="width: 16rem;">
+          <img class="card-img-top" src="/assets/mountain.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Colorado Springs</h5>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to trails_path(:city => "Dallas") do %>
+          <div class="card" style="width: 16rem;">
+            <img class="card-img-top" src="/assets/dallas.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Dallas</h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to trails_path(:city => "San Francisco") do %>
+          <div class="card" style="width: 16rem;">
+            <img class="card-img-top" src="/assets/san-francisco.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">San Francisco</h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to trails_path(:city => "New York") do %>
+          <div class="card" style="width: 16rem;">
+            <img class="card-img-top" src="/assets/new-york-city.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">New York</h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center find-make-guide">
+    <div class="col-sm-3 ciad-button-border-left align-self-center">
+      <button class='ciad-button'><%= link_to 'Find an Adventure', searches_path %></button>
+    </div>
+    <div class="col-sm-3">
+      <button class='ciad-button'><%= link_to "Can't Decide..."%></button>
+    </div>
+  </div>
+</div>

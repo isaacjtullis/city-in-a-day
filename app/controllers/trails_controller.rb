@@ -22,7 +22,11 @@ class TrailsController < ApplicationController
   # loading in devise variables end
   #
   def index
-    @all_trails = Trail.all
+    # This code will be put back inside of @trails when we have better
+    # Default images
+    # <%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
+    @trails = Trail.where(name: params[:city])
+
     @all_users = User.all
     # all_trails = {}
     # user_trails user_id trail_id rating
@@ -69,9 +73,9 @@ class TrailsController < ApplicationController
     end
   end
 
-  private
+  # private
 
-  def trail_params
-    params.require(:trail).permit( :name, :mood, :trail_photo)
-  end
+  # def trail_params
+  #   params.require(:trail).permit( :name, :mood, :trail_photo, :city_name)
+  # end
 end

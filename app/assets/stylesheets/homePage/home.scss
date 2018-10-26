@@ -1,6 +1,28 @@
 // body {
 //   background-color: white;
 // }
+
+.location-cards img {
+  filter: grayscale(100%);
+}
+
+.location-cards {
+  margin-top: 50px;
+  .card img {
+    max-height: 175px;
+    min-height: 175px;
+  }
+}
+
+.location-cards .card, .location-cards .card-body {
+  border: none;
+}
+
+.location-cards .card-body {
+  margin: 0px;
+  padding: 0px;
+}
+
 .header {
   font-size: 46px;
   text-align: center;
@@ -10,11 +32,12 @@
 .cover-photo {
   background-image: url('new-york.png');
   background-size: cover;
-  height: 450px;
+  background-repeat:no-repeat;
+  height: 650px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: black;
   opacity: 0.9;
   width: 100%;
 }
