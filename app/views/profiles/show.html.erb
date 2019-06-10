@@ -51,6 +51,9 @@
           <%= image_tag trail.trail_photo.to_s if !trail.trail_photo.nil? %>
           <div class="card-body">
             <p><%= link_to trail.name, trail_path(trail.id) %></p>
+            <% if current_user.id === trail.user_id %>
+              <%= link_to "Edit Trail", edit_trail_path(trail.id) %>
+            <% end %>
           </div>
         </div>
       </div>

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # get 'welcome/index'
 
   devise_for :users
-  # root 'trails#index'
-  root 'welcome#index'
+  root 'trails#index'
+  # root 'welcome#index'
 
   resources :trails do
     resources :comments, only: [:create, :edit, :destroy]

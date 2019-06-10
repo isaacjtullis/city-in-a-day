@@ -20,6 +20,7 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def update
+    # binding.pry
     oldIndex = params[:location][:oIndex]
     newIndex = params[:location][:nIndex]
     trail_id = params[:location][:trail_id]
@@ -80,6 +81,6 @@ class Api::V1::LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:photos, :location, :description, :name, :price, :trail_id, :order, :oIndex, :nIndex)
+    params.require(:location).permit(:photos, :location, :description, :name, :price, :trail_id, :order, :oIndex, :nIndex, :id)
   end
 end

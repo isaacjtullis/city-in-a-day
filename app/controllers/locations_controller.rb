@@ -9,7 +9,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:trail_id])
     @trail = Trail.find(@location.trail_id)
     if current_user.id != @trail.user_id
-      flash[:notice] = 'You didnt make this jackass'
+      flash[:notice] = 'You didnt make this!'
       redirect_to @trail
     end
   end

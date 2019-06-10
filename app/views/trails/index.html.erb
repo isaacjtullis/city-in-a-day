@@ -9,6 +9,90 @@
   <% end %>
 </nav>
 
+<div class="header cover-photo">
+  CITY IN A DAY<br/>
+  Where to Next?
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 location-cards card-group">
+      <div class="col-md-3">
+        <%= link_to trails_path(:city => "Colorado") do %>
+        <div class="card" style="width: 16rem;">
+          <img class="card-img-top" src="/assets/mountain.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Colorado Springs</h5>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to trails_path(:city => "Dallas") do %>
+          <div class="card" style="width: 16rem;">
+            <img class="card-img-top" src="/assets/dallas.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Dallas</h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to trails_path(:city => "San Francisco") do %>
+          <div class="card" style="width: 16rem;">
+            <img class="card-img-top" src="/assets/san-francisco.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">San Francisco</h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to trails_path(:city => "New York") do %>
+          <div class="card" style="width: 16rem;">
+            <img class="card-img-top" src="/assets/new-york-city.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">New York</h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center find-make-guide">
+    <div class="col-sm-3 ciad-button-border-left align-self-center">
+      <button class='ciad-button'><%= link_to 'Find an Adventure', searches_path %></button>
+    </div>
+    <div class="col-sm-3">
+      <% if user_signed_in?  %>
+        <button class='ciad-button'><%=  link_to 'Make new trail', new_trail_path  %></button>
+      <% else %>
+        <button class='ciad-button'><%= link_to "Can't Decide..."%></button>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="authentication">
+    <div class="row justify-content-center">
+      <div class="col-md-offset-3 col-md-3 sign-in-button text-center ciad-button">Login</div>
+      <div class="col-md-3 sign-up-button text-center ciad-button">Sign up</div>
+    </div>
+    <div class="row justify-content-center">
+      <div id='sign-in-form' class='hide-form'>
+        <%= render "devise/sessions/new.html.erb" %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div id="sign-up-form" class="hide-form">
+         <%= render 'devise/registrations/new.html.erb' %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row justify-content-center">
   <div class="col-md-12 card-group">
     <% @trails.each do |trail| %>
@@ -47,7 +131,7 @@
     <button class="ciad-button">Adventure Builder</button>
   </div>
   <div class="col-md-6"><hr /></div>
-</row>
+</row> -->
 
   <!-- <div class="col-md-12 text-center">
     <div class="featured-trails">
